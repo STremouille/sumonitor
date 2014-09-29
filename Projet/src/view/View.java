@@ -50,7 +50,6 @@ import model.mode.NormalMode;
 import model.mode.SelectedMode;
 import conf.GeneralConfig;
 
-import java.awt.Window.Type;
 import java.awt.SystemColor;
 
 import javax.swing.SwingConstants;

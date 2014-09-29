@@ -70,7 +70,7 @@ public class SettingsFrame extends JFrame {
 	private JTextField startUpDocumentationPath;
 	private JButton browseButton;
 	private JLabel label_1;
-	private JComboBox<?> comboBox;
+	private JComboBox comboBox;
 	private JLabel label_2;
 	private JLabel label_3;
 	private JCheckBox chckbxTitle;
@@ -236,7 +236,7 @@ public class SettingsFrame extends JFrame {
 			}
 			Integer[] val = new Integer[]{100,150,200,500,1000,2000,5000,10000};
 			int i=Arrays.binarySearch(val, GeneralConfig.targetAccuracy);
-			comboBox = new JComboBox<Object>(val);
+			comboBox = new JComboBox(val);
 			comboBox.setSelectedIndex(i);
 			comboBox.setFont(new Font("Arial", Font.PLAIN, 14));
 			GridBagConstraints gbc_comboBox = new GridBagConstraints();

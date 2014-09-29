@@ -47,7 +47,6 @@ import javax.swing.border.SoftBevelBorder;
 import javax.swing.border.BevelBorder;
 
 import java.awt.GridLayout;
-import java.awt.Window.Type;
 
 /**
  * 

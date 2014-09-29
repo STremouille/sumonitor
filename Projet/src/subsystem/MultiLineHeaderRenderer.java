@@ -19,7 +19,7 @@ import javax.swing.table.TableCellRenderer;
  * @author S.Trémouille
  *
  */
-public class MultiLineHeaderRenderer extends JList<Object> implements TableCellRenderer {
+public class MultiLineHeaderRenderer extends JList implements TableCellRenderer {
 	
     	private static final long serialVersionUID = -1966254021060795706L;
 
@@ -31,9 +31,9 @@ public class MultiLineHeaderRenderer extends JList<Object> implements TableCellR
 	    setForeground(UIManager.getColor("TableHeader.foreground"));
 	    setBackground(UIManager.getColor("TableHeader.background"));
 	    setBorder(UIManager.getBorder("TableHeader.cellBorder"));
-	    ListCellRenderer<?> renderer = getCellRenderer();
+	    ListCellRenderer renderer = getCellRenderer();
 	    ((JLabel)renderer).setHorizontalAlignment(SwingConstants.CENTER);
-	    setCellRenderer((ListCellRenderer<? super Object>) renderer);
+	    setCellRenderer((ListCellRenderer) renderer);
 	  }
 	 
 	  @Override

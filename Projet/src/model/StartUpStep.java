@@ -23,7 +23,6 @@ import model.mode.NormalMode;
 import model.mode.SelectedMode;
 
 import com.sun.org.apache.bcel.internal.generic.NEW;
-import com.sun.xml.internal.ws.api.policy.ModelGenerator;
 
 import conf.GeneralConfig;
 import conf.Utils;
@@ -218,8 +217,10 @@ public class StartUpStep extends InteractiveBar implements MovableItem{
 		}
 		
 		g2d.setColor(mode.getTextColor());
-		Utils.printSimpleStringCentered(g2d, getName(),(int)Math.round(getDoubleWidth()),(int)Math.round(getDoubleX()), (int)Math.round(getDoubleY()+g2d.getFontMetrics().getHeight()));
-		Utils.printSimpleStringCentered(g2d, getSecondLine(),(int)Math.round(getDoubleWidth()),(int)Math.round(getDoubleX()), (int)Math.round(getDoubleY()+2*g2d.getFontMetrics().getHeight()));
+		if(!getName().equals(""))
+			Utils.printSimpleStringCentered(g2d, getName(),(int)Math.round(getDoubleWidth()),(int)Math.round(getDoubleX()), (int)Math.round(getDoubleY()+g2d.getFontMetrics().getHeight()));
+		if(!getSecondLine().equals(""))
+			Utils.printSimpleStringCentered(g2d, getSecondLine(),(int)Math.round(getDoubleWidth()),(int)Math.round(getDoubleX()), (int)Math.round(getDoubleY()+2*g2d.getFontMetrics().getHeight()));
 		int acc = 2;
 		int coeff = g2d.getFontMetrics().getHeight();
 		if(!localAttrRules){

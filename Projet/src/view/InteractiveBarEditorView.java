@@ -72,7 +72,7 @@ public class InteractiveBarEditorView extends JFrame {
 	private JRadioButton rdbtnRight;
 	private JRadioButton rdbtnCenter;
 	private JPanel stylePanel;
-	private JComboBox<?> comboBox;
+	private JComboBox comboBox;
 	private JTextField textField;
 	private JTextArea milestoneRelatedTextArea;
 	
@@ -193,7 +193,7 @@ public class InteractiveBarEditorView extends JFrame {
 			//Style
 			Style[] val = Style.values();
 			int i=Arrays.binarySearch(val, ((TitleBar) bar).getStyle());
-			comboBox = new JComboBox<Object>(val);
+			comboBox = new JComboBox(val);
 			comboBox.setSelectedIndex(i);
 			comboBox.setFont(new Font("Arial Unicode MS", Font.PLAIN, 12));
 			GridBagConstraints gbc_comboBox = new GridBagConstraints();
