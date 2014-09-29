@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.TreeMap;
 
 import javax.swing.JComponent;
@@ -21,7 +22,7 @@ public class StartUpSequence {
 	private TreeMap<Integer, Milestone> milestones;
 	private TreeMap<Integer, Comment> comments;
 	private TreeMap<Integer, StartUpStep> startUpTasks;
-	private ArrayList<MovableItem> selectedItems;
+	private SelectedItems<MovableItem> selectedItems;
 	private ProjectTitleBlock titleBlock;
 	private TitleBar title;
 	
@@ -36,7 +37,7 @@ public class StartUpSequence {
 		this.comments = new TreeMap<Integer, Comment>();
 		this.setStartUpTasks(new TreeMap<Integer, StartUpStep>());
 		this.titleBlock = new ProjectTitleBlock();
-		this.setSelectedItems(new ArrayList<MovableItem>());
+		this.setSelectedItems(new SelectedItems<MovableItem>());
 		if(isItANewLaunch){
 			GeneralConfig.init();
 		}
@@ -301,12 +302,44 @@ public class StartUpSequence {
 		this.startUpTasks = (TreeMap<Integer, StartUpStep>) new TreeMap<Integer, StartUpStep>(startUpTasks).clone();
 	}
 
-	public ArrayList<MovableItem> getSelectedItems() {
+	public SelectedItems<MovableItem> getSelectedItems() {
 		return selectedItems;
 	}
 
-	public void setSelectedItems(ArrayList<MovableItem> arrayList) {
+	public void setSelectedItems(SelectedItems<MovableItem> arrayList) {
 		this.selectedItems = arrayList;
+	}
+	
+	
+	public class SelectedItems<T> extends ArrayList<T>{
+
+
+		@Override
+		public boolean add(T e) {
+			System.out.println("Contains : "+contains(e));
+			if(!contains(e)){
+				System.out.println("Add "+e);
+				return super.add(e);
+			} else {
+				System.out.println("Remove "+e);
+				remove(indexOf(e));
+				return false;
+			}
+		}
+
+		@Override
+		public boolean contains(Object o) {
+			boolean res = false;
+			Iterator<MovableItem> it = (Iterator<MovableItem>) this.iterator();
+			while(it.hasNext()){
+				if(it.next().equals(o)){
+					res=true;
+				}
+			}
+			
+			return res;
+		}
+		
 	}
 
 

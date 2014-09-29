@@ -455,6 +455,17 @@ public class Milestone extends JComponent implements MovableItem{
 	
 
 	@Override
+	public boolean equals(Object obj) {
+		if(obj.getClass()==Milestone.class){
+			if(((Milestone) obj).getX()==this.getX()&&((Milestone) obj).getY()==this.getY()&&((Milestone) obj).getName()==this.getName()){
+				return true;
+			}
+			return false;
+		}
+		return false;
+	}
+
+	@Override
 	public void paint(Graphics g) {
 		this.g=g;
 		Graphics2D g2d = (Graphics2D) g.create();
@@ -973,7 +984,7 @@ public class Milestone extends JComponent implements MovableItem{
 	@Override
 	public void move(double x, double y) {
 		this.setX(this.getDoubleX()+x);
-		this.setY(this.getDoubleX()+y);
+		this.setY(this.getDoubleY()+y);
 	}
 
 	public Date getScopeDoneDate() {
@@ -992,6 +1003,10 @@ public class Milestone extends JComponent implements MovableItem{
 
 	public void setStepProgress(Double stepProgress) {
 		this.stepProgress = stepProgress;
+	}
+
+	public void select(boolean selected) {
+		this.isSelected=selected;
 	}
 
 }

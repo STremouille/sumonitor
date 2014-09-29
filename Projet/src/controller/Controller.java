@@ -127,6 +127,7 @@ public class Controller {
 	private Integer sequenceBarRef = 0;
 	private Integer commentRef = 0;
 	private Integer startUpTaskRef = 0;
+	private int milestoneRefSelected=0;
 	private int sequenceBarRefSelected = 0;
 	private int commentRefSelected = 0;
 	private int startUpTaskRefSelected = 0;
@@ -144,6 +145,7 @@ public class Controller {
 
 	private boolean ctrlDown = false;
 	private boolean shiftDown = false;
+	private boolean initShiftDown = false;
 
 	private boolean leftClick = false;
 	private boolean willMove = false;
@@ -837,22 +839,28 @@ public class Controller {
 
 	class ViewKeyListener implements KeyListener {
 
+		
+		
 		@Override
 		public void keyPressed(KeyEvent arg0) {
 			if (arg0.getKeyCode() == KeyEvent.VK_CONTROL) {
 				ctrlDown = true;
 			} else if(arg0.getKeyCode() == KeyEvent.VK_SHIFT){
 				shiftDown=true;
-				//TODO
-				if(milestoneRef!=0&&!model.getSelectedItems().contains(model.getMilestone(milestoneRef))){
-					model.getSelectedItems().add(model.getMilestone(milestoneRef));
-				} else if(sequenceBarRef!=0&&!model.getSelectedItems().contains(model.getSequence(sequenceBarRef))) {
-					model.getSelectedItems().add(model.getSequence(sequenceBarRef));
-				} else if(commentRef!=0&&!model.getSelectedItems().contains(model.getComment(commentRef))){
-					model.getSelectedItems().add(model.getComment(commentRef));
-				} else if(startUpTaskRef!=0&&!model.getSelectedItems().contains(model.getStartUpTask(startUpTaskRef))){
-					model.getSelectedItems().add(model.getStartUpTask(startUpTaskRef));
+				if(!initShiftDown){
+					if(milestoneRefSelected!=0){
+						model.getSelectedItems().add(model.getMilestone(milestoneRefSelected));
+					} else if(sequenceBarRefSelected!=0) {
+						model.getSelectedItems().add(model.getSequence(sequenceBarRefSelected));
+					} else if(commentRefSelected!=0){
+						model.getSelectedItems().add(model.getComment(commentRefSelected));
+					} else if(startUpTaskRefSelected!=0){
+						model.getSelectedItems().add(model.getStartUpTask(startUpTaskRefSelected));
+					}
+					initShiftDown=true;
+					System.out.println(model.getSelectedItems().size());
 				}
+				
 			}
 		}
 
@@ -1001,6 +1009,7 @@ public class Controller {
 						titleSelected = false;
 						commentRef = 0;
 						milestoneRef = 0;
+						milestoneRefSelected=0;
 						startUpTaskRef = 0;
 					}
 				}
@@ -1016,6 +1025,7 @@ public class Controller {
 						xdecal = arg0.getX() - milestone.getX();
 						ydecal = arg0.getY() - milestone.getY();
 						milestoneRef = s;
+						milestoneRefSelected =s;
 						titleSelected = false;
 						sequenceBarRef = 0;
 						commentRef = 0;
@@ -1039,6 +1049,7 @@ public class Controller {
 						sequenceBarRef = 0;
 						commentRef = 0;
 						milestoneRef = 0;
+						milestoneRefSelected =0;
 					}
 				}
 				
@@ -1057,6 +1068,7 @@ public class Controller {
 						titleSelected = false;
 						sequenceBarRef = 0;
 						milestoneRef = 0;
+						milestoneRefSelected=0;
 						startUpTaskRef = 0;
 					}
 				}
@@ -1135,13 +1147,10 @@ public class Controller {
 						titleSelected = false;
 						willMove = true;
 						resizeTitleDirection = null;
-						if(shiftDown&&!model.getSelectedItems().contains(sut)){
+						if(shiftDown&&!model.getSelectedItems().contains(startUpTaskRefSelected)){
 							model.getSelectedItems().add(sut);
-							sut.setSelected(true);
-						}
-						else if(model.getSelectedItems().contains(sut)){
-							model.getSelectedItems().remove(model.getSelectedItems().indexOf(sut));
-							sut.setSelected(false);
+							sut.setSelected(!sut.isSelected());
+							startUpTaskRefSelected=0;
 						}
 					}
 				}
@@ -1171,12 +1180,10 @@ public class Controller {
 							willMove = true;
 							resizeTitleDirection = null;
 							
-							if(shiftDown&&!model.getSelectedItems().contains(c)){
-								model.getSelectedItems().add(c);
-								c.setSelected(true);
-							}else if(model.getSelectedItems().contains(c)){
-								model.getSelectedItems().remove(model.getSelectedItems().indexOf(c));
-								c.setSelected(false);
+							if(shiftDown&&!model.getSelectedItems().contains(commentRefSelected)){
+								model.getSelectedItems().add(model.getComment(commentRefSelected));
+								c.setSelected(!c.isSelected());
+								commentRefSelected=0;
 							}
 						}
 					}
@@ -1211,6 +1218,7 @@ public class Controller {
 							xdecal = arg0.getX() - milestone.getX();
 							ydecal = arg0.getY() - milestone.getY();
 							milestoneRef = s;
+							milestoneRefSelected = s;
 							sequenceBarRef = 0;
 							commentRef = 0;
 							startUpTaskRef=0;
@@ -1221,14 +1229,11 @@ public class Controller {
 							resizeTitleDirection = null;
 							resizeCommentDirection = null;
 							
-							if(shiftDown&&!model.getSelectedItems().contains(milestone)){
+							if(shiftDown&&!model.getSelectedItems().contains(milestoneRefSelected)){
 								model.getSelectedItems().add(milestone);
-								milestone.select();
-								}
-							else if(model.getSelectedItems().contains(milestone)){
-								model.getSelectedItems().remove(model.getSelectedItems().indexOf(milestone));
-								milestone.select();
-								}
+								milestone.select(!milestone.isSelected());
+								milestoneRefSelected=0;
+							}
 							
 							/*if(editButton==true){
 								Milestone m = model.getMilestone(milestoneRef);
@@ -1266,13 +1271,10 @@ public class Controller {
 							titleSelected = false;
 							willMove = true;
 							resizeTitleDirection = null;
-							if(shiftDown&&!model.getSelectedItems().contains(sb)){
+							if(shiftDown&&!model.getSelectedItems().contains(sequenceBarRefSelected)){
 								model.getSelectedItems().add(sb);
-								sb.setSelected(true);
-							}
-							else if(model.getSelectedItems().contains(sb)){
-								model.getSelectedItems().remove(model.getSelectedItems().indexOf(sb));
-								sb.setSelected(false);
+								sb.setSelected(!sb.isSelected());
+								sequenceBarRefSelected=0;
 							}
 						}
 					}
@@ -1337,14 +1339,17 @@ public class Controller {
 					startUpTaskRef =0;
 					startUpTaskRefSelected=0;
 					milestoneRef = 0;
+					milestoneRefSelected =0;
 					commentRef = 0;
 					commentRefSelected=0;
 					resizeSequenceDirection = null;
 					if (!model.getTitleBar().getBounds().contains(arg0.getPoint())) {
 						titleSelected = false;
 					}
-					if(!shiftDown)
+					if(!shiftDown){
 						model.getSelectedItems().clear();
+						initShiftDown=false;
+					}
 					view.repaint();
 				}
 
@@ -1468,6 +1473,8 @@ public class Controller {
 		public void mouseReleased(MouseEvent arg0) {
 			view.setResizing(false);
 			
+			System.out.println(model.getSelectedItems().size());
+			
 			int x = arg0.getX();
 			int y = arg0.getY();
 			if(arg0.getButton() == MouseEvent.BUTTON1&&!editButton&&!deleteButton&&!newComment&&!newSequence&&!newMilestone) {
@@ -1478,7 +1485,6 @@ public class Controller {
 						int dx = x-previousX;
 						int dy = y-previousY;
 						Iterator<MovableItem> it = model.getSelectedItems().iterator();
-						System.out.println(model.getSelectedItems().size());
 						while(it.hasNext()){
 							it.next().move(dx, dy);
 						}
@@ -1703,6 +1709,7 @@ public class Controller {
 				model.getMilestones().remove(milestoneRef);
 				view.getMilestoneRightClickMenu().setVisible(false);
 				milestoneRef = 0;
+				milestoneRefSelected =0;
 			} else if (sequenceBarRef != 0) {
 				model.getSequences().remove(sequenceBarRef);
 				view.getSequenceBarRightClickMenu().setVisible(false);
@@ -1766,6 +1773,7 @@ public class Controller {
 				view.setMode(Mode.CONNECTION);
 				view.getMilestoneRightClickMenu().setVisible(false);
 				milestoneRef = 0;
+				milestoneRefSelected =0;
 				
 			} else if(model.getStartUpTask(startUpTaskRef).isSelected()){
 				connectFromRefSUT=startUpTaskRef;
@@ -1776,6 +1784,7 @@ public class Controller {
 				view.setMode(Mode.CONNECTION);
 				view.getStartUpTaskRightClickMenu().setVisible(false);
 				milestoneRef = 0;
+				milestoneRefSelected =0;
 			}
 			view.repaint();
 		}
@@ -1845,6 +1854,7 @@ public class Controller {
 			view.getMilestoneRightClickMenu().setVisible(false);
 			view.getStartUpTaskRightClickMenu().setVisible(false);
 			milestoneRef = 0;
+			milestoneRefSelected =0;
 			view.setMode(Mode.NORMAL);
 			view.repaint();
 		}
@@ -2848,6 +2858,7 @@ public class Controller {
 					if(model.getMilestone(i).isSelected()){
 						model.getMilestones().remove(i);
 						milestoneRef=0;
+						milestoneRefSelected=0;
 						view.repaint();
 						return ;
 					}

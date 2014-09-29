@@ -17,7 +17,9 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.xml.transform.TransformerException;
 
+import model.MovableItem;
 import model.StartUpSequence;
+import model.StartUpSequence.SelectedItems;
 import model.StartUpStep;
 import view.LaunchFrame;
 import view.View;
@@ -133,6 +135,7 @@ public class Main {
 			       }
 			    };
 			r.run();
+			
 	}
 	
 }

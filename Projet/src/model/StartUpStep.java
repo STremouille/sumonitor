@@ -309,7 +309,7 @@ public class StartUpStep extends InteractiveBar implements MovableItem{
 
 	@Override
 	public boolean equals(Object arg0) {
-		if(arg0.getClass().equals(new StartUpStep("",0,0,0,0).getClass())){
+		if(arg0.getClass()==StartUpStep.class){
 			StartUpStep sut = (StartUpStep) arg0;
 			if(sut.getName().equals(this.getName()) 
 					&& sut.getDoubleX().equals(this.getDoubleX()) 

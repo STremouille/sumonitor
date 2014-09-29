@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<start-up-sequence graphicQuality="true" lastDocUpdateDate="Sep/26/2014" milestoneGridSize="4" pageHeightCoeff="1.0" pageWidthCoeff="1.0" stepCharacterLimit="100" z="133.0">
+<start-up-sequence graphicQuality="true" lastDocUpdateDate="" milestoneGridSize="2" pageHeightCoeff="1.0" pageWidthCoeff="1.0" stepCharacterLimit="12" z="100.0">
 <stepField content="Date" index="0" visible="false"/>
 <stepField content="Procedure" index="1" visible="false"/>
 <stepField content="Group" index="2" visible="false"/>
@@ -7,13 +7,12 @@
 <stepField content="Weight" index="4" visible="false"/>
 <stepField content="Planning_Id" index="5" visible="false"/>
 <stepField content="Equipment" index="6" visible="false"/>
-<titleBar b="192" center="true" displayPrintDates="false" enable="true" g="192" height="95" left="false" name="Preliminary Start Up Sequence" r="192" style="LARGE" width="1776" x="442"/>
+<titleBar b="192" center="true" displayPrintDates="false" enable="true" g="192" height="70" left="false" name="New Project" r="192" style="LARGE" width="1332" x="334"/>
 <milestone commCalculable="false" id="1" indeterminated="true">
-<name>LPG C - SU Milestone 1</name>
-<x>200</x>
-<y>320</y>
-<description>Essential Services Operational
-</description>
+<name>New Milestone</name>
+<x>225</x>
+<y>180</y>
+<description/>
 <precommProgress>0.0</precommProgress>
 <commProgress>0.0</commProgress>
 <PLOpened>0</PLOpened>
@@ -28,16 +27,16 @@
 <subsysOperated>false</subsysOperated>
 <subsysNumber>0</subsysNumber>
 <subsysOperatedProgress>0.0</subsysOperatedProgress>
-<targetDate>2014/08/19</targetDate>
+<targetDate>2014/09/29</targetDate>
 <scopeDoneDate/>
 <dest/>
-<destSUT>1 con 2</destSUT>
+<destSUT/>
 </milestone>
 <milestone commCalculable="false" id="2" indeterminated="true">
-<name>LPG C - SU Milestone 2</name>
-<x>200</x>
-<y>640</y>
-<description>Main Utilities Operational</description>
+<name>New Milestone</name>
+<x>450</x>
+<y>60</y>
+<description/>
 <precommProgress>0.0</precommProgress>
 <commProgress>0.0</commProgress>
 <PLOpened>0</PLOpened>
@@ -52,268 +51,35 @@
 <subsysOperated>false</subsysOperated>
 <subsysNumber>0</subsysNumber>
 <subsysOperatedProgress>0.0</subsysOperatedProgress>
-<targetDate>2014/09/09</targetDate>
-<scopeDoneDate/>
-<dest/>
-<destSUT>4 con 7 con 5</destSUT>
-</milestone>
-<milestone commCalculable="false" id="3" indeterminated="true">
-<name>LPG C - SU Milestone 3</name>
-<x>200</x>
-<y>1040</y>
-<description>Ready to receive LPG
-</description>
-<precommProgress>0.0</precommProgress>
-<commProgress>0.0</commProgress>
-<PLOpened>0</PLOpened>
-<PLAOpened>0</PLAOpened>
-<PLBOpened>0</PLBOpened>
-<PLCOpened>0</PLCOpened>
-<AOCProgress>0.0</AOCProgress>
-<RFCProgress>0.0</RFCProgress>
-<docProgress>0.0</docProgress>
-<stepProgress>null</stepProgress>
-<operated>false</operated>
-<subsysOperated>false</subsysOperated>
-<subsysNumber>0</subsysNumber>
-<subsysOperatedProgress>0.0</subsysOperatedProgress>
-<targetDate>2014/12/25</targetDate>
-<scopeDoneDate/>
-<dest/>
-<destSUT>13 con 15</destSUT>
-</milestone>
-<milestone commCalculable="false" id="5" indeterminated="true">
-<name>OC - SU Milestone 1</name>
-<x>800</x>
-<y>320</y>
-<description>Essential services operational</description>
-<precommProgress>0.0</precommProgress>
-<commProgress>0.0</commProgress>
-<PLOpened>0</PLOpened>
-<PLAOpened>0</PLAOpened>
-<PLBOpened>0</PLBOpened>
-<PLCOpened>0</PLCOpened>
-<AOCProgress>0.0</AOCProgress>
-<RFCProgress>0.0</RFCProgress>
-<docProgress>0.0</docProgress>
-<stepProgress>null</stepProgress>
-<operated>false</operated>
-<subsysOperated>false</subsysOperated>
-<subsysNumber>0</subsysNumber>
-<subsysOperatedProgress>0.0</subsysOperatedProgress>
-<targetDate>2014/09/09</targetDate>
-<scopeDoneDate/>
-<dest/>
-<destSUT>18 con 20</destSUT>
-</milestone>
-<milestone commCalculable="false" id="6" indeterminated="true">
-<name>OC - SU milestone 2</name>
-<x>800</x>
-<y>640</y>
-<description>Main Utilities Operational</description>
-<precommProgress>0.0</precommProgress>
-<commProgress>0.0</commProgress>
-<PLOpened>0</PLOpened>
-<PLAOpened>0</PLAOpened>
-<PLBOpened>0</PLBOpened>
-<PLCOpened>0</PLCOpened>
-<AOCProgress>0.0</AOCProgress>
-<RFCProgress>0.0</RFCProgress>
-<docProgress>0.0</docProgress>
-<stepProgress>null</stepProgress>
-<operated>false</operated>
-<subsysOperated>false</subsysOperated>
-<subsysNumber>0</subsysNumber>
-<subsysOperatedProgress>0.0</subsysOperatedProgress>
-<targetDate>2014/09/09</targetDate>
-<scopeDoneDate/>
-<dest/>
-<destSUT>24 con 25 con 35</destSUT>
-</milestone>
-<milestone commCalculable="false" id="7" indeterminated="true">
-<name>OC - SU Milestone 3</name>
-<x>800</x>
-<y>1040</y>
-<description>Ready for Gas in</description>
-<precommProgress>0.0</precommProgress>
-<commProgress>0.0</commProgress>
-<PLOpened>0</PLOpened>
-<PLAOpened>0</PLAOpened>
-<PLBOpened>0</PLBOpened>
-<PLCOpened>0</PLCOpened>
-<AOCProgress>0.0</AOCProgress>
-<RFCProgress>0.0</RFCProgress>
-<docProgress>0.0</docProgress>
-<stepProgress>null</stepProgress>
-<operated>false</operated>
-<subsysOperated>false</subsysOperated>
-<subsysNumber>0</subsysNumber>
-<subsysOperatedProgress>0.0</subsysOperatedProgress>
-<targetDate>2015/04/22</targetDate>
+<targetDate>2014/09/29</targetDate>
 <scopeDoneDate/>
 <dest/>
 <destSUT/>
 </milestone>
 <startUpTask id="1">
-<name>Start FW</name>
+<name>New Step</name>
 <secondLine/>
-<x>175.0</x>
-<y>520</y>
-<width>100</width>
-<height>40</height>
+<x>262.5</x>
+<y>420</y>
+<width>75</width>
+<height>30</height>
 <operated>false</operated>
 <shape>Rounded Rectangle</shape>
 <milestoneRelated>Choose A Milestone</milestoneRelated>
-<backgroundColor b="0" g="0" r="255"/>
+<backgroundColor b="192" g="192" r="192"/>
 <attr/>
 <localRules>false</localRules>
 <localAttr/>
-<dest>2</dest>
+<dest/>
 <destSUT/>
 </startUpTask>
 <startUpTask id="2">
-<name>N2 available</name>
+<name>New Step</name>
 <secondLine/>
-<x>325.0</x>
-<y>500</y>
-<width>100</width>
-<height>40</height>
-<operated>true</operated>
-<shape>Rounded Rectangle</shape>
-<milestoneRelated>Choose A Milestone</milestoneRelated>
-<backgroundColor b="192" g="192" r="192"/>
-<attr/>
-<localRules>false</localRules>
-<localAttr/>
-<dest/>
-<destSUT>3</destSUT>
-</startUpTask>
-<startUpTask id="3">
-<name>Perform GALT</name>
-<secondLine/>
-<x>325.0</x>
-<y>560</y>
-<width>100</width>
-<height>40</height>
-<operated>true</operated>
-<shape>Rounded Rectangle</shape>
-<milestoneRelated>Choose A Milestone</milestoneRelated>
-<backgroundColor b="192" g="192" r="192"/>
-<attr Procedure="fd"/>
-<localRules>true</localRules>
-<localAttr Procedure="false"/>
-<dest>2</dest>
-<destSUT/>
-</startUpTask>
-<startUpTask id="4">
-<name>Line-up OD &amp; CD</name>
-<secondLine/>
-<x>150.0</x>
-<y>800</y>
-<width>100</width>
-<height>40</height>
-<operated>false</operated>
-<shape>Rounded Rectangle</shape>
-<milestoneRelated>Choose A Milestone</milestoneRelated>
-<backgroundColor b="192" g="192" r="192"/>
-<attr/>
-<localRules>false</localRules>
-<localAttr/>
-<dest/>
-<destSUT>9</destSUT>
-</startUpTask>
-<startUpTask id="5">
-<name>Ground Flare</name>
-<secondLine/>
-<x>400.0</x>
-<y>820</y>
-<width>100</width>
-<height>40</height>
-<operated>false</operated>
-<shape>Rounded Rectangle</shape>
-<milestoneRelated>Choose A Milestone</milestoneRelated>
-<backgroundColor b="192" g="192" r="192"/>
-<attr/>
-<localRules>false</localRules>
-<localAttr/>
-<dest>3</dest>
-<destSUT/>
-</startUpTask>
-<startUpTask id="7">
-<name>Waste Water Treatment</name>
-<secondLine/>
-<x>275.0</x>
-<y>820</y>
-<width>100</width>
-<height>40</height>
-<operated>false</operated>
-<shape>Rounded Rectangle</shape>
-<milestoneRelated>Choose A Milestone</milestoneRelated>
-<backgroundColor b="192" g="192" r="192"/>
-<attr/>
-<localRules>false</localRules>
-<localAttr/>
-<dest>3</dest>
-<destSUT/>
-</startUpTask>
-<startUpTask id="9">
-<name>Load Chemical</name>
-<secondLine/>
-<x>150.0</x>
-<y>860</y>
-<width>100</width>
-<height>40</height>
-<operated>false</operated>
-<shape>Rounded Rectangle</shape>
-<milestoneRelated>Choose A Milestone</milestoneRelated>
-<backgroundColor b="192" g="192" r="192"/>
-<attr/>
-<localRules>false</localRules>
-<localAttr/>
-<dest/>
-<destSUT>10</destSUT>
-</startUpTask>
-<startUpTask id="10">
-<name>Test Diesel FWP</name>
-<secondLine/>
-<x>150.0</x>
-<y>920</y>
-<width>100</width>
-<height>40</height>
-<operated>false</operated>
-<shape>Rounded Rectangle</shape>
-<milestoneRelated>Choose A Milestone</milestoneRelated>
-<backgroundColor b="0" g="0" r="255"/>
-<attr/>
-<localRules>false</localRules>
-<localAttr/>
-<dest>3</dest>
-<destSUT/>
-</startUpTask>
-<startUpTask id="13">
-<name>Test PW P/L (OC Water)</name>
-<secondLine/>
-<x>125.0</x>
-<y>1160</y>
-<width>151</width>
-<height>40</height>
-<operated>false</operated>
-<shape>Rounded Rectangle</shape>
-<milestoneRelated>Choose A Milestone</milestoneRelated>
-<backgroundColor b="204" g="204" r="204"/>
-<attr/>
-<localRules>false</localRules>
-<localAttr/>
-<dest/>
-<destSUT>14</destSUT>
-</startUpTask>
-<startUpTask id="14">
-<name>Line Up for LPG reception</name>
-<secondLine/>
-<x>250.0</x>
-<y>1280</y>
-<width>100</width>
-<height>40</height>
+<x>225.0</x>
+<y>450</y>
+<width>75</width>
+<height>30</height>
 <operated>false</operated>
 <shape>Rounded Rectangle</shape>
 <milestoneRelated>Choose A Milestone</milestoneRelated>
@@ -324,274 +90,37 @@
 <dest/>
 <destSUT/>
 </startUpTask>
-<startUpTask id="15">
-<name>Pressurize LPG P/L (N2)</name>
-<secondLine/>
-<x>325.0</x>
-<y>1160</y>
-<width>151</width>
-<height>40</height>
-<operated>false</operated>
-<shape>Rounded Rectangle</shape>
-<milestoneRelated>Choose A Milestone</milestoneRelated>
+<sequenceBar cAligned="false" id="1" lAligned="true">
+<name>New Sequence</name>
+<x>300</x>
+<y>570</y>
+<width>600</width>
+<height>30</height>
+<extendedHeight>120.0</extendedHeight>
 <backgroundColor b="192" g="192" r="192"/>
-<attr/>
-<localRules>false</localRules>
-<localAttr/>
-<dest/>
-<destSUT>14</destSUT>
-</startUpTask>
-<startUpTask id="18">
-<name>Start N2 Unit</name>
-<secondLine/>
-<x>750.0</x>
-<y>500</y>
-<width>100</width>
-<height>40</height>
-<operated>true</operated>
-<shape>Rounded Rectangle</shape>
-<milestoneRelated>Choose A Milestone</milestoneRelated>
-<backgroundColor b="192" g="192" r="192"/>
-<attr/>
-<localRules>false</localRules>
-<localAttr/>
-<dest/>
-<destSUT>19 con 2</destSUT>
-</startUpTask>
-<startUpTask id="19">
-<name>Perform GALT</name>
-<secondLine/>
-<x>750.0</x>
-<y>560</y>
-<width>129</width>
-<height>40</height>
-<operated>false</operated>
-<shape>Rounded Rectangle</shape>
-<milestoneRelated>Choose A Milestone</milestoneRelated>
-<backgroundColor b="192" g="192" r="192"/>
-<attr Procedure="OC PRC 001"/>
-<localRules>true</localRules>
-<localAttr Procedure="true"/>
-<dest>6</dest>
-<destSUT/>
-</startUpTask>
-<startUpTask id="20">
-<name>Start elec FWP</name>
-<secondLine/>
-<x>900.0</x>
-<y>540</y>
-<width>100</width>
-<height>40</height>
-<operated>true</operated>
-<shape>Rounded Rectangle</shape>
-<milestoneRelated>Choose A Milestone</milestoneRelated>
-<backgroundColor b="0" g="0" r="255"/>
-<attr/>
-<localRules>false</localRules>
-<localAttr/>
-<dest>6</dest>
-<destSUT/>
-</startUpTask>
-<startUpTask id="24">
-<name>Sweep Flare</name>
-<secondLine/>
-<x>850.0</x>
-<y>800</y>
-<width>100</width>
-<height>40</height>
-<operated>false</operated>
-<shape>Rounded Rectangle</shape>
-<milestoneRelated>Choose A Milestone</milestoneRelated>
-<backgroundColor b="192" g="192" r="192"/>
-<attr/>
-<localRules>false</localRules>
-<localAttr/>
-<dest/>
-<destSUT>27</destSUT>
-</startUpTask>
-<startUpTask id="25">
-<name>Line up OD &amp; CD</name>
-<secondLine/>
-<x>1000.0</x>
-<y>800</y>
-<width>100</width>
-<height>40</height>
-<operated>false</operated>
-<shape>Rounded Rectangle</shape>
-<milestoneRelated>Choose A Milestone</milestoneRelated>
-<backgroundColor b="192" g="192" r="192"/>
-<attr/>
-<localRules>false</localRules>
-<localAttr/>
-<dest/>
-<destSUT>31</destSUT>
-</startUpTask>
-<startUpTask id="27">
-<name>Test Compressor</name>
-<secondLine/>
-<x>850.0</x>
-<y>940</y>
-<width>100</width>
-<height>40</height>
-<operated>false</operated>
-<shape>Rounded Rectangle</shape>
-<milestoneRelated>Choose A Milestone</milestoneRelated>
-<backgroundColor b="192" g="192" r="192"/>
-<attr/>
-<localRules>false</localRules>
-<localAttr/>
-<dest>7</dest>
-<destSUT/>
-</startUpTask>
-<startUpTask id="29">
-<name>Cooling Water</name>
-<secondLine/>
-<x>725.0</x>
-<y>940</y>
-<width>100</width>
-<height>40</height>
-<operated>false</operated>
-<shape>Rounded Rectangle</shape>
-<milestoneRelated>Choose A Milestone</milestoneRelated>
-<backgroundColor b="192" g="192" r="192"/>
-<attr/>
-<localRules>false</localRules>
-<localAttr/>
-<dest>7</dest>
-<destSUT/>
-</startUpTask>
-<startUpTask id="31">
-<name>Load Chemical</name>
-<secondLine/>
-<x>1000.0</x>
-<y>860</y>
-<width>100</width>
-<height>40</height>
-<operated>false</operated>
-<shape>Rounded Rectangle</shape>
-<milestoneRelated>Choose A Milestone</milestoneRelated>
-<backgroundColor b="192" g="192" r="192"/>
-<attr/>
-<localRules>false</localRules>
-<localAttr/>
-<dest/>
-<destSUT>32</destSUT>
-</startUpTask>
-<startUpTask id="32">
-<name>Test DFWP &amp; EDG</name>
-<secondLine/>
-<x>1000.0</x>
-<y>940</y>
-<width>100</width>
-<height>40</height>
-<operated>false</operated>
-<shape>Rounded Rectangle</shape>
-<milestoneRelated>Choose A Milestone</milestoneRelated>
-<backgroundColor b="0" g="0" r="255"/>
-<attr/>
-<localRules>false</localRules>
-<localAttr/>
-<dest>7</dest>
-<destSUT/>
-</startUpTask>
-<startUpTask id="34">
-<name>PSR</name>
-<secondLine/>
-<x>1050.0</x>
-<y>1040</y>
-<width>100</width>
-<height>40</height>
-<operated>false</operated>
-<shape>Octogone</shape>
-<milestoneRelated>Choose A Milestone</milestoneRelated>
-<backgroundColor b="255" g="102" r="51"/>
-<attr/>
-<localRules>false</localRules>
-<localAttr/>
-<dest>7</dest>
-<destSUT/>
-</startUpTask>
-<startUpTask id="35">
-<name>Start Demin Water</name>
-<secondLine/>
-<x>725.0</x>
-<y>800</y>
-<width>100</width>
-<height>40</height>
-<operated>false</operated>
-<shape>Rounded Rectangle</shape>
-<milestoneRelated>Choose A Milestone</milestoneRelated>
-<backgroundColor b="192" g="192" r="192"/>
-<attr/>
-<localRules>false</localRules>
-<localAttr/>
-<dest/>
-<destSUT>29</destSUT>
-</startUpTask>
-<startUpTask id="36">
-<name>F&amp;G</name>
-<secondLine/>
-<x>675.0</x>
-<y>1060</y>
-<width>100</width>
-<height>40</height>
-<operated>false</operated>
-<shape>Hexagon</shape>
-<milestoneRelated>Choose A Milestone</milestoneRelated>
-<backgroundColor b="0" g="0" r="255"/>
-<attr/>
-<localRules>false</localRules>
-<localAttr/>
-<dest>7</dest>
-<destSUT/>
-</startUpTask>
-<startUpTask id="37">
-<name>PSR</name>
-<secondLine/>
-<x>450.0</x>
-<y>1040</y>
-<width>76</width>
-<height>40</height>
-<operated>false</operated>
-<shape>Octogone</shape>
-<milestoneRelated>Choose A Milestone</milestoneRelated>
-<backgroundColor b="255" g="102" r="51"/>
-<attr/>
-<localRules>false</localRules>
-<localAttr/>
-<dest>3</dest>
-<destSUT/>
-</startUpTask>
-<startUpTask id="38">
-<name>F&amp;G</name>
-<secondLine/>
-<x>50.0</x>
-<y>1060</y>
-<width>52</width>
-<height>40</height>
-<operated>false</operated>
-<shape>Hexagon</shape>
-<milestoneRelated>Choose A Milestone</milestoneRelated>
-<backgroundColor b="0" g="0" r="255"/>
-<attr/>
-<localRules>false</localRules>
-<localAttr/>
-<dest>3</dest>
-<destSUT/>
-</startUpTask>
+<dashedLineColor b="255" g="0" r="0"/>
+</sequenceBar>
+<comment id="1">
+<name>Write your note here</name>
+<x>985</x>
+<y>435</y>
+<width>115</width>
+<height>80</height>
+<backgroundColor b="0" g="255" r="255"/>
+</comment>
 <icaps/>
-<target>1000</target>
-<ElementDisplayedOnMilestone AOC="false" Comm="false" Doc="false" PL="false" Step="false"/>
-<doc>\\main.glb.corp.local\ep-hq$\Home\PAU\6\J0236756\Documents\10 - Pro\SUM\Tempa-Rosa_Rev0_FOPS_20140910.xlsx</doc>
+<target>100</target>
+<ElementDisplayedOnMilestone AOC="false" Comm="true" Doc="true" PL="false" Step="false"/>
+<doc/>
 <subsystemsOperated/>
-<projectTitleBlock enable="true" rightAligned="true">
+<projectTitleBlock enable="false" rightAligned="true">
 <companyLogo/>
 <projectLogo/>
 <contractorLogo/>
 <contractNumber/>
-<contractorName>SUM</contractorName>
-<customerField>LPG C</customerField>
-<documentTitle>Preliminary Start Up Sequence</documentTitle>
+<contractorName/>
+<customerField/>
+<documentTitle/>
 <studieType/>
 <facilityName/>
 <designation/>
@@ -602,7 +131,7 @@
 <electronicFilename/>
 <companyRef/>
 <contractorRef/>
-<revision>00</revision>
+<revision/>
 <scale/>
 <folio/>
 <misc>This document is the property of TOTAL. It shall not be stored, reproduced or disclosed to others without written authorisation from the company.</misc>
@@ -612,6 +141,6 @@
 <companyLogoParse/>
 <projectLogoParse/>
 <expertMode>false</expertMode>
-<cellReference>I3</cellReference>
-<logSUActivitiesProgress>2014.09.09 -EOHEADER- Milestone 1 : 0.0 -EOM- LPG C - SU Milestone 2 : 0.0 -EOM- LPG C - SU Milestone 3 : 0.0 -EOM- New Milestone : 0.0 -EOM- OC - SU Milestone 1 : 0.0 -EOM- OC - SU milestone 2 : 0.0 -EOM- OC - SU Milestone 3 : 0.0 -EOM-  -EOLOG- 2014.09.09 -EOHEADER- Milestone 1 : 0.0 -EOM- LPG C - SU Milestone 2 : 0.0 -EOM- LPG C - SU Milestone 3 : 0.0 -EOM- New Milestone : 0.0 -EOM- OC - SU Milestone 1 : 0.0 -EOM- OC - SU milestone 2 : 0.0 -EOM- OC - SU Milestone 3 : 0.0 -EOM-  -EOLOG- 2014.09.10 -EOHEADER- Milestone 1 : 0.0 -EOM- LPG C - SU Milestone 2 : 0.0 -EOM- LPG C - SU Milestone 3 : 0.0 -EOM- New Milestone : 0.0 -EOM- OC - SU Milestone 1 : 0.0 -EOM- OC - SU milestone 2 : 0.0 -EOM- OC - SU Milestone 3 : 0.0 -EOM-  -EOLOG- 2014.09.10 -EOHEADER- Milestone 1 : 0.0 -EOM- LPG C - SU Milestone 2 : 0.0 -EOM- LPG C - SU Milestone 3 : 0.0 -EOM- New Milestone : 0.0 -EOM- OC - SU Milestone 1 : 0.0 -EOM- OC - SU milestone 2 : 0.0 -EOM- OC - SU Milestone 3 : 0.0 -EOM-  -EOLOG- 2014.09.10 -EOHEADER- LPG C - SU Milestone 1 : 0.0 -EOM- LPG C - SU Milestone 2 : 0.0 -EOM- LPG C - SU Milestone 3 : 0.0 -EOM- New Milestone : 0.0 -EOM- OC - SU Milestone 1 : 0.0 -EOM- OC - SU milestone 2 : 0.0 -EOM- OC - SU Milestone 3 : 0.0 -EOM-  -EOLOG- 2014.09.10 -EOHEADER- LPG C - SU Milestone 1 : 0.0 -EOM- LPG C - SU Milestone 2 : 0.0 -EOM- LPG C - SU Milestone 3 : 0.0 -EOM- New Milestone : 0.0 -EOM- OC - SU Milestone 1 : 0.0 -EOM- OC - SU milestone 2 : 0.0 -EOM- OC - SU Milestone 3 : 0.0 -EOM-  -EOLOG- 2014.09.10 -EOHEADER- LPG C - SU Milestone 1 : 0.0 -EOM- LPG C - SU Milestone 2 : 0.0 -EOM- LPG C - SU Milestone 3 : 0.0 -EOM- New Milestone : 0.0 -EOM- OC - SU Milestone 1 : 0.0 -EOM- OC - SU milestone 2 : 0.0 -EOM- OC - SU Milestone 3 : 0.0 -EOM-  -EOLOG- 2014.09.10 -EOHEADER- LPG C - SU Milestone 1 : 0.0 -EOM- LPG C - SU Milestone 2 : 0.0 -EOM- LPG C - SU Milestone 3 : 0.0 -EOM- New Milestone : 0.0 -EOM- OC - SU Milestone 1 : 0.0 -EOM- OC - SU milestone 2 : 0.0 -EOM- OC - SU Milestone 3 : 0.0 -EOM-  -EOLOG- 2014.09.10 -EOHEADER- LPG C - SU Milestone 1 : 0.0 -EOM- LPG C - SU Milestone 2 : 0.0 -EOM- LPG C - SU Milestone 3 : 0.0 -EOM- New Milestone : 0.0 -EOM- OC - SU Milestone 1 : 0.0 -EOM- OC - SU milestone 2 : 0.0 -EOM- OC - SU Milestone 3 : 0.0 -EOM-  -EOLOG- 2014.09.10 -EOHEADER- LPG C - SU Milestone 1 : 0.0 -EOM- LPG C - SU Milestone 2 : 0.0 -EOM- LPG C - SU Milestone 3 : 0.0 -EOM- OC - SU Milestone 1 : 0.0 -EOM- OC - SU milestone 2 : 0.0 -EOM- OC - SU Milestone 3 : 0.0 -EOM-  -EOLOG- 2014.09.10 -EOHEADER- LPG C - SU Milestone 1 : 0.0 -EOM- LPG C - SU Milestone 2 : 0.0 -EOM- LPG C - SU Milestone 3 : 0.0 -EOM- OC - SU Milestone 1 : 0.0 -EOM- OC - SU milestone 2 : 0.0 -EOM- OC - SU Milestone 3 : 0.0 -EOM-  -EOLOG- 2014.09.10 -EOHEADER- LPG C - SU Milestone 1 : 0.0 -EOM- LPG C - SU Milestone 2 : 0.0 -EOM- LPG C - SU Milestone 3 : 0.0 -EOM- OC - SU Milestone 1 : 0.0 -EOM- OC - SU milestone 2 : 0.0 -EOM- OC - SU Milestone 3 : 0.0 -EOM-  -EOLOG- 2014.09.10 -EOHEADER- LPG C - SU Milestone 1 : 0.0 -EOM- LPG C - SU Milestone 2 : 0.0 -EOM- LPG C - SU Milestone 3 : 0.0 -EOM- OC - SU Milestone 1 : 0.0 -EOM- OC - SU milestone 2 : 0.0 -EOM- OC - SU Milestone 3 : 0.0 -EOM-  -EOLOG- 2014.09.10 -EOHEADER- LPG C - SU Milestone 1 : 0.0 -EOM- LPG C - SU Milestone 2 : 0.0 -EOM- LPG C - SU Milestone 3 : 0.0 -EOM- OC - SU Milestone 1 : 0.0 -EOM- OC - SU milestone 2 : 0.0 -EOM- OC - SU Milestone 3 : 0.0 -EOM-  -EOLOG- 2014.09.10 -EOHEADER- LPG C - SU Milestone 1 : 0.0 -EOM- LPG C - SU Milestone 2 : 0.0 -EOM- LPG C - SU Milestone 3 : 0.0 -EOM- OC - SU Milestone 1 : 0.0 -EOM- OC - SU milestone 2 : 0.0 -EOM- OC - SU Milestone 3 : 0.0 -EOM-  -EOLOG- 2014.09.10 -EOHEADER- LPG C - SU Milestone 1 : 0.0 -EOM- LPG C - SU Milestone 2 : 0.0 -EOM- LPG C - SU Milestone 3 : 0.0 -EOM- OC - SU Milestone 1 : 0.0 -EOM- OC - SU milestone 2 : 0.0 -EOM- OC - SU Milestone 3 : 0.0 -EOM-  -EOLOG- 2014.09.10 -EOHEADER- LPG C - SU Milestone 1 : 0.0 -EOM- LPG C - SU Milestone 2 : 0.0 -EOM- LPG C - SU Milestone 3 : 0.0 -EOM- OC - SU Milestone 1 : 0.0 -EOM- OC - SU milestone 2 : 0.0 -EOM- OC - SU Milestone 3 : 0.0 -EOM-  -EOLOG- 2014.09.26 -EOHEADER- LPG C - SU Milestone 1 : 0.0 -EOM- LPG C - SU Milestone 2 : 0.0 -EOM- LPG C - SU Milestone 3 : 0.0 -EOM- OC - SU Milestone 1 : 0.0 -EOM- OC - SU milestone 2 : 0.0 -EOM- OC - SU Milestone 3 : 0.0 -EOM-  -EOLOG- </logSUActivitiesProgress>
+<cellReference>i3</cellReference>
+<logSUActivitiesProgress/>
 </start-up-sequence>

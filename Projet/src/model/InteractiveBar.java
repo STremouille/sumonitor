@@ -340,4 +340,17 @@ public abstract class InteractiveBar extends JComponent{
 	public boolean isSelected(){
 		return selected;
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		System.out.println(this.getClass());
+		System.out.println(obj.getClass());
+		if(this.getClass()==obj.getClass()&&this.getX()==((InteractiveBar) obj).getX()&&this.getY()==((InteractiveBar) obj).getY()&&this.getWidth()==((InteractiveBar) obj).getWidth()&&this.getHeight()==((InteractiveBar) obj).getHeight()&&this.getName().equals(((InteractiveBar) obj).getName())){
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	
 }	
