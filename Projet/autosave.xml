@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<start-up-sequence graphicQuality="true" lastDocUpdateDate="" milestoneGridSize="2" pageHeightCoeff="1.0" pageWidthCoeff="1.0" stepCharacterLimit="12" z="100.0">
+<start-up-sequence graphicQuality="true" lastDocUpdateDate="" milestoneGridSize="2" pageHeightCoeff="1.0" pageWidthCoeff="1.0" stepCharacterLimit="12" z="133.0">
 <stepField content="Date" index="0" visible="false"/>
 <stepField content="Procedure" index="1" visible="false"/>
 <stepField content="Group" index="2" visible="false"/>
@@ -7,11 +7,11 @@
 <stepField content="Weight" index="4" visible="false"/>
 <stepField content="Planning_Id" index="5" visible="false"/>
 <stepField content="Equipment" index="6" visible="false"/>
-<titleBar b="192" center="true" displayPrintDates="false" enable="true" g="192" height="70" left="false" name="New Project" r="192" style="LARGE" width="1332" x="334"/>
-<milestone commCalculable="true" id="1" indeterminated="false">
-<name>SUS-A</name>
-<x>525</x>
-<y>300</y>
+<titleBar b="192" center="true" displayPrintDates="false" enable="true" g="192" height="93" left="false" name="New Project" r="192" style="LARGE" width="1776" x="442"/>
+<milestone commCalculable="false" id="1" indeterminated="true">
+<name>New Milestone</name>
+<x>400</x>
+<y>240</y>
 <description/>
 <precommProgress>0.0</precommProgress>
 <commProgress>0.0</commProgress>
@@ -27,14 +27,81 @@
 <subsysOperated>false</subsysOperated>
 <subsysNumber>0</subsysNumber>
 <subsysOperatedProgress>0.0</subsysOperatedProgress>
-<targetDate>2014/11/26</targetDate>
+<targetDate>2014/12/03</targetDate>
 <scopeDoneDate/>
 <dest/>
 <destSUT/>
 </milestone>
-<icaps>
-<database activated="true" alias="CLOV" connexionType="ODBC" dbName="" instanceName="" lastDbUpdate="1415228400000" login="icaps" milestoneColumn="Data2" odbcLinkName="CLOV" password="vpncf59" serverName=""/>
-</icaps>
+<startUpTask id="1">
+<name>New Step</name>
+<secondLine/>
+<x>750.0</x>
+<y>680</y>
+<width>100</width>
+<height>40</height>
+<operated>false</operated>
+<shape>Rounded Rectangle</shape>
+<milestoneRelated>Choose A Milestone</milestoneRelated>
+<backgroundColor b="192" g="192" r="192"/>
+<attr/>
+<localRules>false</localRules>
+<localAttr/>
+<dest/>
+<destSUT/>
+</startUpTask>
+<startUpTask id="2">
+<name>New Step</name>
+<secondLine/>
+<x>850.0</x>
+<y>840</y>
+<width>100</width>
+<height>40</height>
+<operated>false</operated>
+<shape>Rounded Rectangle</shape>
+<milestoneRelated>Choose A Milestone</milestoneRelated>
+<backgroundColor b="192" g="192" r="192"/>
+<attr/>
+<localRules>false</localRules>
+<localAttr/>
+<dest/>
+<destSUT/>
+</startUpTask>
+<startUpTask id="3">
+<name>New Step</name>
+<secondLine/>
+<x>1000.0</x>
+<y>600</y>
+<width>100</width>
+<height>40</height>
+<operated>false</operated>
+<shape>Rounded Rectangle</shape>
+<milestoneRelated>Choose A Milestone</milestoneRelated>
+<backgroundColor b="192" g="192" r="192"/>
+<attr/>
+<localRules>false</localRules>
+<localAttr/>
+<dest/>
+<destSUT/>
+</startUpTask>
+<sequenceBar cAligned="false" id="1" lAligned="true">
+<name>New Sequence</name>
+<x>1150</x>
+<y>720</y>
+<width>800</width>
+<height>40</height>
+<extendedHeight>160.0</extendedHeight>
+<backgroundColor b="192" g="192" r="192"/>
+<dashedLineColor b="255" g="0" r="0"/>
+</sequenceBar>
+<comment id="1">
+<name>Write your note here</name>
+<x>124</x>
+<y>766</y>
+<width>153</width>
+<height>107</height>
+<backgroundColor b="0" g="255" r="255"/>
+</comment>
+<icaps/>
 <target>100</target>
 <ElementDisplayedOnMilestone AOC="false" Comm="true" Doc="true" PL="false" Step="false"/>
 <doc/>
@@ -67,6 +134,6 @@
 <companyLogoParse/>
 <projectLogoParse/>
 <expertMode>false</expertMode>
-<cellReference>I3</cellReference>
+<cellReference>i3</cellReference>
 <logSUActivitiesProgress/>
 </start-up-sequence>

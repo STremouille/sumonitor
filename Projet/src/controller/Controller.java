@@ -1143,13 +1143,13 @@ public class Controller {
 						commentRefSelected = 0;
 						sequenceBarRef=0;
 						sequenceBarRefSelected=0;
-						sut.setSelected(true);
+						sut.setSelected(sut.isSelected());
 						titleSelected = false;
 						willMove = true;
 						resizeTitleDirection = null;
 						if(shiftDown&&!model.getSelectedItems().contains(startUpTaskRefSelected)){
-							model.getSelectedItems().add(sut);
-							sut.setSelected(!sut.isSelected());
+							model.getSelectedItems().add(model.getStartUpTask(startUpTaskRefSelected));
+							model.getStartUpTask(startUpTaskRefSelected).setSelected(!model.getStartUpTask(startUpTaskRefSelected).isSelected());
 							startUpTaskRefSelected=0;
 						}
 					}
@@ -1175,7 +1175,7 @@ public class Controller {
 							sequenceBarRefSelected = 0;
 							startUpTaskRef=0;
 							startUpTaskRefSelected=0;
-							c.setSelected(true);
+							c.setSelected(c.isSelected());
 							titleSelected = false;
 							willMove = true;
 							resizeTitleDirection = null;
@@ -1267,7 +1267,7 @@ public class Controller {
 							commentRefSelected = 0;
 							startUpTaskRef=0;
 							startUpTaskRefSelected=0;
-							sb.setSelected(true);
+							sb.setSelected(sb.isSelected());
 							titleSelected = false;
 							willMove = true;
 							resizeTitleDirection = null;
@@ -2834,44 +2834,14 @@ public class Controller {
 		@Override
 		public void keyTyped(KeyEvent e) {
 			if(e.getKeyChar()==KeyEvent.VK_DELETE){
-				for(int i : model.getComments().keySet()){
-					if(model.getComment(i).isSelected()){
-						model.getComments().remove(i);
-						commentRef=0;
-						commentRefSelected=0;
-						view.repaint();
-						return ;
-					}
-				}
+				milestoneRef=milestoneRefSelected;
+				startUpTaskRef=startUpTaskRefSelected;
+				commentRef=commentRefSelected;
+				sequenceBarRef=sequenceBarRefSelected;
 				
-				for(int i : model.getSequences().keySet()){
-					if(model.getSequence(i).isSelected()){
-						model.getSequences().remove(i);
-						sequenceBarRefSelected=0;
-						sequenceBarRef=0;
-						view.repaint();
-						return ;
-					}
-				}
-				
-				for(int i : model.getMilestones().keySet()){
-					if(model.getMilestone(i).isSelected()){
-						model.getMilestones().remove(i);
-						milestoneRef=0;
-						milestoneRefSelected=0;
-						view.repaint();
-						return ;
-					}
-				}
-				
-				for(int i : model.getStartUpTasks().keySet()){
-					if(model.getStartUpTask(i).isSelected()){
-						model.getStartUpTasks().remove(i);
-						startUpTaskRef=0;
-						view.repaint();
-						return ;
-					}
-				}
+				DeleteMenuItemListener dmil = new DeleteMenuItemListener();
+				ActionEvent ae = new ActionEvent(this, 0, "");
+				dmil.actionPerformed(ae);
 			}
 		}
 		
