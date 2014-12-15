@@ -1067,5 +1067,13 @@ public class View extends JFrame{
 	public void setResizing(boolean resizing) {
 		this.resizing = resizing;
 	}
+
+	public void displayHint(StartUpStep startUpTask, Point point) {
+		this.getDrawPanel().displayHint(startUpTask,point);
+	}
+
+	public void notDisplayHint() {
+		this.getDrawPanel().notDisplayHint();
+	}
 	
 }

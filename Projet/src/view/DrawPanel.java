@@ -4,9 +4,12 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Point;
 import java.awt.RenderingHints;
+
 import javax.swing.JPanel;
 
+import model.StartUpStep;
 import conf.GeneralConfig;
 /**
  * 
@@ -30,6 +33,10 @@ public class DrawPanel extends JPanel{
 	private int widthmovingComment;
 	private int heightmovingComment;
 	
+	private boolean displayHintStartUpTask;
+	private StartUpStep susForHint;
+	private Point susHintLocation;
+	
 	
 	private Graphics2D g;
 
@@ -42,6 +49,7 @@ public class DrawPanel extends JPanel{
 		movingSequenceBar = false;
 		this.setSize(GeneralConfig.pageWidthRatio, GeneralConfig.pageHeightRatio);
 		this.setFocusable(true);
+		this.displayHintStartUpTask=false;
 	}
 	
 	/**
@@ -187,6 +195,18 @@ public class DrawPanel extends JPanel{
 		
 		//title block painting
 		view.getModel().getProjectTitleBlock().paint(g);
+		
+		//hint
+		if(displayHintStartUpTask){
+			g.setColor(Color.darkGray);
+			g.drawString(susForHint.getName(), (int) Math.round(susForHint.getX()+susForHint.getWidth()), (int) Math.round(susForHint.getY()+susForHint.getHeight()));
+			g.drawString(susForHint.getLongDescription()+"", (int) Math.round(susForHint.getX()+susForHint.getWidth()), (int) Math.round(susForHint.getY()+susForHint.getHeight()+g.getFontMetrics().getHeight()));
+			int i = 0;
+			for(String key : susForHint.getAttr().keySet()){
+				i++;
+				g.drawString(key + " : "+susForHint.getAttr(key), (int) Math.round(susForHint.getX()+susForHint.getWidth()), (int) Math.round(susForHint.getY()+susForHint.getHeight()+(i+1)*g.getFontMetrics().getHeight()));
+			}
+		}
 	}
 
 	/**
@@ -203,6 +223,16 @@ public class DrawPanel extends JPanel{
 	@Override
 	public Graphics getGraphics(){
 		return this.g;
+	}
+
+	public void displayHint(StartUpStep startUpTask, Point point) {
+		this.displayHintStartUpTask=true;
+		susForHint=startUpTask;
+		susHintLocation=point;
+	}
+
+	public void notDisplayHint() {
+		this.displayHintStartUpTask=false;
 	}
 
 	

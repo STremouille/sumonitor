@@ -671,6 +671,17 @@ public class Controller {
 
 		@Override
 		public void mouseMoved(MouseEvent arg0) {
+			
+			for(int key : model.getStartUpTasks().keySet()){
+				if(model.getStartUpTask(key).getBounds().contains(arg0.getPoint())){
+					view.displayHint(model.getStartUpTask(key),arg0.getPoint());
+					view.repaint();
+					return;
+				}
+			}
+			view.notDisplayHint();
+			
+			
 			if (titleSelected && GeneralConfig.titleEnable) {
 				resizeTitleDirection = model.getTitleBar().getResizeDirection(new Point(arg0.getX(), arg0.getY()));
 				if (resizeTitleDirection != null) {
