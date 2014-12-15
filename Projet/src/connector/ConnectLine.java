@@ -123,7 +123,7 @@ public class ConnectLine extends JComponent{
 		this.lineType = lineType;
 		this.lineStart = lineStart;
 		this.lineArrow = lineArrow;
-		this.lineWidth = GeneralConfig.milestoneHeight / 35;
+		this.lineWidth = GeneralConfig.milestoneHeight / 50;
 		this.lineArrowWidth = lineWidth * 6;
 		this.shapes = new ArrayList<Rectangle>();
 	}
