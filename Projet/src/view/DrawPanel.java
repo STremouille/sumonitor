@@ -198,6 +198,7 @@ public class DrawPanel extends JPanel{
 		
 		//hint
 		if(displayHintStartUpTask){
+			g.setFont(new Font(policy, Font.TRUETYPE_FONT, (int) (GeneralConfig.pageHeightRatio/80.0)));
 			g.setColor(Color.darkGray);
 			g.drawString(susForHint.getName(), (int) Math.round(susForHint.getX()+susForHint.getWidth()), (int) Math.round(susForHint.getY()+susForHint.getHeight()));
 			g.drawString(susForHint.getLongDescription()+"", (int) Math.round(susForHint.getX()+susForHint.getWidth()), (int) Math.round(susForHint.getY()+susForHint.getHeight()+g.getFontMetrics().getHeight()));

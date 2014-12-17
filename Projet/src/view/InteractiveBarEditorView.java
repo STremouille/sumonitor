@@ -62,7 +62,7 @@ public class InteractiveBarEditorView extends JFrame {
 	private InteractiveBar bar;
 	
 	private JTextComponent title;
-	private JColorChooser colorChooser;
+//	private JColorChooser colorChooser;
 	private JPanel titlePanel,colorChooserPanels;
 	private JButton validateButton;
 	private JButton cancelButton;
@@ -120,13 +120,15 @@ public class InteractiveBarEditorView extends JFrame {
 		colorChooserPanels = new JPanel(new GridLayout(1,2));
 		JPanel colorChooserPanel = new JPanel();
 		colorChooserPanel.setBorder(BorderFactory.createTitledBorder("Background Color"));
-		colorChooser = new JColorChooser(bar.getColor());
-		colorChooserPanel.add(colorChooser);
+//		colorChooser = GeneralConfig.colorChooser;
+//		colorChooser = new JColorChooser(bar.getColor());
+		GeneralConfig.colorChooser.getSelectionModel().setSelectedColor(bar.getColor());
+		colorChooserPanel.add(GeneralConfig.colorChooser);
 		colorChooserPanels.add(colorChooserPanel);
 		
-		AbstractColorChooserPanel[] accp = {ColorChooserComponentFactory.getDefaultChooserPanels()[0]};
-		colorChooser.setChooserPanels(accp);
-		colorChooser.setPreviewPanel(new JPanel());
+//		AbstractColorChooserPanel[] accp = {ColorChooserComponentFactory.getDefaultChooserPanels()[0]};
+//		colorChooser.setChooserPanels(accp);
+//		colorChooser.setPreviewPanel(new JPanel());
 		
 		JPanel buttons = new JPanel();
 		
@@ -419,14 +421,14 @@ public class InteractiveBarEditorView extends JFrame {
 	 * @return color
 	 */
 	public Color getColor(){
-		return colorChooser.getColor();
+		return GeneralConfig.colorChooser.getColor();
 	}
 
 	/**
 	 * @return colorChooser
 	 */
 	public JColorChooser getColorChooser() {
-		return colorChooser;
+		return GeneralConfig.colorChooser;
 	}
 	
 	/**
@@ -455,7 +457,7 @@ public class InteractiveBarEditorView extends JFrame {
 	 * @param cl
 	 */
 	public void addColorChooserChangeListener(ChangeListener cl){
-		this.colorChooser.getSelectionModel().addChangeListener(cl);
+		GeneralConfig.colorChooser.getSelectionModel().addChangeListener(cl);
 	}
 
 	

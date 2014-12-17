@@ -396,5 +396,13 @@ public class StartUpStep extends InteractiveBar implements MovableItem{
 	public void setSecondLine(String secondLine) {
 		this.secondLine = secondLine;
 	}
+
+	public void setAttr(TreeMap<String, String> attr2) {
+		this.attr=new TreeMap<String, String>(attr2);
+	}
+
+	public void setLocalAttrToDisplay(TreeMap<String, Boolean> localAttrToDisplay2) {
+		this.localAttrToDisplay = new TreeMap<String, Boolean>(localAttrToDisplay2);
+	}
 	
 }

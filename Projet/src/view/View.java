@@ -14,6 +14,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -1074,6 +1075,10 @@ public class View extends JFrame{
 
 	public void notDisplayHint() {
 		this.getDrawPanel().notDisplayHint();
+	}
+
+	public void addCopyPasteListener(KeyListener copyPasteListener) {
+		this.addKeyListener(copyPasteListener);
 	}
 	
 }

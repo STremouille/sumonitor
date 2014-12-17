@@ -71,7 +71,7 @@ public class StepEditorView extends JFrame {
 	private StartUpStep step;
 	private JTextField shortDescription;
 	private JTextField relatedMilestone;
-	private JColorChooser colorChooser;
+//	private JColorChooser colorChooser;
 	private JComboBox comboBox;
 	private JTextField shortDescription2;
 
@@ -240,10 +240,9 @@ public class StepEditorView extends JFrame {
 		JPanel backGroundColorPanel = new JPanel();
 		panel_4.add(backGroundColorPanel, BorderLayout.NORTH);
 		backGroundColorPanel.setBorder(new TitledBorder(null, "Background Color", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		colorChooser = new JColorChooser(step.getColor());
-		colorChooser.setChooserPanels(accp);
-		colorChooser.setPreviewPanel(new JPanel());
-		backGroundColorPanel.add(colorChooser);
+		
+		GeneralConfig.colorChooser.getSelectionModel().setSelectedColor(step.getColor());
+		backGroundColorPanel.add(GeneralConfig.colorChooser);
 		
 		JPanel panel_5 = new JPanel();
 		panel_5.setBorder(new TitledBorder(null, "Shape", TitledBorder.LEADING, TitledBorder.TOP, null, null));
@@ -288,7 +287,7 @@ public class StepEditorView extends JFrame {
 				step.setSecondLine(shortDescription2.getText());
 				step.setLongDescription(longDescription.getText());
 				step.setRelatedToThisMilestone(relatedMilestone.getText());
-				step.setColor(colorChooser.getColor());
+				step.setColor(GeneralConfig.colorChooser.getColor());
 				step.setShapeName((String) comboBox.getSelectedItem());
 				dispose();
 			}

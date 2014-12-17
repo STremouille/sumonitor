@@ -74,6 +74,7 @@ import model.StartUpStep;
 import model.TitleBar;
 import model.TitleBar.Style;
 import model.mode.Mode;
+import model.mode.NormalMode;
 
 import org.w3c.dom.DOMException;
 import org.xml.sax.SAXException;
@@ -97,6 +98,7 @@ import xml.SaveXMLFile;
 
 import com.mysql.jdbc.Util;
 import com.packenius.library.xspdf.XSPDF;
+import com.sun.corba.se.spi.orbutil.fsm.Action;
 
 import conf.DatePicker;
 import conf.GeneralConfig;
@@ -168,6 +170,10 @@ public class Controller {
 	private boolean deleteButton;
 	private boolean cisorsButton;
 	
+	//variable relatives to copy & paste
+	private StartUpStep startUpTaskCopied; 
+	private Milestone milestoneCopied;
+	
 	//right click menu
 	private int whereRightClickHappenX;
 	private int whereRightClickHappenY;
@@ -219,6 +225,7 @@ public class Controller {
 		this.view.addProjectTargetListener(new ShowProjectTargetListener());
 		this.view.addMoinsZoomListener(new DecreaseZoomListener());
 		this.view.addPlusZoomListener(new IncreaseZoomListener());
+		this.view.addCopyPasteListener(new CopyPasteListener());
 		
 		//toolbar
 		this.view.getToolBar().addMilestoneButtonListener(new MilestoneButtonListener());
@@ -676,10 +683,12 @@ public class Controller {
 				if(model.getStartUpTask(key).getBounds().contains(arg0.getPoint())){
 					view.displayHint(model.getStartUpTask(key),arg0.getPoint());
 					view.repaint();
-					return;
+					break;
+				} else {
+					view.notDisplayHint();
 				}
 			}
-			view.notDisplayHint();
+			
 			
 			
 			if (titleSelected && GeneralConfig.titleEnable) {
@@ -3159,5 +3168,48 @@ public class Controller {
 	    
 	}
 	
+	public class CopyPasteListener implements KeyListener{
+
+		@Override
+		public void keyPressed(KeyEvent e) {
+			if ((e.getKeyCode() == KeyEvent.VK_C) && ((e.getModifiers() & KeyEvent.CTRL_MASK) != 0)) {
+				if(startUpTaskRefSelected!=0){
+					startUpTaskCopied = model.getStartUpTask(startUpTaskRefSelected);
+				} else if(milestoneRefSelected!=0){
+					milestoneCopied = model.getMilestone(milestoneRefSelected);
+				}
+			}else if ((e.getKeyCode() == KeyEvent.VK_V) && (e.getModifiers() & KeyEvent.CTRL_MASK) != 0){
+				if(startUpTaskCopied != null){
+					StartUpStep sus = new StartUpStep(startUpTaskCopied.getName(),startUpTaskCopied.getX()+startUpTaskCopied.getWidth() , startUpTaskCopied.getY()+startUpTaskCopied.getHeight(), startUpTaskCopied.getWidth(), startUpTaskCopied.getHeight());
+					sus.setAttr(startUpTaskCopied.getAttr());
+					sus.setColor(startUpTaskCopied.getColor());
+					sus.setLocalAttrRule(startUpTaskCopied.isLocalAttrRule());
+					sus.setShapeName(startUpTaskCopied.getShapeName());
+					sus.setRelatedToThisMilestone(startUpTaskCopied.getRelatedToThisMilestone());
+					sus.setSecondLine(startUpTaskCopied.getSecondLine());
+					sus.setLocalAttrToDisplay(startUpTaskCopied.getLocalAttrToDisplay());
+					model.addStartUpTask(sus);
+					startUpTaskCopied=sus;
+				} else if(milestoneCopied != null){
+					Milestone m = new Milestone(milestoneCopied.getName(), milestoneCopied.getX()+50, milestoneCopied.getY()+50);
+					m.setTargetDate(milestoneCopied.getTargetDate());
+					m.setDescription(milestoneCopied.getDescription());
+					model.addMilestone(m);
+					milestoneCopied=m;
+				}
+				view.repaint();
+			}
+		}
+
+		@Override
+		public void keyReleased(KeyEvent e) {
+			
+		}
+
+		@Override
+		public void keyTyped(KeyEvent e) {
+		}
+		
+	}
 	
 }

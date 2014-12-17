@@ -8,6 +8,11 @@ import java.util.TreeMap;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
+import javax.swing.JColorChooser;
+import javax.swing.JPanel;
+import javax.swing.colorchooser.AbstractColorChooserPanel;
+import javax.swing.colorchooser.ColorChooserComponentFactory;
+
 import model.Milestone;
 import view.SettingsFrame.BrowseListener;
 import worker.InitSUDocWorker;
@@ -245,6 +250,8 @@ public class GeneralConfig {
 	public static ArrayList<String> shapesName ;
 	public static int stepCharacterLimit;
 	
+	public static JColorChooser colorChooser;
+	
 	/**
 	 * Invoke this method to make a zoom in order to recalculate the width of elements on the drawing
 	 * @param newZoomValue
@@ -378,6 +385,11 @@ public class GeneralConfig {
 		shapesName.add("Octogone");
 		
 		stepCharacterLimit=12;
+		
+		colorChooser = new JColorChooser();
+		AbstractColorChooserPanel[] accp = {ColorChooserComponentFactory.getDefaultChooserPanels()[0]};
+		colorChooser.setChooserPanels(accp);
+		colorChooser.setPreviewPanel(new JPanel());
 	}
 	
 }
