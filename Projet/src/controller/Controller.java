@@ -681,7 +681,7 @@ public class Controller {
 			
 			for(int key : model.getStartUpTasks().keySet()){
 				if(model.getStartUpTask(key).getBounds().contains(arg0.getPoint())){
-					view.displayHint(model.getStartUpTask(key),arg0.getPoint());
+					view.displayHint(model.getStartUpTask(key));
 					view.repaint();
 					break;
 				} else {

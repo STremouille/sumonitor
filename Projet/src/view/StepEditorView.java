@@ -3,6 +3,7 @@ package view;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.EventQueue;
+import java.awt.Graphics;
 import java.awt.Point;
 
 import javax.swing.JColorChooser;
@@ -11,6 +12,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.colorchooser.AbstractColorChooserPanel;
 import javax.swing.colorchooser.ColorChooserComponentFactory;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableCellRenderer;
@@ -244,19 +247,20 @@ public class StepEditorView extends JFrame {
 		GeneralConfig.colorChooser.getSelectionModel().setSelectedColor(step.getColor());
 		backGroundColorPanel.add(GeneralConfig.colorChooser);
 		
+		
 		JPanel panel_5 = new JPanel();
 		panel_5.setBorder(new TitledBorder(null, "Shape", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		panel_4.add(panel_5, BorderLayout.CENTER);
 		GridBagLayout gbl_panel_5 = new GridBagLayout();
 		gbl_panel_5.columnWidths = new int[]{0, 0, 0};
-		gbl_panel_5.rowHeights = new int[]{0, 0};
+		gbl_panel_5.rowHeights = new int[]{0, 0, 0};
 		gbl_panel_5.columnWeights = new double[]{0.0, 1.0, Double.MIN_VALUE};
-		gbl_panel_5.rowWeights = new double[]{0.0, Double.MIN_VALUE};
+		gbl_panel_5.rowWeights = new double[]{0.0, 1.0, Double.MIN_VALUE};
 		panel_5.setLayout(gbl_panel_5);
 		
 		JLabel lblChooseAShape = new JLabel("Select a shape :");
 		GridBagConstraints gbc_lblChooseAShape = new GridBagConstraints();
-		gbc_lblChooseAShape.insets = new Insets(0, 0, 0, 5);
+		gbc_lblChooseAShape.insets = new Insets(0, 0, 5, 5);
 		gbc_lblChooseAShape.anchor = GridBagConstraints.EAST;
 		gbc_lblChooseAShape.gridx = 0;
 		gbc_lblChooseAShape.gridy = 0;
@@ -273,10 +277,35 @@ public class StepEditorView extends JFrame {
 		comboBox = new JComboBox(shapesForComboBox);
 		comboBox.setSelectedIndex(GeneralConfig.shapesName.indexOf(step.getShapeName()));
 		GridBagConstraints gbc_comboBox = new GridBagConstraints();
+		gbc_comboBox.insets = new Insets(0, 0, 5, 0);
 		gbc_comboBox.fill = GridBagConstraints.HORIZONTAL;
 		gbc_comboBox.gridx = 1;
 		gbc_comboBox.gridy = 0;
 		panel_5.add(comboBox, gbc_comboBox);
+		
+		
+		final PreviewPanel shapePreviewPanel = new PreviewPanel(step);
+		GridBagConstraints gbc_shapePreviewPanel = new GridBagConstraints();
+		gbc_shapePreviewPanel.fill = GridBagConstraints.BOTH;
+		gbc_shapePreviewPanel.gridx = 1;
+		gbc_shapePreviewPanel.gridy = 1;
+		panel_5.add(shapePreviewPanel, gbc_shapePreviewPanel);
+		
+		comboBox.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				shapePreviewPanel.setPreviewShape(comboBox.getSelectedItem()+"");
+			}
+		});
+		
+		GeneralConfig.colorChooser.getSelectionModel().addChangeListener(new ChangeListener() {
+			
+			@Override
+			public void stateChanged(ChangeEvent e) {
+				shapePreviewPanel.setPreviewColor(GeneralConfig.colorChooser.getColor());
+			}
+		});
 		
 		JButton btnOk = new JButton("Ok");
 		btnOk.addActionListener(new ActionListener() {
@@ -440,4 +469,30 @@ public class StepEditorView extends JFrame {
 		  }
 		}
 
+	class PreviewPanel extends JPanel{
+		private StartUpStep step;
+		
+		public PreviewPanel(StartUpStep sus) {
+			step = new StartUpStep("", 0, 0, 100, 50);
+			step.setShapeName(sus.getShapeName());
+			step.setColor(sus.getColor());
+		}
+		
+		@Override
+		public void paint(Graphics g) {
+			super.paint(g);
+			step.paint(g);
+		}
+		
+		public void setPreviewShape(String s){
+			step.setShapeName(s);
+			repaint();
+		}
+		
+		public void setPreviewColor(Color c){
+			step.setColor(c);
+			repaint();
+		}
+	}
+	
 }

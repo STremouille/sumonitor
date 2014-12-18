@@ -35,7 +35,6 @@ public class DrawPanel extends JPanel{
 	
 	private boolean displayHintStartUpTask;
 	private StartUpStep susForHint;
-	private Point susHintLocation;
 	
 	
 	private Graphics2D g;
@@ -226,10 +225,9 @@ public class DrawPanel extends JPanel{
 		return this.g;
 	}
 
-	public void displayHint(StartUpStep startUpTask, Point point) {
+	public void displayHint(StartUpStep startUpTask) {
 		this.displayHintStartUpTask=true;
 		susForHint=startUpTask;
-		susHintLocation=point;
 	}
 
 	public void notDisplayHint() {
