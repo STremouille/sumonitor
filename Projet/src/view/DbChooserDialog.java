@@ -184,14 +184,6 @@ public class DbChooserDialog extends JDialog {
 				}
 			    }
 			}
-			/*it = GeneralConfig.databases.iterator();
-			while(it.hasNext()){
-			    System.out.println(it.next());
-			}
-			it = old.iterator();
-			while(it.hasNext()){
-			    System.out.println(it.next());
-			}*/
 			if(showProjectTargetListener!=null)
 			    showProjectTargetListener.dbChoosed(old);
 			if(showProjectResumeListener!=null)

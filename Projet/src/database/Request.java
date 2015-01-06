@@ -37,10 +37,6 @@ public class Request {
 	
 	boolean icapsV4;
 	
-	// SQL Request
-	// R3
-	//String requestAllMilestonesProgress = "SELECT SYS."+milestoneColumnInSys+",(100*(1-sum(TA@DAILY1@REPORT.RemainToDo)/SUM( TA@DAILY1@REPORT.Estimated))) as Progress FROM TA@DAILY1@REPORT inner join SYS on TA@DAILY1@REPORT.SYS_Id=SYS.SYS_Id where (P_or_C='C') group by sys.Data11 order by sys.Data11;";
-	
 	
 	
 	// R4
