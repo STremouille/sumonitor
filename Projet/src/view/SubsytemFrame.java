@@ -11,13 +11,18 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
+import java.awt.print.PrinterException;
 import java.io.File;
 import java.io.IOException;
 import java.sql.Date;
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashMap;
 
+import javax.print.attribute.HashPrintRequestAttributeSet;
+import javax.print.attribute.PrintRequestAttributeSet;
+import javax.print.attribute.standard.OrientationRequested;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -70,7 +75,7 @@ public class SubsytemFrame extends JFrame {
 	 * @param milestone
 	 * @param data
 	 */
-	public SubsytemFrame(Milestone milestone,final ArrayList<HashMap<String, Object>> data) {
+	public SubsytemFrame(final Milestone milestone,final ArrayList<HashMap<String, Object>> data) {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(MilestoneEditorFrame.class.getResource("/img/icone.png")));
 		this.setTitle(milestone.getName());
 //		table.setBorder(UIManager.getBorder("InternalFrame.border"));
@@ -161,8 +166,19 @@ public class SubsytemFrame extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				try {
+					view.repaint();
+					MessageFormat header = new MessageFormat(milestone.getName()+" : "+milestone.getDescription());
+					MessageFormat footer = new MessageFormat("Page {0,number,integer}");
+					PrintRequestAttributeSet pras = new HashPrintRequestAttributeSet();
+					pras.add(OrientationRequested.LANDSCAPE);
+					table.print(JTable.PrintMode.FIT_WIDTH, header, footer, true, pras, true);
+
+				} catch (PrinterException e1) {
+					e1.printStackTrace();
+				}
 				//Place where pdf is created
-				JFileChooser jfcForPDF = new JFileChooser();
+				/*JFileChooser jfcForPDF = new JFileChooser();
 				FileNameExtensionFilter filter = new FileNameExtensionFilter(".pdf", "pdf");
 				jfcForPDF.setFileFilter(filter);
 				int returnVal = jfcForPDF.showOpenDialog(view);
@@ -203,7 +219,7 @@ public class SubsytemFrame extends JFrame {
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
-				}
+				}*/
 			}
 		});
 		mntmPrintToPdf.setIcon(new ImageIcon(SubsytemFrame.class.getResource("/img/print.png")));
