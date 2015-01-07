@@ -1163,6 +1163,7 @@ public class Controller {
 						commentRefSelected = 0;
 						sequenceBarRef=0;
 						sequenceBarRefSelected=0;
+						milestoneRefSelected=0;
 						sut.setSelected(sut.isSelected());
 						titleSelected = false;
 						willMove = true;
@@ -1195,6 +1196,7 @@ public class Controller {
 							sequenceBarRefSelected = 0;
 							startUpTaskRef=0;
 							startUpTaskRefSelected=0;
+							milestoneRefSelected=0;
 							c.setSelected(c.isSelected());
 							titleSelected = false;
 							willMove = true;
@@ -1287,6 +1289,7 @@ public class Controller {
 							commentRefSelected = 0;
 							startUpTaskRef=0;
 							startUpTaskRefSelected=0;
+							milestoneRefSelected=0;
 							sb.setSelected(sb.isSelected());
 							titleSelected = false;
 							willMove = true;
@@ -3172,11 +3175,16 @@ public class Controller {
 
 		@Override
 		public void keyPressed(KeyEvent e) {
+			System.out.println("milestoneRefSelected "+milestoneRefSelected);
+			System.out.println("startUpTaskRefSelected "+startUpTaskRefSelected);
+			System.out.println("startUpTaskCopied "+startUpTaskCopied);
 			if ((e.getKeyCode() == KeyEvent.VK_C) && ((e.getModifiers() & KeyEvent.CTRL_MASK) != 0)) {
 				if(startUpTaskRefSelected!=0){
 					startUpTaskCopied = model.getStartUpTask(startUpTaskRefSelected);
+					milestoneCopied = null;
 				} else if(milestoneRefSelected!=0){
 					milestoneCopied = model.getMilestone(milestoneRefSelected);
+					startUpTaskCopied = null;
 				}
 			}else if ((e.getKeyCode() == KeyEvent.VK_V) && (e.getModifiers() & KeyEvent.CTRL_MASK) != 0){
 				if(startUpTaskCopied != null){
