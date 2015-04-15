@@ -22,7 +22,7 @@ import database.Database;
 /**
  * 
  * @author S.Trémouille
- *
+ * test GIT
  */
 public class GeneralConfig {
 	public static boolean loadMode;
