@@ -1,0 +1,449 @@
+package target;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Frame;
+import java.awt.GridLayout;
+import java.awt.Toolkit;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.sql.Time;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Scanner;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
+
+import javax.imageio.ImageIO;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+
+import model.Milestone;
+import net.coobird.thumbnailator.Thumbnails;
+
+import org.jfree.chart.*;
+import org.jfree.chart.axis.AxisLocation;
+import org.jfree.chart.axis.DateAxis;
+import org.jfree.chart.axis.NumberAxis;
+import org.jfree.chart.event.AxisChangeEvent;
+import org.jfree.chart.event.AxisChangeListener;
+import org.jfree.chart.plot.XYPlot;
+import org.jfree.chart.renderer.xy.*;
+import org.jfree.chart.title.TextTitle;
+import org.jfree.data.general.Dataset;
+import org.jfree.data.xy.XYDataset;
+import org.jfree.data.xy.XYSeries;
+import org.jfree.data.xy.XYSeriesCollection;
+import org.jfree.ui.ApplicationFrame;
+import org.jfree.ui.HorizontalAlignment;
+import org.jfree.ui.RectangleEdge;
+import org.jfree.ui.RectangleInsets;
+import org.jfree.ui.VerticalAlignment;
+
+import com.lowagie.text.pdf.ArabicLigaturizer;
+
+import conf.GeneralConfig;
+
+import com.jgoodies.forms.layout.FormLayout;
+import com.jgoodies.forms.layout.ColumnSpec;
+import com.jgoodies.forms.layout.RowSpec;
+
+/**
+ * 
+ * @author S.Trémouille
+ *
+ */
+
+public class Target extends JFrame {
+
+	private HashMap<String,ArrayList<Date>> date;
+	private HashMap<String,ArrayList<Integer>> progress;
+	private HashMap<String,ArrayList<Integer>> nbreSSRFSU;
+	private HashMap<String,ArrayList<Integer>> punchlistOpened;
+	private HashMap<String,Integer> totalProgress;
+	private HashMap<String,Integer> totalSS;
+	private Date lastDate,firstDate;
+	private DateAxis rangeAxis,rangeAxisInverted;
+	private NumberAxis pourcentageAxis,pourcentageAxisInverted,punchlistAxis;
+	private boolean nochange;
+	private Font chartFont;
+	private Milestone m;
+	private JPanel graphPanel;
+	private JPanel pan; 
+	
+	public Target(Milestone m,HashMap<String,Object> data) {
+		super(m.getName());
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Target.class.getResource("/img/icone.png")));
+		this.m=m;
+		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		
+		JLabel milestoneName = new JLabel(m.getName()+" : "+m.getDescription(),SwingConstants.CENTER);
+		milestoneName.setFont(new Font("Arial Unicode MS", Font.BOLD, GeneralConfig.milestoneHeight/5));
+		getContentPane().setLayout(new BorderLayout());
+		getContentPane().add(milestoneName,BorderLayout.NORTH);
+		date=(HashMap<String, ArrayList<Date>>) data.get("date");
+		progress = (HashMap<String, ArrayList<Integer>>) data.get("progress");
+		nbreSSRFSU = (HashMap<String, ArrayList<Integer>>) data.get("nbreSSRFSU");
+		punchlistOpened = (HashMap<String, ArrayList<Integer>>) data.get("punchlistOpened");
+		totalProgress = (HashMap<String, Integer>) data.get("totalProgress");
+		totalSS = (HashMap<String, Integer>) data.get("totalSS");
+		lastDate = m.getTargetDate();
+		firstDate = (Date) data.get("firstDate");
+		chartFont =  new Font("Arial Unicode MS", Font.ROMAN_BASELINE, GeneralConfig.milestoneHeight/5);
+		
+		//Axis
+		pourcentageAxis = new NumberAxis("");
+		pourcentageAxis.setRange(0.0, 100.0);
+		pourcentageAxis.setAutoRange(false);
+		pourcentageAxis.addChangeListener(new AxisChangeListener() {
+			boolean change = false;
+			@Override
+			public void axisChanged(AxisChangeEvent arg0) {
+				if(!change){
+						change=true;
+						pourcentageAxis.setRange(0.0,100.0);
+				} else {
+					change = false;
+				}
+			}
+		});
+		
+		pourcentageAxisInverted = new NumberAxis("");
+		pourcentageAxisInverted.setRange(0.0,100.0);
+		pourcentageAxisInverted.setAutoRange(false);
+		pourcentageAxisInverted.setInverted(true);
+		pourcentageAxisInverted.addChangeListener(new AxisChangeListener() {
+			boolean change = false;
+			@Override
+			public void axisChanged(AxisChangeEvent arg0) {
+				if(!change){
+					change=true;
+					pourcentageAxisInverted.setRange(0.0,100.0);
+				} else {
+					change = false;
+				}
+			}
+		});
+		
+		
+		punchlistAxis = new NumberAxis("");
+		punchlistAxis.setRange(0.0,getMaxRangeForPunchlist());
+		punchlistAxis.setAutoRange(false);
+		punchlistAxis.addChangeListener(new AxisChangeListener() {
+			boolean change = false;
+			@Override
+			public void axisChanged(AxisChangeEvent arg0) {
+				if(!change){
+					change=true;
+					punchlistAxis.setRange(0.0,getMaxRangeForPunchlist());
+				} else {
+					change = false;
+				}
+			}
+		});
+		
+		//Date Axis
+		rangeAxis = new DateAxis("");
+		rangeAxisInverted = new DateAxis("");
+		rangeAxisInverted.setInverted(true);
+		rangeAxis.setRange(firstDate, lastDate);
+		rangeAxisInverted.setRange(firstDate, lastDate);
+		nochange=false;
+		
+		rangeAxisInverted.addChangeListener(new AxisChangeListener() {
+			
+			
+
+			@Override
+			public void axisChanged(AxisChangeEvent arg0) {
+				if(!nochange){
+					nochange = true;
+					rangeAxis.setRange(rangeAxisInverted.getRange());
+				} else {
+					nochange=false;
+					
+				}
+			}
+		});
+		
+		rangeAxis.addChangeListener(new AxisChangeListener() {
+			
+			@Override
+			public void axisChanged(AxisChangeEvent arg0) {
+//				rangeAxisInverted = new DateAxis("");
+				if(!nochange){
+					nochange=true;
+					rangeAxisInverted.setRange(rangeAxis.getRange());
+				} else {
+					nochange=false;
+				}
+			}
+		});
+		//Chart
+		JFreeChart punchlistChart = createPunchListChart();
+//		punchlistChart.setBorderVisible(false);
+		JFreeChart rFSUProgressChart = createRFSUChart();
+		JFreeChart commProgressChart = createCommChart();
+		JFreeChart docProgressChart = createDocChart();
+		//Panel
+		TargetChartPanel punchlistPanel = new TargetChartPanel(punchlistChart,this, false, false , false, false,false);
+		TargetChartPanel rFSUProgressPanel = new TargetChartPanel(rFSUProgressChart,this, false, false , false, false,false);
+		TargetChartPanel commProgressPanel = new TargetChartPanel(commProgressChart,this, false, false , false, false,false);
+		TargetChartPanel docProgressPanel = new TargetChartPanel(docProgressChart,this, false, false , false, false,false);
+		punchlistPanel.setPreferredSize(new java.awt.Dimension(200, 200));
+		rFSUProgressPanel.setPreferredSize(new java.awt.Dimension(200, 200));
+		commProgressPanel.setPreferredSize(new Dimension(200,200));
+		docProgressPanel.setPreferredSize(new Dimension(200,200));
+		graphPanel = new JPanel();
+		graphPanel.setLayout(new GridLayout(2, 2));
+		graphPanel.add(punchlistPanel);
+		graphPanel.add(rFSUProgressPanel);
+		graphPanel.add(commProgressPanel);
+		graphPanel.add(docProgressPanel);
+		pan = new JPanel();
+		getContentPane().add(pan, BorderLayout.CENTER);
+		System.out.println(punchlistPanel.getHeight());
+		//this.pack();
+		this.setSize(400, 400);
+		this.setExtendedState(Frame.MAXIMIZED_BOTH);
+		
+		punchlistPanel.setOpaque(false);
+		rFSUProgressPanel.setOpaque(false);
+		commProgressPanel.setOpaque(false);
+		docProgressPanel.setOpaque(false);
+		
+		JLabel l = new JLabel("");
+		pan.setLayout(new FormLayout(new ColumnSpec[] {
+				ColumnSpec.decode("center:384px:grow"),},
+			new RowSpec[] {
+				RowSpec.decode("333px:grow"),}));
+		pan.add(l, "1, 1, center, fill");
+		l.setIcon(new ImageIcon(Target.class.getResource("/img/target2.png")));
+		Timer t = new Timer();
+		t.schedule(new TimerTask() {
+			
+			@Override
+			public void run() {
+				remove(pan);
+				getContentPane().add(graphPanel,BorderLayout.CENTER);
+				pack();
+				setExtendedState(JFrame.MAXIMIZED_BOTH);
+			}
+		},500);
+	}
+
+	private int getMaxRangeForPunchlist() {
+		int tmpMax = 0;
+		for(ArrayList<Integer> pl : punchlistOpened.values()){
+			ArrayList<Integer> tmp ;
+			if(punchlistOpened!=null){
+				tmp = new ArrayList<Integer>(pl);
+			} else {
+				tmp = new ArrayList<Integer>();
+			}
+			//we sort the list
+			Collections.sort(tmp);
+			
+			if(tmpMax<tmp.get(tmp.size()-1))
+					tmpMax=tmp.get(tmp.size()-1);
+		}
+		
+		if(tmpMax<2500){
+			return 2500;
+		} else {
+			return tmpMax;
+		}
+	}
+
+
+	private JFreeChart createPunchListChart() {
+		// Punchlist plot
+		XYItemRenderer renderer1 = new StandardXYItemRenderer();
+		
+		
+		XYPlot plot = new XYPlot(null, rangeAxis, punchlistAxis, renderer1);
+		plot.setRangeAxisLocation(AxisLocation.TOP_OR_LEFT);
+		JFreeChart res = new JFreeChart("",JFreeChart.DEFAULT_TITLE_FONT, plot, false);
+		res.setTitle(new TextTitle("Punchlist to be cleared before AOC",chartFont, Color.black	, RectangleEdge.TOP, HorizontalAlignment.CENTER, VerticalAlignment.CENTER, RectangleInsets.ZERO_INSETS));
+		int acc=0;
+		for (String dbAlias : progress.keySet()){
+			acc++;
+			plot.setDataset(acc, createPunchlistProgressSet(dbAlias));
+		}
+		
+		return res; 
+
+	}
+	private JFreeChart createRFSUChart() {
+		
+		// RFSU Progress subplot ...
+		final XYItemRenderer renderer2 = new StandardXYItemRenderer();
+		final XYPlot plot = new XYPlot(null, rangeAxisInverted, pourcentageAxisInverted, renderer2);
+		plot.setRangeAxisLocation(AxisLocation.TOP_OR_RIGHT);
+		
+		// return a new chart containing the overlaid plot...
+		JFreeChart res = new JFreeChart("",JFreeChart.DEFAULT_TITLE_FONT, plot, false);
+		res.setTitle(new TextTitle("AOC Certificats Signature Progress",chartFont, Color.black	, RectangleEdge.TOP, HorizontalAlignment.CENTER, VerticalAlignment.CENTER, RectangleInsets.ZERO_INSETS));
+		
+		int acc=0;
+		for (String dbAlias : progress.keySet()){
+			acc++;
+			plot.setDataset(acc, createRFSUProgress(dbAlias));
+		}
+		
+		return res;
+
+	}
+
+	private JFreeChart createCommChart() {
+		
+		// progress plot...
+		final XYItemRenderer renderer1 = new StandardXYItemRenderer();
+		
+		
+		final XYPlot plot = new XYPlot(createProgressSet(GeneralConfig.databases.get(0).getAlias()),  rangeAxis,pourcentageAxis ,renderer1);
+		
+		JFreeChart res = new JFreeChart("",JFreeChart.DEFAULT_TITLE_FONT, plot, false);
+		res.setTitle(new TextTitle("Commissioning Progress (Mhrs)", chartFont, Color.black	, RectangleEdge.BOTTOM, HorizontalAlignment.CENTER, VerticalAlignment.CENTER, RectangleInsets.ZERO_INSETS));
+		/*int acc=0;
+		for (String dbAlias : progress.keySet()){
+			acc++;
+			plot.setDataset(acc, createProgressSet(dbAlias));
+		}*/
+		
+		return res;
+
+	}
+	
+	private JFreeChart createDocChart(){
+		//fetching of log file
+		String log=GeneralConfig.logSUDoc;
+		/*{
+			if(f.exists()){
+				try {
+					BufferedReader br = new BufferedReader(new FileReader(f));
+					log=br.readLine();
+				} catch (FileNotFoundException e) {
+					JOptionPane.showMessageDialog(null, e.getMessage());
+					e.printStackTrace();
+				} catch (IOException e) {
+					JOptionPane.showMessageDialog(null, e.getMessage());
+					e.printStackTrace();
+				}
+			}
+		}*/
+		
+		
+		// documentation progress...
+		XYDataset data = createDocProgress(log);
+		XYItemRenderer renderer = new StandardXYItemRenderer();
+		XYPlot plot = new XYPlot(data, rangeAxisInverted, pourcentageAxis, renderer);
+		plot.setRangeAxisLocation(AxisLocation.TOP_OR_RIGHT);
+		
+		// return a new chart containing the overlaid plot...
+		JFreeChart res = new JFreeChart("",JFreeChart.DEFAULT_TITLE_FONT, plot, false);
+		res.setTitle(new TextTitle("Start Up Preparation Progress", chartFont, Color.black	, RectangleEdge.BOTTOM, HorizontalAlignment.CENTER, VerticalAlignment.CENTER, RectangleInsets.ZERO_INSETS));
+		return res;
+
+	}
+	
+	private XYDataset createProgressSet(String dbAlias) {
+		
+		XYSeries series1 = new XYSeries("");
+		for(int i=0;i<date.size();i++){
+			double p = progress.get(dbAlias).get(i);
+			double d = date.get(dbAlias).get(i).getTime();
+			double totalP = totalProgress.get(dbAlias);
+			series1.add(d,(p/totalP)*100);
+		}
+		return new XYSeriesCollection(series1);
+	}
+
+	private XYDataset createRFSUProgress(String dbAlias) {
+		XYSeries series1 = new XYSeries("");
+		for(int i=0;i<date.size();i++){
+			double p = nbreSSRFSU.get(dbAlias).get(i);
+			double d = date.get(dbAlias).get(i).getTime();
+			double totalP = totalSS.get(dbAlias);
+			series1.add(d,(p/totalP)*100);
+		}
+
+		return new XYSeriesCollection(series1);
+	}
+	
+	private XYDataset createPunchlistProgressSet(String dbAlias) {
+		XYSeries series1 = new XYSeries("");
+		for(int i=0;i<date.size();i++){
+			double p = punchlistOpened.get(dbAlias).get(i);
+			double d = date.get(dbAlias).get(i).getTime();
+			series1.add(d,p);
+		}
+
+		return new XYSeriesCollection(series1);
+	}
+	
+	private XYDataset createDocProgress(String s){
+		XYSeries series1 = new XYSeries("");
+		Date d = new Date();
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy.MM.dd");
+		//parsing the log file
+		String logs=GeneralConfig.logSUDoc;
+		Scanner sc = new Scanner(logs);
+		sc.useDelimiter(" -EOLOG- ");
+		while(sc.hasNext()){
+			String log = sc.next();
+			Scanner headerSeparator = new Scanner(log);
+			headerSeparator.useDelimiter(" -EOHEADER- ");
+			String header = headerSeparator.next();
+			//processing date parsing
+			try {
+				d = formatter.parse(header);
+			} catch (ParseException e) {
+				JOptionPane.showMessageDialog(null, e.getMessage());
+				e.printStackTrace();
+			}
+			String content = headerSeparator.next();
+			System.out.println(header);
+			Scanner milestoneSeparator = new Scanner(content);
+			milestoneSeparator.useDelimiter(" -EOM- ");
+			while(milestoneSeparator.hasNext()){
+				String milestoneLog = milestoneSeparator.next();
+				Scanner finaleScanner = new Scanner(milestoneLog);
+				finaleScanner.useDelimiter(" : ");
+				//Milestone name
+				String milestoneName = finaleScanner.next();
+				//milestone doc progress
+				float progressValue = Float.valueOf(finaleScanner.next());
+				//System.out.println("*"+milestoneName+"*<>*"+m.getName()+"*");
+				if(m.getName().equals(milestoneName)){
+					//System.out.println("match for "+milestoneName+"->"+progressValue);
+					double p = progressValue;
+					double date = d.getTime();
+					series1.add(date,p);
+				}
+			}
+		}
+		return new XYSeriesCollection(series1);
+	}
+	public void notifyZoomOut(){
+		this.rangeAxis.setRange(firstDate, lastDate);
+	}
+}

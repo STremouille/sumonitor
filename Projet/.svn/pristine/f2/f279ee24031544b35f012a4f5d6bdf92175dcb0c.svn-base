@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<start-up-sequence graphicQuality="true" lastDocUpdateDate="" milestoneGridSize="2" pageHeightCoeff="1.0" pageWidthCoeff="1.0" stepCharacterLimit="12" z="100.0">
+<stepField content="Date" index="0" visible="false"/>
+<stepField content="Procedure" index="1" visible="false"/>
+<stepField content="Group" index="2" visible="false"/>
+<stepField content="Estimated_Man_Hours" index="3" visible="false"/>
+<stepField content="Weight" index="4" visible="false"/>
+<stepField content="Planning_Id" index="5" visible="false"/>
+<stepField content="Equipment" index="6" visible="false"/>
+<titleBar b="192" center="true" displayPrintDates="false" enable="true" g="192" height="70" left="false" name="New Project" r="192" style="LARGE" width="1332" x="334"/>
+<milestone commCalculable="true" id="1" indeterminated="false">
+<name>SUS-A</name>
+<x>525</x>
+<y>300</y>
+<description/>
+<precommProgress>0.0</precommProgress>
+<commProgress>0.0</commProgress>
+<PLOpened>0</PLOpened>
+<PLAOpened>0</PLAOpened>
+<PLBOpened>0</PLBOpened>
+<PLCOpened>0</PLCOpened>
+<AOCProgress>0.0</AOCProgress>
+<RFCProgress>0.0</RFCProgress>
+<docProgress>0.0</docProgress>
+<stepProgress>null</stepProgress>
+<operated>false</operated>
+<subsysOperated>false</subsysOperated>
+<subsysNumber>0</subsysNumber>
+<subsysOperatedProgress>0.0</subsysOperatedProgress>
+<targetDate>2014/11/26</targetDate>
+<scopeDoneDate/>
+<dest/>
+<destSUT/>
+</milestone>
+<icaps>
+<database activated="true" alias="CLOV" connexionType="ODBC" dbName="" instanceName="" lastDbUpdate="1415228400000" login="icaps" milestoneColumn="Data2" odbcLinkName="CLOV" password="vpncf59" serverName=""/>
+</icaps>
+<target>100</target>
+<ElementDisplayedOnMilestone AOC="false" Comm="true" Doc="true" PL="false" Step="false"/>
+<doc/>
+<subsystemsOperated/>
+<projectTitleBlock enable="false" rightAligned="true">
+<companyLogo/>
+<projectLogo/>
+<contractorLogo/>
+<contractNumber/>
+<contractorName/>
+<customerField/>
+<documentTitle/>
+<studieType/>
+<facilityName/>
+<designation/>
+<drawingType/>
+<docType/>
+<systSSsyst/>
+<discipline/>
+<electronicFilename/>
+<companyRef/>
+<contractorRef/>
+<revision/>
+<scale/>
+<folio/>
+<misc>This document is the property of TOTAL. It shall not be stored, reproduced or disclosed to others without written authorisation from the company.</misc>
+<revisions/>
+</projectTitleBlock>
+<contractorLogoParse/>
+<companyLogoParse/>
+<projectLogoParse/>
+<expertMode>false</expertMode>
+<cellReference>I3</cellReference>
+<logSUActivitiesProgress/>
+</start-up-sequence>

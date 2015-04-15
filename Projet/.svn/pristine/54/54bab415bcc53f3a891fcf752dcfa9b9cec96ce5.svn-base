@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<start-up-sequence graphicQuality="true" lastDocUpdateDate="" milestoneGridSize="2" pageHeightCoeff="1.0" pageWidthCoeff="1.0" stepCharacterLimit="12" z="133.0">
+<stepField content="Date" index="0" visible="false"/>
+<stepField content="Procedure" index="1" visible="false"/>
+<stepField content="Group" index="2" visible="false"/>
+<stepField content="Estimated_Man_Hours" index="3" visible="false"/>
+<stepField content="Weight" index="4" visible="false"/>
+<stepField content="Planning_Id" index="5" visible="false"/>
+<stepField content="Equipment" index="6" visible="false"/>
+<titleBar b="192" center="true" displayPrintDates="false" enable="true" g="192" height="93" left="false" name="New Project" r="192" style="LARGE" width="1776" x="442"/>
+<milestone commCalculable="false" id="1" indeterminated="true">
+<name>New Milestone</name>
+<x>300</x>
+<y>320</y>
+<description/>
+<precommProgress>0.0</precommProgress>
+<commProgress>0.0</commProgress>
+<PLOpened>0</PLOpened>
+<PLAOpened>0</PLAOpened>
+<PLBOpened>0</PLBOpened>
+<PLCOpened>0</PLCOpened>
+<AOCProgress>0.0</AOCProgress>
+<RFCProgress>0.0</RFCProgress>
+<docProgress>0.0</docProgress>
+<stepProgress>null</stepProgress>
+<operated>false</operated>
+<subsysOperated>false</subsysOperated>
+<subsysNumber>0</subsysNumber>
+<subsysOperatedProgress>0.0</subsysOperatedProgress>
+<targetDate>2014/12/15</targetDate>
+<scopeDoneDate/>
+<dest/>
+<destSUT>1 con 2</destSUT>
+</milestone>
+<milestone commCalculable="false" id="2" indeterminated="true">
+<name>New Milestone</name>
+<x>700</x>
+<y>320</y>
+<description/>
+<precommProgress>0.0</precommProgress>
+<commProgress>0.0</commProgress>
+<PLOpened>0</PLOpened>
+<PLAOpened>0</PLAOpened>
+<PLBOpened>0</PLBOpened>
+<PLCOpened>0</PLCOpened>
+<AOCProgress>0.0</AOCProgress>
+<RFCProgress>0.0</RFCProgress>
+<docProgress>0.0</docProgress>
+<stepProgress>null</stepProgress>
+<operated>false</operated>
+<subsysOperated>false</subsysOperated>
+<subsysNumber>0</subsysNumber>
+<subsysOperatedProgress>0.0</subsysOperatedProgress>
+<targetDate>2014/12/15</targetDate>
+<scopeDoneDate/>
+<dest>3</dest>
+<destSUT/>
+</milestone>
+<milestone commCalculable="false" id="3" indeterminated="true">
+<name>New Milestone</name>
+<x>1000</x>
+<y>320</y>
+<description/>
+<precommProgress>0.0</precommProgress>
+<commProgress>0.0</commProgress>
+<PLOpened>0</PLOpened>
+<PLAOpened>0</PLAOpened>
+<PLBOpened>0</PLBOpened>
+<PLCOpened>0</PLCOpened>
+<AOCProgress>0.0</AOCProgress>
+<RFCProgress>0.0</RFCProgress>
+<docProgress>0.0</docProgress>
+<stepProgress>null</stepProgress>
+<operated>false</operated>
+<subsysOperated>false</subsysOperated>
+<subsysNumber>0</subsysNumber>
+<subsysOperatedProgress>0.0</subsysOperatedProgress>
+<targetDate>2014/12/15</targetDate>
+<scopeDoneDate/>
+<dest/>
+<destSUT/>
+</milestone>
+<startUpTask id="1">
+<name>New Step</name>
+<secondLine/>
+<x>650.0</x>
+<y>160</y>
+<width>100</width>
+<height>40</height>
+<operated>false</operated>
+<shape>Rounded Rectangle</shape>
+<milestoneRelated>Choose A Milestone</milestoneRelated>
+<backgroundColor b="192" g="192" r="192"/>
+<attr/>
+<localRules>false</localRules>
+<localAttr/>
+<dest>2</dest>
+<destSUT/>
+</startUpTask>
+<startUpTask id="2">
+<name>New Step</name>
+<secondLine/>
+<x>650.0</x>
+<y>560</y>
+<width>100</width>
+<height>40</height>
+<operated>false</operated>
+<shape>Rounded Rectangle</shape>
+<milestoneRelated>Choose A Milestone</milestoneRelated>
+<backgroundColor b="192" g="192" r="192"/>
+<attr/>
+<localRules>false</localRules>
+<localAttr/>
+<dest>2</dest>
+<destSUT/>
+</startUpTask>
+<comment id="1">
+<name>Write your note here</name>
+<x>874</x>
+<y>159</y>
+<width>188</width>
+<height>113</height>
+<backgroundColor b="153" g="255" r="255"/>
+</comment>
+<icaps/>
+<target>100</target>
+<ElementDisplayedOnMilestone AOC="false" Comm="true" Doc="true" PL="false" Step="false"/>
+<doc/>
+<subsystemsOperated/>
+<projectTitleBlock enable="false" rightAligned="true">
+<companyLogo/>
+<projectLogo/>
+<contractorLogo/>
+<contractNumber/>
+<contractorName/>
+<customerField/>
+<documentTitle/>
+<studieType/>
+<facilityName/>
+<designation/>
+<drawingType/>
+<docType/>
+<systSSsyst/>
+<discipline/>
+<electronicFilename/>
+<companyRef/>
+<contractorRef/>
+<revision/>
+<scale/>
+<folio/>
+<misc>This document is the property of TOTAL. It shall not be stored, reproduced or disclosed to others without written authorisation from the company.</misc>
+<revisions/>
+</projectTitleBlock>
+<contractorLogoParse/>
+<companyLogoParse/>
+<projectLogoParse/>
+<expertMode>false</expertMode>
+<cellReference>I3</cellReference>
+<logSUActivitiesProgress/>
+</start-up-sequence>
