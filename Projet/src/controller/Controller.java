@@ -39,6 +39,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 import java.util.Scanner;
 import java.util.TreeMap;
 import java.util.concurrent.ExecutionException;
@@ -47,14 +48,10 @@ import java.util.concurrent.Executors;
 
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
-import javax.swing.JComponent;
 import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
-import javax.swing.JPopupMenu;
 import javax.swing.JProgressBar;
 import javax.swing.WindowConstants;
 import javax.swing.event.ChangeEvent;
@@ -74,8 +71,6 @@ import model.StartUpStep;
 import model.TitleBar;
 import model.TitleBar.Style;
 import model.mode.Mode;
-import model.mode.NormalMode;
-
 import org.w3c.dom.DOMException;
 import org.xml.sax.SAXException;
 
@@ -96,10 +91,7 @@ import view.View;
 import xml.LoadXMLFile;
 import xml.SaveXMLFile;
 
-import com.mysql.jdbc.Util;
 import com.packenius.library.xspdf.XSPDF;
-import com.sun.corba.se.spi.orbutil.fsm.Action;
-
 import conf.DatePicker;
 import conf.GeneralConfig;
 import conf.Utils;
@@ -192,6 +184,8 @@ public class Controller {
 	 * @param view
 	 */
 	public Controller(StartUpSequence model, View view) {
+		JOptionPane.setDefaultLocale(Locale.ENGLISH);
+		
 		this.setModel(model);
 		this.setView(view);
 		this.controller = this;
@@ -678,17 +672,19 @@ public class Controller {
 
 		@Override
 		public void mouseMoved(MouseEvent arg0) {
-			
-			for(int key : model.getStartUpTasks().keySet()){
-				if(model.getStartUpTask(key).getBounds().contains(arg0.getPoint())){
-					view.displayHint(model.getStartUpTask(key));
-					view.repaint();
-					break;
-				} else {
-					view.notDisplayHint();
+			if(model.getStartUpTasks().size()>0){
+				for(int key : model.getStartUpTasks().keySet()){
+					if(model.getStartUpTask(key).getBounds().contains(arg0.getPoint())){
+						view.displayHint(model.getStartUpTask(key));
+						view.repaint();
+						break;
+					} else {
+						view.notDisplayHint();
+					}
 				}
+			} else {
+				view.notDisplayHint();
 			}
-			
 			
 			
 			if (titleSelected && GeneralConfig.titleEnable) {
@@ -2013,6 +2009,8 @@ public class Controller {
 
 			//Place where pdf is created
 			JFileChooser jfcForPDF = new JFileChooser();
+			jfcForPDF.setLocale(Locale.getDefault());
+			jfcForPDF.updateUI();
 			FileNameExtensionFilter filter = new FileNameExtensionFilter(".pdf", "pdf");
 			jfcForPDF.setFileFilter(filter);
 			int returnVal = jfcForPDF.showOpenDialog(view);
@@ -2137,6 +2135,8 @@ public class Controller {
 			if(saveAs){
 				//Select file
 				JFileChooser jfc = new JFileChooser();
+				jfc.setLocale(Locale.getDefault());
+				jfc.updateUI();
 				FileNameExtensionFilter filter = new FileNameExtensionFilter(".xml", "xml");
 				jfc.setFileFilter(filter);
 				//putting the last folder used
@@ -2301,6 +2301,8 @@ public class Controller {
 				SaveAs=true;
 				//Select file
 				JFileChooser jfc = new JFileChooser();
+				jfc.setLocale(Locale.getDefault());
+				jfc.updateUI();
 				FileNameExtensionFilter filter = new FileNameExtensionFilter(".xml", "xml");
 				jfc.setFileFilter(filter);
 				
@@ -2821,6 +2823,7 @@ public class Controller {
 	    }
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
+			
 			int confirm = JOptionPane.showOptionDialog(view, "Are you sure you want to create a new one ?", "New Start-Up Sequence Confirmation", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
 			if(confirm==0){
 				GeneralConfig.init();

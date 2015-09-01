@@ -112,7 +112,7 @@ public class AboutView extends JDialog{
 		contentPanel.add(lblIcapstotalcom, gbc_lblIcapstotalcom);
 	}
 	{
-		JLabel lblRelease = new JLabel("Version 1.0");
+		JLabel lblRelease = new JLabel("Version 1.0.6");
 		lblRelease.setFont(new Font("Arial", Font.PLAIN, 13));
 		GridBagConstraints gbc_lblRelease = new GridBagConstraints();
 		gbc_lblRelease.anchor = GridBagConstraints.WEST;
