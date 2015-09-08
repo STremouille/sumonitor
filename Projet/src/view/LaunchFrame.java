@@ -1,8 +1,10 @@
 package view;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -16,12 +18,15 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+
+import conf.GeneralConfig;
 import controller.Controller;
 
 import javax.swing.border.SoftBevelBorder;
@@ -109,6 +114,11 @@ public class LaunchFrame extends JFrame {
 		g.setRenderingHint(RenderingHints.KEY_FRACTIONALMETRICS, RenderingHints.VALUE_FRACTIONALMETRICS_ON);
 		g.scale(scaleFactor, scaleFactor);
 		launchImg.paintIcon(null, g, 0, 0);
+		Graphics g2 = bi.getGraphics();
+		g2.setFont(g.getFont().deriveFont(14f));
+		g2.setColor(Color.black);
+		g2.drawString("v "+GeneralConfig.version, (int)Math.round(bi.getWidth()-bi.getWidth()/10.0),(int)Math.round(bi.getHeight()-bi.getHeight()/10.0));
+		g2.dispose();
 		g.dispose();
 		
 		lblNewLabel.setIcon(new ImageIcon(bi));

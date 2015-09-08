@@ -31,6 +31,7 @@ import java.util.TimerTask;
 
 import javax.swing.SwingConstants;
 
+import conf.GeneralConfig;
 import main.Clock;
 import main.Controller;
 import main.View;
@@ -112,7 +113,7 @@ public class AboutView extends JDialog{
 		contentPanel.add(lblIcapstotalcom, gbc_lblIcapstotalcom);
 	}
 	{
-		JLabel lblRelease = new JLabel("Version 1.0.6");
+		JLabel lblRelease = new JLabel("Version "+GeneralConfig.version);
 		lblRelease.setFont(new Font("Arial", Font.PLAIN, 13));
 		GridBagConstraints gbc_lblRelease = new GridBagConstraints();
 		gbc_lblRelease.anchor = GridBagConstraints.WEST;

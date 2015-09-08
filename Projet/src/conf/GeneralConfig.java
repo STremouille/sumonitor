@@ -25,6 +25,9 @@ import database.Database;
  * test GIT
  */
 public class GeneralConfig {
+	
+	public static String version = "1.0.6";
+	
 	public static boolean loadMode;
 	/**
 	 * Milestone Height
