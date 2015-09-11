@@ -3,24 +3,19 @@
 /.project
 /.settings/
 /.svn/
-/BackUpSUDoc.xlsx
-/CSU Request/
-/FOPS-Template.xlsx
-/autosave.xml
-/build.xml
 /conf/
 /connector/
 /controller/
 /database/
 /detailedStartUpSequence/
-/image/
 /model/
 /org/
 /revision/
 /start/
 /steps/
 /subsystem/
+/target/
 /view/
 /worker/
 /xml/
-/target/
+/CSU Request/
