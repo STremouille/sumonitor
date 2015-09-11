@@ -6,6 +6,8 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.RenderingHints;
+import java.awt.font.FontRenderContext;
+import java.awt.geom.AffineTransform;
 
 import javax.swing.JPanel;
 
@@ -198,13 +200,31 @@ public class DrawPanel extends JPanel{
 		//hint
 		if(displayHintStartUpTask){
 			g.setFont(new Font(policy, Font.TRUETYPE_FONT, (int) (GeneralConfig.pageHeightRatio/80.0)));
-			g.setColor(Color.darkGray);
-			g.drawString(susForHint.getName(), (int) Math.round(susForHint.getX()+susForHint.getWidth()), (int) Math.round(susForHint.getY()+susForHint.getHeight()));
-			g.drawString(susForHint.getLongDescription()+"", (int) Math.round(susForHint.getX()+susForHint.getWidth()), (int) Math.round(susForHint.getY()+susForHint.getHeight()+g.getFontMetrics().getHeight()));
+			//Draw box around
+			int height = (1+susForHint.getAttr().size())*g.getFontMetrics().getHeight();
+			System.out.println(height);
+			int width=0;
+			if(susForHint.getLongDescription()!=null){
+				width = (int) Math.max(g.getFontMetrics().getStringBounds(susForHint.getName(),g).getWidth(), g.getFontMetrics().getStringBounds(susForHint.getLongDescription(),g).getWidth());
+			} else {
+				width = (int) Math.round(g.getFontMetrics().getStringBounds(susForHint.getName(),g).getWidth());
+			}
+			for(String key : susForHint.getAttr().keySet()){
+				width = (int) Math.max(g.getFontMetrics().getStringBounds(susForHint.getAttr(key), g).getWidth(), width);
+			}
+			width = (int)Math.round(width*1.23);
+			g.setColor(Color.white);
+			g.fillRoundRect((int) Math.round(susForHint.getX()+susForHint.getWidth()+GeneralConfig.cellWidth*0.2-g.getFontMetrics().getHeight()), (int) Math.round(susForHint.getY()+susForHint.getHeight()+GeneralConfig.cellWidth*0.2-g.getFontMetrics().getHeight()), width + 2*g.getFontMetrics().getHeight(), height+ 2*g.getFontMetrics().getHeight(), (int)Math.round(GeneralConfig.cellWidth*0.1), (int)Math.round(GeneralConfig.cellWidth*0.1));
+			g.setColor(Color.black);
+			g.drawRoundRect((int) Math.round(susForHint.getX()+susForHint.getWidth()+GeneralConfig.cellWidth*0.2-g.getFontMetrics().getHeight()), (int) Math.round(susForHint.getY()+susForHint.getHeight()+GeneralConfig.cellWidth*0.2-g.getFontMetrics().getHeight()), width + 2*g.getFontMetrics().getHeight(), height+ 2*g.getFontMetrics().getHeight(), (int)Math.round(GeneralConfig.cellWidth*0.1), (int)Math.round(GeneralConfig.cellWidth*0.1));
+			//Text
+			g.drawString(susForHint.getName(), (int) Math.round(susForHint.getX()+susForHint.getWidth()+GeneralConfig.cellWidth*0.2), (int) Math.round(susForHint.getY()+susForHint.getHeight()+GeneralConfig.cellWidth*0.2));
+			if(susForHint.getLongDescription()!=null)
+				g.drawString(susForHint.getLongDescription(), (int) Math.round(susForHint.getX()+susForHint.getWidth()+GeneralConfig.cellWidth*0.2), (int) Math.round(susForHint.getY()+susForHint.getHeight()+GeneralConfig.cellWidth*0.2+g.getFontMetrics().getHeight()));
 			int i = 0;
 			for(String key : susForHint.getAttr().keySet()){
 				i++;
-				g.drawString(key + " : "+susForHint.getAttr(key), (int) Math.round(susForHint.getX()+susForHint.getWidth()), (int) Math.round(susForHint.getY()+susForHint.getHeight()+(i+1)*g.getFontMetrics().getHeight()));
+				g.drawString(key + " : "+susForHint.getAttr(key), (int) Math.round(susForHint.getX()+susForHint.getWidth()+GeneralConfig.cellWidth*0.2), (int) Math.round(susForHint.getY()+susForHint.getHeight()+GeneralConfig.cellWidth*0.2+(i+1)*g.getFontMetrics().getHeight()));
 			}
 		}
 	}
