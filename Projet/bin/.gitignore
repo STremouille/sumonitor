@@ -1,8 +1,16 @@
+/.svn/
+/BackUpSUDoc.xlsx
+/CSU Request/
+/FOPS-Template.xlsx
+/autosave.xml
+/build.xml
+/image/
+/last
+/lib/
 /.classpath
 /.pmd
 /.project
 /.settings/
-/.svn/
 /conf/
 /connector/
 /controller/
@@ -14,8 +22,7 @@
 /start/
 /steps/
 /subsystem/
-/target/
 /view/
 /worker/
 /xml/
-/CSU Request/
+/target/
