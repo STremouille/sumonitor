@@ -215,8 +215,8 @@ public class View extends JFrame{
 		mntmProjectResume.setIcon(new ImageIcon(View.class.getResource("/icons/org/fife/plaf/Office2003/printpreview.gif")));
 		mnUtility.add(mntmProjectResume);
 		
-		mntmShowStartUp = new JMenuItem("Show List of Start Up Steps");
-		mnUtility.add(mntmShowStartUp);
+		/*mntmShowStartUp = new JMenuItem("Show List of Start Up Steps");
+		mnUtility.add(mntmShowStartUp);*/
 		
 		mntmShowProjectTarget = new JMenuItem("Show Project Target");
 		mntmShowProjectTarget.setIcon(new ImageIcon(View.class.getResource("/org/apache/log4j/lf5/viewer/images/channelexplorer_satellite.gif")));

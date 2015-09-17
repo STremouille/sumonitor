@@ -972,7 +972,7 @@
 <destSUT/>
 </startUpTask>
 <icaps>
-<database activated="true" alias="TOPSIDE" connexionType="ODBC" dbName="" instanceName="" lastDbUpdate="1427666400000" login="icaps" milestoneColumn="Data1" odbcLinkName="MARTIN-LINGE-TOPSIDE" password="vpncf59" serverName=""/>
+<database activated="true" alias="TOPSIDE" connexionType="ODBC" dbName="" instanceName="" login="icaps" milestoneColumn="Data1" odbcLinkName="KOREA" password="vpncf59" serverName=""/>
 </icaps>
 <target>100</target>
 <ElementDisplayedOnMilestone AOC="true" Comm="true" Doc="true" PL="true" Step="false"/>
