@@ -720,6 +720,7 @@ public class SaveXMLFile {
 		//Label for doc
 		Element labelForDoc = doc.createElement("labelForDoc");
 		labelForDoc.appendChild(doc.createTextNode(GeneralConfig.labelForDoc));
+		root.appendChild(labelForDoc);
 		
 		Element expertMode = doc.createElement("expertMode");
 		if(GeneralConfig.expertMode){

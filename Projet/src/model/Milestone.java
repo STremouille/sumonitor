@@ -616,15 +616,15 @@ public class Milestone extends JComponent implements MovableItem{
 			    	drawPunchList(g,this,true,relativePosProgress);
 			}
 			if(GeneralConfig.ssAOCdisplayed){
-				ProgressBar aoc = new ProgressBar(false,"AOC",getAOCProgress(), x + getWidth()/2, y + relativePosProgress, getWidth()/2, (int) (getHeight() * 0.25)/2,this);
+				ProgressBar aoc = new ProgressBar(false,"AOC",getAOCProgress(), x + getWidth()/2, y + relativePosProgress, getWidth()/2, (int) (getHeight() * 0.25)/2,this,false);
 				aoc.paintComponent(g);
 			}
 			if(GeneralConfig.commProgressDisplayed){
-				ProgressBar comm = new ProgressBar(true,"Comm",getCommProgress(),x, y + relativePosProgress, getWidth()/2, (int) (getHeight() * 0.25)/2,this);
+				ProgressBar comm = new ProgressBar(true,"Comm",getCommProgress(),x, y + relativePosProgress, getWidth()/2, (int) (getHeight() * 0.25)/2,this,false);
 				comm.paintComponent(g);
 			}
 			if(GeneralConfig.docProgressDisplayed){
-				ProgressBar doc = new ProgressBar(false,GeneralConfig.labelForDoc,getDocumentationProgress(), x + getWidth()/2, y + relativePosProgress,  getWidth()/2,(int) (getHeight() * 0.25)/2,this);
+				ProgressBar doc = new ProgressBar(false,GeneralConfig.labelForDoc,getDocumentationProgress(), x + getWidth()/2, y + relativePosProgress,  getWidth()/2,(int) (getHeight() * 0.25)/2,this,true);
 				doc.paintComponent(g);
 			}
 			if(getSsOperatedProgress()!=100.0){
@@ -662,15 +662,15 @@ public class Milestone extends JComponent implements MovableItem{
 			    	drawPunchList(g,this,false,relativePosProgress);
 			}
 			if(GeneralConfig.commProgressDisplayed){
-				ProgressBar comm = new ProgressBar(true,"Comm",getCommProgress(),x, y + relativePosProgress+(0.25/2*getHeight()), getWidth()/2, (int) (getHeight() * 0.25)/2,this);
+				ProgressBar comm = new ProgressBar(true,"Comm",getCommProgress(),x, y + relativePosProgress+(0.25/2*getHeight()), getWidth()/2, (int) (getHeight() * 0.25)/2,this,false);
 				comm.paintComponent(g);
 			}
 			if(GeneralConfig.ssAOCdisplayed){
-				ProgressBar aoc = new ProgressBar(false,"AOC",getAOCProgress(), x + getWidth()/2, y +relativePosProgress, getWidth()/2, (int) (getHeight() * 0.25)/2,this);
+				ProgressBar aoc = new ProgressBar(false,"AOC",getAOCProgress(), x + getWidth()/2, y +relativePosProgress, getWidth()/2, (int) (getHeight() * 0.25)/2,this,false);
 				aoc.paintComponent(g);
 			}
 			if(GeneralConfig.docProgressDisplayed){
-				ProgressBar doc = new ProgressBar(false,GeneralConfig.labelForDoc,getDocumentationProgress(), x + getWidth()/2, y + relativePosProgress+(0.25/2*getHeight()),  getWidth()/2,(int) (getHeight() * 0.25)/2,this);
+				ProgressBar doc = new ProgressBar(false,GeneralConfig.labelForDoc,getDocumentationProgress(), x + getWidth()/2, y + relativePosProgress+(0.25/2*getHeight()),  getWidth()/2,(int) (getHeight() * 0.25)/2,this,true);
 				doc.paintComponent(g);
 			}
 			if(getSsOperatedProgress()!=100.0){

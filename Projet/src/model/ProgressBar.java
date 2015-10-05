@@ -21,6 +21,7 @@ public class ProgressBar extends JComponent {
 	private Milestone m;
 	private boolean leftToRight;
 	private String type;
+	private boolean isDocProgressBar;
 	
 	
 	/**
@@ -33,7 +34,7 @@ public class ProgressBar extends JComponent {
 	 * @param height
 	 * @param milestone
 	 */
-	public ProgressBar(boolean leftToRight,String type,Double progress, double x, double y, double width, double height,Milestone milestone) {
+	public ProgressBar(boolean leftToRight,String type,Double progress, double x, double y, double width, double height,Milestone milestone,Boolean isDocProgressBar) {
 		super();
 		this.type=type;
 		this.progress = progress;
@@ -43,12 +44,13 @@ public class ProgressBar extends JComponent {
 		this.height = height;
 		this.m=milestone;
 		this.leftToRight=leftToRight;
+		this.isDocProgressBar=isDocProgressBar;
 	}
 	
 	@Override
 	public void paintComponent(Graphics g){
 		g.setColor(m.getMilestoneMode().getProgressBarBackgroundColor());
-		if ((m.isIndeterminated()||(!m.isInTADAILYREPORT()&&type=="COMM"))&&type!="DOC"){
+		if ((m.isIndeterminated()||(!m.isInTADAILYREPORT()&&type=="COMM"))&&!isDocProgressBar){
 		    if(leftToRight){
 			g.fillRect((int)x,(int)y,(int)width,(int)height);
         			
@@ -70,7 +72,7 @@ public class ProgressBar extends JComponent {
         			Utils.printSimpleStringRightAligned(g, "N/A"+" :"+type, (int)Math.round(width*0.9), (int)x ,(int) (y+height/3));
         		}
 		}
-		else if((!m.isIndeterminated()||type=="DOC")){
+		else if((!m.isIndeterminated())||isDocProgressBar){
         		if(leftToRight){
         			g.fillRect((int)x,(int)y,(int)width,(int)height);
         			

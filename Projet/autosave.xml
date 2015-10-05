@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<start-up-sequence graphicQuality="true" lastDocUpdateDate="Sep/01/2015" milestoneGridSize="2" pageHeightCoeff="3.0" pageWidthCoeff="1.2" stepCharacterLimit="99" z="133.0">
+<start-up-sequence graphicQuality="true" lastDocUpdateDate="Oct/14/2015" milestoneGridSize="2" pageHeightCoeff="3.0" pageWidthCoeff="1.2" stepCharacterLimit="12" z="133.0">
 <stepField content="Date" index="0" visible="false"/>
 <stepField content="Procedure" index="1" visible="false"/>
 <stepField content="Group" index="2" visible="false"/>
@@ -8,31 +8,31 @@
 <stepField content="Planning_Id" index="5" visible="false"/>
 <stepField content="Equipment" index="6" visible="false"/>
 <titleBar b="255" center="false" displayPrintDates="true" enable="true" g="153" height="95" left="false" name="Norway - Martin Linge Project (DRAFT)" r="153" style="LARGE" width="1776" x="1416"/>
-<milestone commCalculable="false" id="1" indeterminated="false">
+<milestone commCalculable="true" id="1" indeterminated="false">
 <name>LQRFO</name>
 <x>400</x>
 <y>640</y>
 <description>Living Quarter Ready For Occupancy</description>
-<precommProgress>1.7</precommProgress>
+<precommProgress>1.5</precommProgress>
 <commProgress>0.0</commProgress>
-<PLOpened>0</PLOpened>
-<PLAOpened>0</PLAOpened>
-<PLBOpened>0</PLBOpened>
-<PLCOpened>0</PLCOpened>
+<PLOpened>187</PLOpened>
+<PLAOpened>108</PLAOpened>
+<PLBOpened>59</PLBOpened>
+<PLCOpened>20</PLCOpened>
 <AOCProgress>0.0</AOCProgress>
 <RFCProgress>0.0</RFCProgress>
 <docProgress>0.0</docProgress>
 <stepProgress>0.0</stepProgress>
 <operated>false</operated>
 <subsysOperated>false</subsysOperated>
-<subsysNumber>175</subsysNumber>
+<subsysNumber>186</subsysNumber>
 <subsysOperatedProgress>0.0</subsysOperatedProgress>
 <targetDate>2016/12/31</targetDate>
 <scopeDoneDate/>
 <dest>7</dest>
 <destSUT/>
 </milestone>
-<milestone commCalculable="false" id="2" indeterminated="false">
+<milestone commCalculable="false" id="2" indeterminated="true">
 <name>PFS</name>
 <x>400</x>
 <y>400</y>
@@ -49,86 +49,62 @@
 <stepProgress>0.0</stepProgress>
 <operated>false</operated>
 <subsysOperated>false</subsysOperated>
-<subsysNumber>2</subsysNumber>
+<subsysNumber>0</subsysNumber>
 <subsysOperatedProgress>0.0</subsysOperatedProgress>
 <targetDate>2016/12/31</targetDate>
 <scopeDoneDate/>
 <dest>1</dest>
 <destSUT/>
 </milestone>
-<milestone commCalculable="false" id="3" indeterminated="true">
+<milestone commCalculable="true" id="3" indeterminated="false">
 <name>KPS</name>
 <x>400</x>
 <y>160</y>
 <description>Kollsnes Power Supply</description>
-<precommProgress>0.0</precommProgress>
-<commProgress>0.0</commProgress>
-<PLOpened>0</PLOpened>
+<precommProgress>73.0</precommProgress>
+<commProgress>48.0</commProgress>
+<PLOpened>60</PLOpened>
 <PLAOpened>0</PLAOpened>
-<PLBOpened>0</PLBOpened>
-<PLCOpened>0</PLCOpened>
+<PLBOpened>9</PLBOpened>
+<PLCOpened>51</PLCOpened>
 <AOCProgress>0.0</AOCProgress>
 <RFCProgress>0.0</RFCProgress>
 <docProgress>0.0</docProgress>
 <stepProgress>0.0</stepProgress>
 <operated>false</operated>
 <subsysOperated>false</subsysOperated>
-<subsysNumber>0</subsysNumber>
+<subsysNumber>29</subsysNumber>
 <subsysOperatedProgress>0.0</subsysOperatedProgress>
 <targetDate>2016/12/31</targetDate>
 <scopeDoneDate/>
 <dest>2</dest>
 <destSUT/>
 </milestone>
-<milestone commCalculable="false" id="4" indeterminated="false">
-<name>TELECOM-LINK</name>
-<x>1400</x>
-<y>160</y>
-<description>Telecom Link</description>
-<precommProgress>0.0</precommProgress>
-<commProgress>0.0</commProgress>
-<PLOpened>0</PLOpened>
-<PLAOpened>0</PLAOpened>
-<PLBOpened>0</PLBOpened>
-<PLCOpened>0</PLCOpened>
-<AOCProgress>0.0</AOCProgress>
-<RFCProgress>0.0</RFCProgress>
-<docProgress>0.0</docProgress>
-<stepProgress>0.0</stepProgress>
-<operated>false</operated>
-<subsysOperated>false</subsysOperated>
-<subsysNumber>2</subsysNumber>
-<subsysOperatedProgress>0.0</subsysOperatedProgress>
-<targetDate>2016/12/31</targetDate>
-<scopeDoneDate/>
-<dest>5</dest>
-<destSUT/>
-</milestone>
-<milestone commCalculable="false" id="5" indeterminated="true">
+<milestone commCalculable="true" id="5" indeterminated="false">
 <name>CCR</name>
 <x>1400</x>
 <y>560</y>
 <description>Central Control Room</description>
-<precommProgress>0.0</precommProgress>
+<precommProgress>9.7</precommProgress>
 <commProgress>0.0</commProgress>
-<PLOpened>0</PLOpened>
-<PLAOpened>0</PLAOpened>
-<PLBOpened>0</PLBOpened>
+<PLOpened>20</PLOpened>
+<PLAOpened>10</PLAOpened>
+<PLBOpened>10</PLBOpened>
 <PLCOpened>0</PLCOpened>
 <AOCProgress>0.0</AOCProgress>
-<RFCProgress>0.0</RFCProgress>
+<RFCProgress>3.8</RFCProgress>
 <docProgress>0.0</docProgress>
 <stepProgress>0.0</stepProgress>
 <operated>false</operated>
 <subsysOperated>false</subsysOperated>
-<subsysNumber>0</subsysNumber>
+<subsysNumber>26</subsysNumber>
 <subsysOperatedProgress>0.0</subsysOperatedProgress>
 <targetDate>2016/12/31</targetDate>
 <scopeDoneDate/>
 <dest/>
 <destSUT>2</destSUT>
 </milestone>
-<milestone commCalculable="false" id="6" indeterminated="false">
+<milestone commCalculable="false" id="6" indeterminated="true">
 <name>OOCBOS</name>
 <x>1400</x>
 <y>1840</y>
@@ -146,7 +122,7 @@
 <stepProgress>0.0</stepProgress>
 <operated>false</operated>
 <subsysOperated>false</subsysOperated>
-<subsysNumber>4</subsysNumber>
+<subsysNumber>0</subsysNumber>
 <subsysOperatedProgress>0.0</subsysOperatedProgress>
 <targetDate>2016/12/31</targetDate>
 <scopeDoneDate/>
@@ -158,26 +134,26 @@
 <x>400</x>
 <y>960</y>
 <description>Ready For Driling Rig Approach</description>
-<precommProgress>0.0</precommProgress>
+<precommProgress>0.3</precommProgress>
 <commProgress>0.0</commProgress>
-<PLOpened>0</PLOpened>
-<PLAOpened>0</PLAOpened>
-<PLBOpened>0</PLBOpened>
-<PLCOpened>0</PLCOpened>
+<PLOpened>34</PLOpened>
+<PLAOpened>12</PLAOpened>
+<PLBOpened>8</PLBOpened>
+<PLCOpened>14</PLCOpened>
 <AOCProgress>0.0</AOCProgress>
 <RFCProgress>0.0</RFCProgress>
 <docProgress>0.0</docProgress>
 <stepProgress>0.0</stepProgress>
 <operated>false</operated>
 <subsysOperated>false</subsysOperated>
-<subsysNumber>11</subsysNumber>
+<subsysNumber>97</subsysNumber>
 <subsysOperatedProgress>0.0</subsysOperatedProgress>
 <targetDate>2016/12/31</targetDate>
 <scopeDoneDate/>
 <dest>8</dest>
 <destSUT/>
 </milestone>
-<milestone commCalculable="false" id="8" indeterminated="false">
+<milestone commCalculable="false" id="8" indeterminated="true">
 <name>PROCESS-UTILITIES</name>
 <x>400</x>
 <y>1280</y>
@@ -194,38 +170,38 @@
 <stepProgress>0.0</stepProgress>
 <operated>false</operated>
 <subsysOperated>false</subsysOperated>
-<subsysNumber>73</subsysNumber>
+<subsysNumber>0</subsysNumber>
 <subsysOperatedProgress>0.0</subsysOperatedProgress>
 <targetDate>2016/12/31</targetDate>
 <scopeDoneDate/>
 <dest/>
 <destSUT>3</destSUT>
 </milestone>
-<milestone commCalculable="false" id="9" indeterminated="false">
+<milestone commCalculable="true" id="9" indeterminated="false">
 <name>GEPR</name>
 <x>100</x>
 <y>1040</y>
 <description>GEP Ready</description>
-<precommProgress>0.0</precommProgress>
+<precommProgress>90.0</precommProgress>
 <commProgress>0.0</commProgress>
-<PLOpened>0</PLOpened>
+<PLOpened>3</PLOpened>
 <PLAOpened>0</PLAOpened>
 <PLBOpened>0</PLBOpened>
-<PLCOpened>0</PLCOpened>
+<PLCOpened>3</PLCOpened>
 <AOCProgress>0.0</AOCProgress>
 <RFCProgress>0.0</RFCProgress>
 <docProgress>0.0</docProgress>
 <stepProgress>0.0</stepProgress>
 <operated>false</operated>
 <subsysOperated>false</subsysOperated>
-<subsysNumber>1</subsysNumber>
+<subsysNumber>9</subsysNumber>
 <subsysOperatedProgress>0.0</subsysOperatedProgress>
 <targetDate>2016/12/31</targetDate>
 <scopeDoneDate/>
 <dest>8</dest>
 <destSUT/>
 </milestone>
-<milestone commCalculable="false" id="10" indeterminated="false">
+<milestone commCalculable="false" id="10" indeterminated="true">
 <name>N2R</name>
 <x>400</x>
 <y>1680</y>
@@ -242,14 +218,14 @@
 <stepProgress>0.0</stepProgress>
 <operated>false</operated>
 <subsysOperated>false</subsysOperated>
-<subsysNumber>5</subsysNumber>
+<subsysNumber>0</subsysNumber>
 <subsysOperatedProgress>0.0</subsysOperatedProgress>
 <targetDate>2016/12/31</targetDate>
 <scopeDoneDate/>
 <dest/>
 <destSUT>4</destSUT>
 </milestone>
-<milestone commCalculable="false" id="11" indeterminated="false">
+<milestone commCalculable="false" id="11" indeterminated="true">
 <name>GM</name>
 <x>400</x>
 <y>2880</y>
@@ -266,14 +242,14 @@
 <stepProgress>0.0</stepProgress>
 <operated>false</operated>
 <subsysOperated>false</subsysOperated>
-<subsysNumber>3</subsysNumber>
+<subsysNumber>0</subsysNumber>
 <subsysOperatedProgress>0.0</subsysOperatedProgress>
 <targetDate>2016/12/31</targetDate>
 <scopeDoneDate/>
 <dest>18</dest>
 <destSUT/>
 </milestone>
-<milestone commCalculable="false" id="12" indeterminated="false">
+<milestone commCalculable="false" id="12" indeterminated="true">
 <name>GT</name>
 <x>800</x>
 <y>2000</y>
@@ -290,14 +266,14 @@
 <stepProgress>0.0</stepProgress>
 <operated>false</operated>
 <subsysOperated>false</subsysOperated>
-<subsysNumber>12</subsysNumber>
+<subsysNumber>0</subsysNumber>
 <subsysOperatedProgress>0.0</subsysOperatedProgress>
 <targetDate>2016/12/31</targetDate>
 <scopeDoneDate/>
 <dest>18</dest>
 <destSUT/>
 </milestone>
-<milestone commCalculable="false" id="13" indeterminated="false">
+<milestone commCalculable="false" id="13" indeterminated="true">
 <name>PC</name>
 <x>400</x>
 <y>2720</y>
@@ -314,7 +290,7 @@
 <stepProgress>0.0</stepProgress>
 <operated>false</operated>
 <subsysOperated>false</subsysOperated>
-<subsysNumber>2</subsysNumber>
+<subsysNumber>0</subsysNumber>
 <subsysOperatedProgress>0.0</subsysOperatedProgress>
 <targetDate>2016/12/31</targetDate>
 <scopeDoneDate/>
@@ -326,7 +302,7 @@
 <x>400</x>
 <y>2240</y>
 <description>Gas Liquid Separation</description>
-<precommProgress>0.0</precommProgress>
+<precommProgress>10.0</precommProgress>
 <commProgress>0.0</commProgress>
 <PLOpened>0</PLOpened>
 <PLAOpened>0</PLAOpened>
@@ -338,7 +314,7 @@
 <stepProgress>0.0</stepProgress>
 <operated>false</operated>
 <subsysOperated>false</subsysOperated>
-<subsysNumber>5</subsysNumber>
+<subsysNumber>3</subsysNumber>
 <subsysOperatedProgress>0.0</subsysOperatedProgress>
 <targetDate>2016/12/31</targetDate>
 <scopeDoneDate/>
@@ -393,7 +369,7 @@
 <dest>18</dest>
 <destSUT/>
 </milestone>
-<milestone commCalculable="false" id="17" indeterminated="true">
+<milestone commCalculable="false" id="17" indeterminated="false">
 <name>FSORFO</name>
 <x>400</x>
 <y>3120</y>
@@ -410,14 +386,14 @@
 <stepProgress>0.0</stepProgress>
 <operated>false</operated>
 <subsysOperated>false</subsysOperated>
-<subsysNumber>0</subsysNumber>
+<subsysNumber>4</subsysNumber>
 <subsysOperatedProgress>0.0</subsysOperatedProgress>
 <targetDate>2016/12/31</targetDate>
 <scopeDoneDate/>
-<dest>18 con 28</dest>
+<dest>18 con 29</dest>
 <destSUT/>
 </milestone>
-<milestone commCalculable="false" id="18" indeterminated="false">
+<milestone commCalculable="false" id="18" indeterminated="true">
 <name>FIRST-GAS</name>
 <x>1400</x>
 <y>3120</y>
@@ -434,14 +410,14 @@
 <stepProgress>0.0</stepProgress>
 <operated>false</operated>
 <subsysOperated>false</subsysOperated>
-<subsysNumber>15</subsysNumber>
+<subsysNumber>0</subsysNumber>
 <subsysOperatedProgress>0.0</subsysOperatedProgress>
 <targetDate>2016/12/31</targetDate>
 <scopeDoneDate/>
 <dest/>
 <destSUT>9</destSUT>
 </milestone>
-<milestone commCalculable="false" id="19" indeterminated="false">
+<milestone commCalculable="false" id="19" indeterminated="true">
 <name>R4GR</name>
 <x>900</x>
 <y>3680</y>
@@ -458,14 +434,14 @@
 <stepProgress>0.0</stepProgress>
 <operated>false</operated>
 <subsysOperated>false</subsysOperated>
-<subsysNumber>3</subsysNumber>
+<subsysNumber>0</subsysNumber>
 <subsysOperatedProgress>0.0</subsysOperatedProgress>
 <targetDate>2016/12/31</targetDate>
 <scopeDoneDate/>
 <dest>21</dest>
 <destSUT/>
 </milestone>
-<milestone commCalculable="false" id="20" indeterminated="false">
+<milestone commCalculable="false" id="20" indeterminated="true">
 <name>GL</name>
 <x>1700</x>
 <y>3680</y>
@@ -482,14 +458,14 @@
 <stepProgress>0.0</stepProgress>
 <operated>false</operated>
 <subsysOperated>false</subsysOperated>
-<subsysNumber>2</subsysNumber>
+<subsysNumber>0</subsysNumber>
 <subsysOperatedProgress>0.0</subsysOperatedProgress>
 <targetDate>2016/12/31</targetDate>
 <scopeDoneDate/>
 <dest>22</dest>
 <destSUT/>
 </milestone>
-<milestone commCalculable="false" id="21" indeterminated="false">
+<milestone commCalculable="false" id="21" indeterminated="true">
 <name>R123GR</name>
 <x>900</x>
 <y>4000</y>
@@ -506,7 +482,7 @@
 <stepProgress>0.0</stepProgress>
 <operated>false</operated>
 <subsysOperated>false</subsysOperated>
-<subsysNumber>3</subsysNumber>
+<subsysNumber>0</subsysNumber>
 <subsysOperatedProgress>0.0</subsysOperatedProgress>
 <targetDate>2016/12/31</targetDate>
 <scopeDoneDate/>
@@ -537,7 +513,7 @@
 <dest/>
 <destSUT>8</destSUT>
 </milestone>
-<milestone commCalculable="false" id="23" indeterminated="false">
+<milestone commCalculable="false" id="23" indeterminated="true">
 <name>2GEC</name>
 <x>1300</x>
 <y>4240</y>
@@ -554,7 +530,7 @@
 <stepProgress>0.0</stepProgress>
 <operated>false</operated>
 <subsysOperated>false</subsysOperated>
-<subsysNumber>3</subsysNumber>
+<subsysNumber>0</subsysNumber>
 <subsysOperatedProgress>0.0</subsysOperatedProgress>
 <targetDate>2016/12/31</targetDate>
 <scopeDoneDate/>
@@ -590,7 +566,7 @@
 <x>2700</x>
 <y>3680</y>
 <description>Water infield Pipeline</description>
-<precommProgress>0.0</precommProgress>
+<precommProgress>10.0</precommProgress>
 <commProgress>0.0</commProgress>
 <PLOpened>0</PLOpened>
 <PLAOpened>0</PLAOpened>
@@ -602,14 +578,14 @@
 <stepProgress>0.0</stepProgress>
 <operated>false</operated>
 <subsysOperated>false</subsysOperated>
-<subsysNumber>2</subsysNumber>
+<subsysNumber>3</subsysNumber>
 <subsysOperatedProgress>0.0</subsysOperatedProgress>
 <targetDate>2016/12/31</targetDate>
 <scopeDoneDate/>
 <dest>26</dest>
 <destSUT/>
 </milestone>
-<milestone commCalculable="false" id="26" indeterminated="false">
+<milestone commCalculable="false" id="26" indeterminated="true">
 <name>PWT</name>
 <x>2700</x>
 <y>4240</y>
@@ -626,14 +602,14 @@
 <stepProgress>0.0</stepProgress>
 <operated>false</operated>
 <subsysOperated>false</subsysOperated>
-<subsysNumber>2</subsysNumber>
+<subsysNumber>0</subsysNumber>
 <subsysOperatedProgress>0.0</subsysOperatedProgress>
 <targetDate>2016/12/31</targetDate>
 <scopeDoneDate/>
 <dest>27</dest>
 <destSUT/>
 </milestone>
-<milestone commCalculable="false" id="27" indeterminated="false">
+<milestone commCalculable="false" id="27" indeterminated="true">
 <name>STS</name>
 <x>2700</x>
 <y>4720</y>
@@ -650,43 +626,19 @@
 <stepProgress>0.0</stepProgress>
 <operated>false</operated>
 <subsysOperated>false</subsysOperated>
-<subsysNumber>2</subsysNumber>
+<subsysNumber>0</subsysNumber>
 <subsysOperatedProgress>0.0</subsysOperatedProgress>
 <targetDate>2016/12/31</targetDate>
 <scopeDoneDate/>
 <dest>31</dest>
 <destSUT/>
 </milestone>
-<milestone commCalculable="false" id="28" indeterminated="true">
-<name>FGIP</name>
-<x>400</x>
-<y>4240</y>
-<description>Fuel Gas Infield Pipeline</description>
-<precommProgress>0.0</precommProgress>
-<commProgress>0.0</commProgress>
-<PLOpened>0</PLOpened>
-<PLAOpened>0</PLAOpened>
-<PLBOpened>0</PLBOpened>
-<PLCOpened>0</PLCOpened>
-<AOCProgress>0.0</AOCProgress>
-<RFCProgress>0.0</RFCProgress>
-<docProgress>0.0</docProgress>
-<stepProgress>0.0</stepProgress>
-<operated>false</operated>
-<subsysOperated>false</subsysOperated>
-<subsysNumber>0</subsysNumber>
-<subsysOperatedProgress>0.0</subsysOperatedProgress>
-<targetDate>2016/12/31</targetDate>
-<scopeDoneDate/>
-<dest>29</dest>
-<destSUT/>
-</milestone>
-<milestone commCalculable="false" id="29" indeterminated="true">
+<milestone commCalculable="false" id="29" indeterminated="false">
 <name>FGFSO</name>
 <x>400</x>
 <y>4720</y>
 <description>Fuel Gas to FSO</description>
-<precommProgress>0.0</precommProgress>
+<precommProgress>7.6</precommProgress>
 <commProgress>0.0</commProgress>
 <PLOpened>0</PLOpened>
 <PLAOpened>0</PLAOpened>
@@ -698,14 +650,14 @@
 <stepProgress>0.0</stepProgress>
 <operated>false</operated>
 <subsysOperated>false</subsysOperated>
-<subsysNumber>0</subsysNumber>
+<subsysNumber>3</subsysNumber>
 <subsysOperatedProgress>0.0</subsysOperatedProgress>
 <targetDate>2016/12/31</targetDate>
 <scopeDoneDate/>
 <dest>31</dest>
 <destSUT/>
 </milestone>
-<milestone commCalculable="false" id="30" indeterminated="false">
+<milestone commCalculable="false" id="30" indeterminated="true">
 <name>WIS</name>
 <x>2200</x>
 <y>4400</y>
@@ -722,7 +674,7 @@
 <stepProgress>0.0</stepProgress>
 <operated>false</operated>
 <subsysOperated>false</subsysOperated>
-<subsysNumber>5</subsysNumber>
+<subsysNumber>0</subsysNumber>
 <subsysOperatedProgress>0.0</subsysOperatedProgress>
 <targetDate>2016/12/31</targetDate>
 <scopeDoneDate/>
@@ -736,8 +688,8 @@
 <description>Final AOC - Completion Certificate</description>
 <precommProgress>0.0</precommProgress>
 <commProgress>0.0</commProgress>
-<PLOpened>0</PLOpened>
-<PLAOpened>0</PLAOpened>
+<PLOpened>1</PLOpened>
+<PLAOpened>1</PLAOpened>
 <PLBOpened>0</PLBOpened>
 <PLCOpened>0</PLCOpened>
 <AOCProgress>0.0</AOCProgress>
@@ -746,36 +698,12 @@
 <stepProgress>0.0</stepProgress>
 <operated>false</operated>
 <subsysOperated>false</subsysOperated>
-<subsysNumber>15</subsysNumber>
+<subsysNumber>37</subsysNumber>
 <subsysOperatedProgress>0.0</subsysOperatedProgress>
 <targetDate>2016/12/31</targetDate>
 <scopeDoneDate/>
 <dest/>
 <destSUT>10</destSUT>
-</milestone>
-<milestone commCalculable="false" id="32" indeterminated="true">
-<name>OIP</name>
-<x>100</x>
-<y>3120</y>
-<description>Oil Infield Pipeline</description>
-<precommProgress>0.0</precommProgress>
-<commProgress>0.0</commProgress>
-<PLOpened>0</PLOpened>
-<PLAOpened>0</PLAOpened>
-<PLBOpened>0</PLBOpened>
-<PLCOpened>0</PLCOpened>
-<AOCProgress>0.0</AOCProgress>
-<RFCProgress>0.0</RFCProgress>
-<docProgress>0.0</docProgress>
-<stepProgress>0.0</stepProgress>
-<operated>false</operated>
-<subsysOperated>false</subsysOperated>
-<subsysNumber>0</subsysNumber>
-<subsysOperatedProgress>0.0</subsysOperatedProgress>
-<targetDate>2016/12/31</targetDate>
-<scopeDoneDate/>
-<dest>17</dest>
-<destSUT/>
 </milestone>
 <milestone commCalculable="false" id="33" indeterminated="true">
 <name>FRIGG</name>
@@ -791,7 +719,7 @@
 <AOCProgress>0.0</AOCProgress>
 <RFCProgress>0.0</RFCProgress>
 <docProgress>0.0</docProgress>
-<stepProgress>null</stepProgress>
+<stepProgress>0.0</stepProgress>
 <operated>false</operated>
 <subsysOperated>false</subsysOperated>
 <subsysNumber>0</subsysNumber>
@@ -799,6 +727,30 @@
 <targetDate>2016/12/31</targetDate>
 <scopeDoneDate/>
 <dest>19 con 20</dest>
+<destSUT/>
+</milestone>
+<milestone commCalculable="true" id="34" indeterminated="false">
+<name>OOCwApp</name>
+<x>1400</x>
+<y>160</y>
+<description>OOC with Appertunances</description>
+<precommProgress>64.5</precommProgress>
+<commProgress>1.6</commProgress>
+<PLOpened>290</PLOpened>
+<PLAOpened>10</PLAOpened>
+<PLBOpened>262</PLBOpened>
+<PLCOpened>18</PLCOpened>
+<AOCProgress>0.0</AOCProgress>
+<RFCProgress>34.2</RFCProgress>
+<docProgress>0.0</docProgress>
+<stepProgress>0.0</stepProgress>
+<operated>false</operated>
+<subsysOperated>false</subsysOperated>
+<subsysNumber>38</subsysNumber>
+<subsysOperatedProgress>0.0</subsysOperatedProgress>
+<targetDate>2015/10/08</targetDate>
+<scopeDoneDate/>
+<dest>5</dest>
 <destSUT/>
 </milestone>
 <startUpTask id="1">
@@ -972,7 +924,11 @@
 <destSUT/>
 </startUpTask>
 <icaps>
-<database activated="true" alias="TOPSIDE" connexionType="ODBC" dbName="" instanceName="" login="icaps" milestoneColumn="Data1" odbcLinkName="KOREA" password="vpncf59" serverName=""/>
+<database activated="true" alias="TOPSIDE" connexionType="ODBC" dbName="" instanceName="" lastDbUpdate="1444575600000" login="icaps" milestoneColumn="Data11" odbcLinkName="ICAPS-ML-TOPSIDE" password="vpncf59" serverName=""/>
+<database activated="true" alias="OOC" connexionType="ODBC" dbName="" instanceName="" lastDbUpdate="1444316400000" login="icaps" milestoneColumn="Data10" odbcLinkName="ICAPS-ML-OOC" password="vpncf59" serverName=""/>
+<database activated="true" alias="KPS" connexionType="ODBC" dbName="" instanceName="" lastDbUpdate="1442588400000" login="icaps" milestoneColumn="Data10" odbcLinkName="ICAPS-ML-KPS" password="vpncf59" serverName=""/>
+<database activated="true" alias="SURF" connexionType="ODBC" dbName="" instanceName="" lastDbUpdate="1444748400000" login="icaps" milestoneColumn="Data1" odbcLinkName="ICAPS-ML-SURF" password="vpncf59" serverName=""/>
+<database activated="false" alias="FSO" connexionType="ODBC" dbName="" instanceName="" login="icaps" milestoneColumn="Data1" odbcLinkName="ICAPS-ML-FSO" password="vpncf59" serverName=""/>
 </icaps>
 <target>100</target>
 <ElementDisplayedOnMilestone AOC="true" Comm="true" Doc="true" PL="true" Step="false"/>
@@ -1005,7 +961,8 @@
 <contractorLogoParse/>
 <companyLogoParse/>
 <projectLogoParse/>
+<labelForDoc>DOC</labelForDoc>
 <expertMode>false</expertMode>
 <cellReference>I3</cellReference>
-<logSUActivitiesProgress>2015.04.07 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PU : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- GAS-EXPORT : 0.0 -EOM-  -EOLOG- 2015.04.07 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PU : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- GAS-EXPORT : 0.0 -EOM-  -EOLOG- 2015.04.07 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PU : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- GAS-EXPORT : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM-  -EOLOG- 2015.04.07 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PU : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- GAS-EXPORT : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM-  -EOLOG- 2015.04.07 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PU : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- GAS-EXPORT : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM-  -EOLOG- 2015.04.07 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PU : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- GAS-EXPORT : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM-  -EOLOG- 2015.04.07 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PU : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- GAS-EXPORT : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM- OPE : 0.0 -EOM-  -EOLOG- 2015.04.07 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PU : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- GAS-EXPORT : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM- OPE : 0.0 -EOM-  -EOLOG- 2015.04.07 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PU : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- GAS-EXPORT : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM- OPE : 0.0 -EOM-  -EOLOG- 2015.04.07 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PU : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- GAS-EXPORT : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM- OPE : 0.0 -EOM-  -EOLOG- 2015.04.07 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PU : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- GAS-EXPORT : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM- OPE : 0.0 -EOM-  -EOLOG- 2015.04.07 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PU : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- GAS-EXPORT : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM- OPE : 0.0 -EOM-  -EOLOG- 2015.04.07 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PU : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- GAS-EXPORT : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM- OPE : 0.0 -EOM-  -EOLOG- 2015.04.07 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PU : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- GAS-EXPORT : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM- OPE : 0.0 -EOM-  -EOLOG- 2015.04.07 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PU : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- GAS-EXPORT : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM- OPE : 0.0 -EOM-  -EOLOG- 2015.04.07 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PU : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- GAS-EXPORT : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM- OPE : 0.0 -EOM-  -EOLOG- 2015.04.07 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PROCESS-UTILITIES : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- GAS-EXPORT : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM- OPE : 0.0 -EOM-  -EOLOG- 2015.04.08 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PROCESS-UTILITIES : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- GAS-EXPORT : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM- OIP : 0.0 -EOM- FRIGG : 0.0 -EOM-  -EOLOG- 2015.04.08 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PROCESS-UTILITIES : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- GAS-EXPORT : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM- OIP : 0.0 -EOM- FRIGG : 0.0 -EOM-  -EOLOG- 2015.04.08 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PROCESS-UTILITIES : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- FIRST-GAS : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM- OIP : 0.0 -EOM- FRIGG : 0.0 -EOM-  -EOLOG- 2015.04.08 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PROCESS-UTILITIES : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- FIRST-GAS : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM- OIP : 0.0 -EOM- FRIGG : 0.0 -EOM-  -EOLOG- 2015.04.08 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PROCESS-UTILITIES : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- FIRST-GAS : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM- OIP : 0.0 -EOM- FRIGG : 0.0 -EOM-  -EOLOG- 2015.04.08 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PROCESS-UTILITIES : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- FIRST-GAS : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM- OIP : 0.0 -EOM- FRIGG : 0.0 -EOM-  -EOLOG- 2015.04.08 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PROCESS-UTILITIES : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- FIRST-GAS : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM- OIP : 0.0 -EOM- FRIGG : 0.0 -EOM-  -EOLOG- 2015.04.08 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PROCESS-UTILITIES : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- FIRST-GAS : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM- OIP : 0.0 -EOM- FRIGG : 0.0 -EOM-  -EOLOG- 2015.09.01 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PROCESS-UTILITIES : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- FIRST-GAS : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM- OIP : 0.0 -EOM- FRIGG : 0.0 -EOM-  -EOLOG- 2015.09.01 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PROCESS-UTILITIES : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- FIRST-GAS : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM- OIP : 0.0 -EOM- FRIGG : 0.0 -EOM-  -EOLOG- </logSUActivitiesProgress>
+<logSUActivitiesProgress>2015.04.07 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PU : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- GAS-EXPORT : 0.0 -EOM-  -EOLOG- 2015.04.07 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PU : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- GAS-EXPORT : 0.0 -EOM-  -EOLOG- 2015.04.07 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PU : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- GAS-EXPORT : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM-  -EOLOG- 2015.04.07 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PU : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- GAS-EXPORT : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM-  -EOLOG- 2015.04.07 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PU : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- GAS-EXPORT : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM-  -EOLOG- 2015.04.07 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PU : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- GAS-EXPORT : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM-  -EOLOG- 2015.04.07 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PU : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- GAS-EXPORT : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM- OPE : 0.0 -EOM-  -EOLOG- 2015.04.07 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PU : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- GAS-EXPORT : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM- OPE : 0.0 -EOM-  -EOLOG- 2015.04.07 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PU : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- GAS-EXPORT : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM- OPE : 0.0 -EOM-  -EOLOG- 2015.04.07 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PU : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- GAS-EXPORT : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM- OPE : 0.0 -EOM-  -EOLOG- 2015.04.07 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PU : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- GAS-EXPORT : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM- OPE : 0.0 -EOM-  -EOLOG- 2015.04.07 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PU : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- GAS-EXPORT : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM- OPE : 0.0 -EOM-  -EOLOG- 2015.04.07 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PU : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- GAS-EXPORT : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM- OPE : 0.0 -EOM-  -EOLOG- 2015.04.07 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PU : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- GAS-EXPORT : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM- OPE : 0.0 -EOM-  -EOLOG- 2015.04.07 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PU : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- GAS-EXPORT : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM- OPE : 0.0 -EOM-  -EOLOG- 2015.04.07 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PU : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- GAS-EXPORT : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM- OPE : 0.0 -EOM-  -EOLOG- 2015.04.07 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PROCESS-UTILITIES : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- GAS-EXPORT : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM- OPE : 0.0 -EOM-  -EOLOG- 2015.04.08 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PROCESS-UTILITIES : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- GAS-EXPORT : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM- OIP : 0.0 -EOM- FRIGG : 0.0 -EOM-  -EOLOG- 2015.04.08 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PROCESS-UTILITIES : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- GAS-EXPORT : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM- OIP : 0.0 -EOM- FRIGG : 0.0 -EOM-  -EOLOG- 2015.04.08 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PROCESS-UTILITIES : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- FIRST-GAS : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM- OIP : 0.0 -EOM- FRIGG : 0.0 -EOM-  -EOLOG- 2015.04.08 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PROCESS-UTILITIES : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- FIRST-GAS : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM- OIP : 0.0 -EOM- FRIGG : 0.0 -EOM-  -EOLOG- 2015.04.08 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PROCESS-UTILITIES : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- FIRST-GAS : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM- OIP : 0.0 -EOM- FRIGG : 0.0 -EOM-  -EOLOG- 2015.04.08 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PROCESS-UTILITIES : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- FIRST-GAS : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM- OIP : 0.0 -EOM- FRIGG : 0.0 -EOM-  -EOLOG- 2015.04.08 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PROCESS-UTILITIES : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- FIRST-GAS : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM- OIP : 0.0 -EOM- FRIGG : 0.0 -EOM-  -EOLOG- 2015.04.08 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PROCESS-UTILITIES : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- FIRST-GAS : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM- OIP : 0.0 -EOM- FRIGG : 0.0 -EOM-  -EOLOG- 2015.09.01 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PROCESS-UTILITIES : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- FIRST-GAS : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM- OIP : 0.0 -EOM- FRIGG : 0.0 -EOM-  -EOLOG- 2015.09.01 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PROCESS-UTILITIES : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- FIRST-GAS : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM- OIP : 0.0 -EOM- FRIGG : 0.0 -EOM-  -EOLOG- 2015.09.17 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PROCESS-UTILITIES : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- FIRST-GAS : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM- OIP : 0.0 -EOM- FRIGG : 0.0 -EOM-  -EOLOG- 2015.09.18 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PROCESS-UTILITIES : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- FIRST-GAS : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM- OIP : 0.0 -EOM- FRIGG : 0.0 -EOM-  -EOLOG- 2015.10.08 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PROCESS-UTILITIES : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- FIRST-GAS : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM- OIP : 0.0 -EOM- FRIGG : 0.0 -EOM- OOCwApp : 0.0 -EOM-  -EOLOG- 2015.10.08 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PROCESS-UTILITIES : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- FIRST-GAS : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM- OIP : 0.0 -EOM- FRIGG : 0.0 -EOM- OOCwApp : 0.0 -EOM-  -EOLOG- 2015.10.08 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PROCESS-UTILITIES : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- FIRST-GAS : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM- OIP : 0.0 -EOM- FRIGG : 0.0 -EOM- OOCwApp : 0.0 -EOM-  -EOLOG- 2015.10.08 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- TELECOM-LINK : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PROCESS-UTILITIES : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- FIRST-GAS : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGIP : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM- OIP : 0.0 -EOM- FRIGG : 0.0 -EOM- OOCwApp : 0.0 -EOM-  -EOLOG- 2015.10.14 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PROCESS-UTILITIES : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- FIRST-GAS : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM- FRIGG : 0.0 -EOM- OOCwApp : 0.0 -EOM-  -EOLOG- 2015.10.14 -EOHEADER- LQRFO : 0.0 -EOM- PFS : 0.0 -EOM- KPS : 0.0 -EOM- CCR : 0.0 -EOM- OOCBOS : 0.0 -EOM- RFDRA : 0.0 -EOM- PROCESS-UTILITIES : 0.0 -EOM- GEPR : 0.0 -EOM- N2R : 0.0 -EOM- GM : 0.0 -EOM- GT : 0.0 -EOM- PC : 0.0 -EOM- GLS : 0.0 -EOM- WRFG : 0.0 -EOM- FGEC : 0.0 -EOM- FSORFO : 0.0 -EOM- FIRST-GAS : 0.0 -EOM- R4GR : 0.0 -EOM- GL : 0.0 -EOM- R123GR : 0.0 -EOM- WRFO : 0.0 -EOM- 2GEC : 0.0 -EOM- OOT : 0.0 -EOM- WP : 0.0 -EOM- PWT : 0.0 -EOM- STS : 0.0 -EOM- FGFSO : 0.0 -EOM- WIS : 0.0 -EOM- FAOC : 0.0 -EOM- FRIGG : 0.0 -EOM- OOCwApp : 0.0 -EOM-  -EOLOG- </logSUActivitiesProgress>
 </start-up-sequence>

@@ -71,6 +71,7 @@ import model.StartUpStep;
 import model.TitleBar;
 import model.TitleBar.Style;
 import model.mode.Mode;
+
 import org.w3c.dom.DOMException;
 import org.xml.sax.SAXException;
 
@@ -92,6 +93,7 @@ import xml.LoadXMLFile;
 import xml.SaveXMLFile;
 
 import com.packenius.library.xspdf.XSPDF;
+
 import conf.DatePicker;
 import conf.GeneralConfig;
 import conf.Utils;
@@ -99,6 +101,7 @@ import connector.JConnector;
 import database.Database;
 import database.ProjectResumeWorker;
 import database.UpdateAllMilestoneWorker;
+import database.UpdateAllMilestoneWorkerOptimised;
 
 /**
  * Main controller of the application
@@ -1940,7 +1943,8 @@ public class Controller {
         				f.setVisible(true);
         				f.setLocationRelativeTo(view);
         				final Executor executor = Executors.newCachedThreadPool();
-        				final UpdateAllMilestoneWorker uamw = new UpdateAllMilestoneWorker(model, this);
+        				//final UpdateAllMilestoneWorker uamw = new UpdateAllMilestoneWorker(model, this);
+        				final UpdateAllMilestoneWorkerOptimised uamw = new UpdateAllMilestoneWorkerOptimised(model, this);
         				executor.execute(uamw);
         				f.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         				WindowListener exitListener = new WindowAdapter() {
