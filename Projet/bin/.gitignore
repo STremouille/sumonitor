@@ -1,3 +1,5 @@
+/img/
+/lib/
 /.svn/
 /BackUpSUDoc.xlsx
 /CSU Request/
@@ -6,7 +8,6 @@
 /build.xml
 /image/
 /last
-/lib/
 /.classpath
 /.pmd
 /.project
