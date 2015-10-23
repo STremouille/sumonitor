@@ -113,6 +113,9 @@ public class View extends JFrame{
 	private JLabel message;
 	
 	private boolean resizing;
+	private JMenu mnEdit;
+	private JMenuItem mntmCancel;
+	private JMenuItem mntmRedo;
 
 	
 	/**
@@ -202,6 +205,19 @@ public class View extends JFrame{
 		fileMenu.add(mntmQuitStartUp);
 
 		this.setJMenuBar(menuBar);
+		
+		mnEdit = new JMenu("   Edit   ");
+		menuBar.add(mnEdit);
+		
+		mntmCancel = new JMenuItem("Undo");
+		mntmCancel.setIcon(new ImageIcon(View.class.getResource("/icons/org/fife/plaf/Office2003/undo.gif")));
+		mntmCancel.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Z, InputEvent.CTRL_MASK));
+		mnEdit.add(mntmCancel);
+		
+		mntmRedo = new JMenuItem("Redo");
+		mntmRedo.setIcon(new ImageIcon(View.class.getResource("/icons/org/fife/plaf/Office2003/redo.gif")));
+		mntmRedo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Z, InputEvent.CTRL_MASK | InputEvent.SHIFT_MASK));
+		mnEdit.add(mntmRedo);
 		
 		mnUtility = new JMenu("  Utility  ");
 		mnUtility.setFont(new Font("Segoe UI", Font.PLAIN, 13));
@@ -382,6 +398,14 @@ public class View extends JFrame{
 		//Override the default close operation
 		this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 		this.pack();
+	}
+	
+	public void addCancelListener(ActionListener al){
+		this.mntmCancel.addActionListener(al);
+	}
+	
+	public void addRedoListener(ActionListener al){
+		this.mntmRedo.addActionListener(al);
 	}
 
 	//During the connect mode draw milestones with the right color set if it is selected or not

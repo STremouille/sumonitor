@@ -98,9 +98,9 @@ import conf.DatePicker;
 import conf.GeneralConfig;
 import conf.Utils;
 import connector.JConnector;
+import controller.CancelFactory.CancellableActionLabel;
 import database.Database;
 import database.ProjectResumeWorker;
-import database.UpdateAllMilestoneWorker;
 import database.UpdateAllMilestoneWorkerOptimised;
 
 /**
@@ -181,6 +181,8 @@ public class Controller {
 	
 	private Cursor cursor;
 	
+	private CancelFactory cancelFactory;
+	
 	/**
 	 * Classical constructor of the controller 
 	 * @param model
@@ -223,6 +225,8 @@ public class Controller {
 		this.view.addMoinsZoomListener(new DecreaseZoomListener());
 		this.view.addPlusZoomListener(new IncreaseZoomListener());
 		this.view.addCopyPasteListener(new CopyPasteListener());
+		this.view.addCancelListener(new CancelListener());
+		this.view.addRedoListener(new RedoListener());
 		
 		//toolbar
 		this.view.getToolBar().addMilestoneButtonListener(new MilestoneButtonListener());
@@ -264,7 +268,10 @@ public class Controller {
 			JOptionPane.showMessageDialog(view, e.getMessage());
 			e.printStackTrace();
 		}
-		}
+		
+	this.cancelFactory = new CancelFactory();
+	
+	}
 
 	/**
 	 * View getter
@@ -2657,9 +2664,11 @@ public class Controller {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			model.addMilestone(new Milestone("New Milestone",whereRightClickHappenX, whereRightClickHappenY));
+			Milestone m = new Milestone("New Milestone",whereRightClickHappenX, whereRightClickHappenY);
+			model.addMilestone(m);
 			view.getGeneralRightClickMenu().setVisible(false);
 			view.repaint();
+			cancelFactory.addAction(new CancellableAction(CancellableActionLabel.milestone_creation, m, controller));
 		}
 		
 	}
@@ -2667,8 +2676,10 @@ public class Controller {
 	class NewSequenceItemMenuListener implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			model.addSequence(new SequenceBar("New Sequence", whereRightClickHappenX, whereRightClickHappenY, 400, 40, 100));
+			SequenceBar sb = new SequenceBar("New Sequence", whereRightClickHappenX, whereRightClickHappenY, 400, 40, 100);
+			model.addSequence(sb);
 			view.getGeneralRightClickMenu().setVisible(false);
+			cancelFactory.addAction(new CancellableAction(CancellableActionLabel.sequence_creation, sb, controller));
 			view.repaint();
 		}
 		
@@ -2678,8 +2689,10 @@ public class Controller {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			model.addStartUpTask(new StartUpStep("New Step", whereRightClickHappenX, whereRightClickHappenY, GeneralConfig.milestoneWidth/2, GeneralConfig.milestoneHeight/4));
+			StartUpStep sus = new StartUpStep("New Step", whereRightClickHappenX, whereRightClickHappenY, GeneralConfig.milestoneWidth/2, GeneralConfig.milestoneHeight/4);
+			model.addStartUpTask(sus);
 			view.getGeneralRightClickMenu().setVisible(false);
+			cancelFactory.addAction(new CancellableAction(CancellableActionLabel.step_creation, sus, controller));
 			view.repaint();
 		}
 		
@@ -2689,8 +2702,10 @@ public class Controller {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			model.addComment(new Comment("New Comment", whereRightClickHappenX, whereRightClickHappenY, 150, 100));
+			Comment c = new Comment("New Comment", whereRightClickHappenX, whereRightClickHappenY, 150, 100);
+			model.addComment(c);
 			view.getGeneralRightClickMenu().setVisible(false);
+			cancelFactory.addAction(new CancellableAction(CancellableActionLabel.comment_creation, c, controller));
 			view.repaint();
 		}
 		
@@ -2793,21 +2808,25 @@ public class Controller {
 					model.addMilestone(m);
 					m.setX(view.getDrawPanel().getVisibleRect().x+p.getX()-GeneralConfig.milestoneWidth/2);
 					m.setY(view.getDrawPanel().getVisibleRect().y+p.getY()-GeneralConfig.milestoneHeight/2);
+					cancelFactory.addAction(new CancellableAction(CancellableActionLabel.milestone_creation, m, controller));
 				} else if(newSequence){
 					SequenceBar sb = new SequenceBar("New Sequence", 0	,0 , GeneralConfig.milestoneWidth*4, GeneralConfig.milestoneHeight/4, GeneralConfig.milestoneHeight);
 					model.addSequence(sb);
 					sb.setX(view.getDrawPanel().getVisibleRect().x+p.getX()-GeneralConfig.milestoneWidth*2);
 					sb.setY(view.getDrawPanel().getVisibleRect().y+p.getY()-GeneralConfig.milestoneHeight/2);
+					cancelFactory.addAction(new CancellableAction(CancellableActionLabel.sequence_creation, sb, controller));
 				} else if(newComment){
 					Comment c = new Comment("Write your note here", 0, 0, (int)(GeneralConfig.milestoneWidth/1.3), (int)(GeneralConfig.milestoneHeight/1.5));
 					model.addComment(c);
 					c.setX(view.getDrawPanel().getVisibleRect().x+p.getX()-(int)(GeneralConfig.milestoneWidth/2.6));
-					c.setY(view.getDrawPanel().getVisibleRect().y+p.getY()-(int)(GeneralConfig.milestoneHeight/3));
+					c.setY(view.getDrawPanel().getVisibleRect().y+p.getY()-(int)(GeneralConfig.milestoneHeight/3));	
+					cancelFactory.addAction(new CancellableAction(CancellableActionLabel.comment_creation, c, controller));
 				} else if(newStartUpTask){
 					StartUpStep sut = new StartUpStep("New Step", 0, 0, (int)(GeneralConfig.milestoneWidth/2), (int)(GeneralConfig.milestoneHeight/8));
 					model.addStartUpTask(sut);
 					sut.setX(view.getDrawPanel().getVisibleRect().x+p.getX()-(int)(GeneralConfig.milestoneWidth/4));
 					sut.setY(view.getDrawPanel().getVisibleRect().y+p.getY()-(int)(GeneralConfig.milestoneHeight/8));
+					cancelFactory.addAction(new CancellableAction(CancellableActionLabel.step_creation, sut, controller));
 				}
 				view.getDrawPanel().notAnyMoreMoving();
 				unselectAllInToolbar();
@@ -3224,6 +3243,26 @@ public class Controller {
 
 		@Override
 		public void keyTyped(KeyEvent e) {
+		}
+		
+	}
+	
+	class CancelListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			cancelFactory.cancel();
+			view.repaint();
+		}
+		
+	}
+	
+	class RedoListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			cancelFactory.redo();
+			view.repaint();
 		}
 		
 	}

@@ -343,4 +343,41 @@ public class StartUpSequence {
 	}
 
 
+	public void removeComment(Comment c) {
+		for(int i : comments.keySet()){
+			Comment c1 = comments.get(i);
+			if(c1.equals(c)){
+				comments.remove(i);
+			}
+		}
+	}
+
+	public void removeMilestone(Milestone cancelAttr) {
+		for(int i : milestones.keySet()){
+			Milestone m = milestones.get(i);
+			if(m.equals(cancelAttr)){
+				milestones.remove(i);
+			}
+		}
+	}
+
+	public void removeSequence(SequenceBar cancelAttr) {
+		for(int i : sequences.keySet()){
+			SequenceBar sb = sequences.get(i);
+			if(sb.equals(cancelAttr)){
+				sequences.remove(i);
+			}
+		}
+	}
+
+	public void removeStep(StartUpStep cancelAttr) {
+		for(int i : startUpTasks.keySet()){
+			StartUpStep sb = startUpTasks.get(i);
+			if(sb.equals(cancelAttr)){
+				startUpTasks.remove(i);
+			}
+		}
+	}
+
+
 }
