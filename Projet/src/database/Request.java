@@ -1667,69 +1667,68 @@ public class Request {
 							}
 							while(rs.next()){
 								String milestone = rs.getString(db.getMilestoneColumn());
-								System.out.println(milestone);
-								if(milestone!=null){
-									int ssNumber = rs.getInt("ssNumber");
-									int pcDone = rs.getInt("PCDone");
-									int pcTotal = rs.getInt("PCTotal");
-									int cDone = rs.getInt("CDoneMhrs");
-									int cTotal = rs.getInt("CMhrs");
-									int plA = rs.getInt("PLA");
-									int plB = rs.getInt("PLB");
-									int plC = rs.getInt("PLC");
-									
-									if(!res.containsKey(milestone)){
-										res.put(milestone, new TreeMap<String, Integer>());
-									} 
-									
-									
-									if(res.get(milestone).get("ssNumber") == null)
-										res.get(milestone).put("ssNumber", ssNumber);
-									else
-										res.get(milestone).put("ssNumber", Integer.valueOf(res.get(milestone).get("ssNumber"))+ ssNumber);
-									
-									
-									if(res.get(milestone).get("pcDone") == null)
-										res.get(milestone).put("pcDone", pcDone);
-									else
-										res.get(milestone).put("pcDone", Integer.valueOf(res.get(milestone).get("pcDone"))+ pcDone);
-									
-									
-									if(res.get(milestone).get("pcTotal") == null)
-										res.get(milestone).put("pcTotal", pcTotal);
-									else
-										res.get(milestone).put("pcTotal", Integer.valueOf(res.get(milestone).get("pcTotal"))+ pcTotal);
-									
-									
-									if(res.get(milestone).get("cDone") == null)
-										res.get(milestone).put("cDone", cDone);
-									else
-										res.get(milestone).put("cDone", Integer.valueOf(res.get(milestone).get("cDone"))+ cDone);
-									
-									
-									if(res.get(milestone).get("cTotal") == null)
-										res.get(milestone).put("cTotal", cTotal);
-									else
-										res.get(milestone).put("cTotal", Integer.valueOf(res.get(milestone).get("cTotal"))+ cTotal);
-									
-									
-									if(res.get(milestone).get("plA") == null)
-										res.get(milestone).put("plA", plA);
-									else
-										res.get(milestone).put("plA", Integer.valueOf(res.get(milestone).get("plA"))+ pcDone);
-									
-									
-									if(res.get(milestone).get("plB") == null)
-										res.get(milestone).put("plB", plB);
-									else
-										res.get(milestone).put("plB", Integer.valueOf(res.get(milestone).get("plB"))+ pcDone);
-									
-									
-									if(res.get(milestone).get("plC") == null)
-										res.get(milestone).put("plC", plC);
-									else
-										res.get(milestone).put("plC", Integer.valueOf(res.get(milestone).get("plC"))+ plC);
-								}
+								int ssNumber = rs.getInt("ssNumber");
+								int pcDone = rs.getInt("PCDone");
+								int pcTotal = rs.getInt("PCTotal");
+								int cDone = rs.getInt("CDoneMhrs");
+								int cTotal = rs.getInt("CMhrs");
+								int plA = rs.getInt("PLA");
+								int plB = rs.getInt("PLB");
+								int plC = rs.getInt("PLC");
+								
+								if(!res.containsKey(milestone)){
+									res.put(milestone, new TreeMap<String, Integer>());
+								} 
+								
+								
+								
+								if(res.get(milestone).get("ssNumber") == null)
+									res.get(milestone).put("ssNumber", ssNumber);
+								else
+									res.get(milestone).put("ssNumber", Integer.valueOf(res.get(milestone).get("ssNumber"))+ ssNumber);
+								
+								
+								if(res.get(milestone).get("pcDone") == null)
+									res.get(milestone).put("pcDone", pcDone);
+								else
+									res.get(milestone).put("pcDone", Integer.valueOf(res.get(milestone).get("pcDone"))+ pcDone);
+								
+								
+								if(res.get(milestone).get("pcTotal") == null)
+									res.get(milestone).put("pcTotal", pcTotal);
+								else
+									res.get(milestone).put("pcTotal", Integer.valueOf(res.get(milestone).get("pcTotal"))+ pcTotal);
+								
+								
+								if(res.get(milestone).get("cDone") == null)
+									res.get(milestone).put("cDone", cDone);
+								else
+									res.get(milestone).put("cDone", Integer.valueOf(res.get(milestone).get("cDone"))+ cDone);
+								
+								
+								if(res.get(milestone).get("cTotal") == null)
+									res.get(milestone).put("cTotal", cTotal);
+								else
+									res.get(milestone).put("cTotal", Integer.valueOf(res.get(milestone).get("cTotal"))+ cTotal);
+								
+								
+								if(res.get(milestone).get("plA") == null)
+									res.get(milestone).put("plA", plA);
+								else
+									res.get(milestone).put("plA", Integer.valueOf(res.get(milestone).get("plA"))+ pcDone);
+								
+								
+								if(res.get(milestone).get("plB") == null)
+									res.get(milestone).put("plB", plB);
+								else
+									res.get(milestone).put("plB", Integer.valueOf(res.get(milestone).get("plB"))+ pcDone);
+								
+								
+								if(res.get(milestone).get("plC") == null)
+									res.get(milestone).put("plC", plC);
+								else
+									res.get(milestone).put("plC", Integer.valueOf(res.get(milestone).get("plC"))+ plC);
+								
 							}
 						}
 					} catch (SQLException e) {

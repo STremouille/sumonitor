@@ -48,7 +48,6 @@ public class UpdateAllMilestoneWorkerOptimised extends SwingWorker<Boolean, Bool
 	
 	@Override
 	protected Boolean doInBackground() throws Exception {
-		
 		 float step = (float) (100.0/(14.0*(model.getMilestones().size())+1));
 		    float p = (float) 0.0;
 		    
@@ -106,7 +105,7 @@ public class UpdateAllMilestoneWorkerOptimised extends SwingWorker<Boolean, Bool
 					} else {
 						return false;
 					}
-					
+
 					if (model.getMilestone(mi).isOperated()) {
 						Calendar curDateCalendar = Calendar.getInstance();
 						model.getMilestone(mi).setScopeDoneDate(
@@ -160,7 +159,6 @@ public class UpdateAllMilestoneWorkerOptimised extends SwingWorker<Boolean, Bool
         				m.setStepProgress(0.0);
         			}
         			System.out.println(m.getName());
-        			System.out.println(res.get(m.getName()));
         			if(res.get(m.getName())==null){
         				m.setIndeterminated(true);
         				System.out.println(m.getName()+" is Inder");
