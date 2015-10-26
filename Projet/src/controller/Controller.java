@@ -1520,6 +1520,11 @@ public class Controller {
 						while(it.hasNext()){
 							it.next().move(dx, dy);
 						}
+						Object[] cancelAttr = new Object[3];
+						cancelAttr[0] = model.getSelectedItems().clone();
+						cancelAttr[1] = dx;
+						cancelAttr[2] = dy;
+						cancelFactory.addAction(new CancellableAction(CancellableActionLabel.group_move, cancelAttr, controller));
 					}
 					else {
 						if (milestoneRef != 0) {

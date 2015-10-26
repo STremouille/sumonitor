@@ -11,8 +11,10 @@ import conf.GeneralConfig;
 import controller.CancelFactory.CancellableActionLabel;
 import model.Comment;
 import model.Milestone;
+import model.MovableItem;
 import model.SequenceBar;
 import model.StartUpStep;
+import model.StartUpSequence.SelectedItems;
 
 public class CancellableAction{
 		
@@ -144,6 +146,14 @@ public class CancellableAction{
 					else if(((String[])cancelAttr)[1].equals("step")){
 						controller.getModel().getStartUpTask(Integer.valueOf(((String[])cancelAttr)[2])).getDestSUT().remove(controller.getModel().getStartUpTask(Integer.valueOf(((String[])cancelAttr)[3])));
 					}
+				}
+				break;
+			case group_move:
+				int dx = ((Integer)((Object[])cancelAttr)[1]);
+				int dy = ((Integer)((Object[])cancelAttr)[2]);
+				Iterator<MovableItem> itMI = ((SelectedItems<MovableItem>)((Object[])cancelAttr)[0]).iterator();
+				while(itMI.hasNext()){
+					itMI.next().move(dx, dy);
 				}
 				break;
 			default:
@@ -323,6 +333,14 @@ public class CancellableAction{
 					else if(((String[])cancelAttr)[1].equals("step")){
 						controller.getModel().getStartUpTask(Integer.valueOf(((String[])cancelAttr)[2])).addDestSUT(controller.getModel().getStartUpTask(Integer.valueOf(((String[])cancelAttr)[3])));
 					}
+				}
+				break;
+			case group_move:
+				int dx = ((Integer)((Object[])cancelAttr)[1]);
+				int dy = ((Integer)((Object[])cancelAttr)[2]);
+				Iterator<MovableItem> itMI = ((SelectedItems<MovableItem>)((Object[])cancelAttr)[0]).iterator();
+				while(itMI.hasNext()){
+					itMI.next().move(-dx, -dy);
 				}
 				break;
 			default:

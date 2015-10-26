@@ -20,7 +20,8 @@ public class CancelFactory {
 		milestone_move,
 		step_move,
 		sequence_move,
-		comment_move
+		comment_move, 
+		group_move
 	}
 	
 	private ArrayList<CancellableAction> stackToCancel;
