@@ -93,6 +93,7 @@ import xml.LoadXMLFile;
 import xml.SaveXMLFile;
 
 import com.packenius.library.xspdf.XSPDF;
+import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 
 import conf.DatePicker;
 import conf.GeneralConfig;
@@ -884,7 +885,6 @@ public class Controller {
 						model.getSelectedItems().add(model.getStartUpTask(startUpTaskRefSelected));
 					}
 					initShiftDown=true;
-					System.out.println(model.getSelectedItems().size());
 				}
 				
 			}
@@ -920,7 +920,9 @@ public class Controller {
 						view.getScrollPane().getHorizontalScrollBar().setValue((int) Math.round(e.getX()*(GeneralConfig.coeffZoom-1)+view.getScrollPane().getHorizontalScrollBar().getValue()));
 						view.getScrollPane().getVerticalScrollBar().setValue((int) Math.round(e.getY()*(GeneralConfig.coeffZoom-1)+view.getScrollPane().getVerticalScrollBar().getValue()));
 						view.repaint();
+						cancelFactory.addAction(new CancellableAction(CancellableActionLabel.zoom_in, e.getPoint(), controller));
 					}
+					
 				} else if (e.getWheelRotation() > 0) {
 					//ZOOM OUT
 					if (GeneralConfig.updateForZoom((int) Math.round((GeneralConfig.zoom / GeneralConfig.coeffZoom)))) {
@@ -929,7 +931,9 @@ public class Controller {
 						view.getScrollPane().getHorizontalScrollBar().setValue((int) Math.round(e.getX()*(1/GeneralConfig.coeffZoom-1)+view.getScrollPane().getHorizontalScrollBar().getValue()));
 						view.getScrollPane().getVerticalScrollBar().setValue((int) Math.round(e.getY()*(1/GeneralConfig.coeffZoom-1)+view.getScrollPane().getVerticalScrollBar().getValue()));
 						view.repaint();
+						cancelFactory.addAction(new CancellableAction(CancellableActionLabel.zoom_out, e.getPoint(), controller));
 					}
+					
 				}
 			} else {
 				if (e.getWheelRotation() < 0) {
@@ -1502,7 +1506,6 @@ public class Controller {
 		public void mouseReleased(MouseEvent arg0) {
 			view.setResizing(false);
 			
-			System.out.println(model.getSelectedItems().size());
 			
 			int x = arg0.getX();
 			int y = arg0.getY();
@@ -1520,8 +1523,15 @@ public class Controller {
 					}
 					else {
 						if (milestoneRef != 0) {
+							ArrayList<Object> cancelAttr = new ArrayList<Object>();
+							cancelAttr.add(view.getModel().getMilestone(milestoneRef));
+							cancelAttr.add(view.getModel().getMilestone(milestoneRef).getDoubleX());
+							cancelAttr.add(view.getModel().getMilestone(milestoneRef).getDoubleY());
+							cancelFactory.addAction(new CancellableAction(CancellableActionLabel.milestone_move, cancelAttr, controller));
 							view.getModel().getMilestone(milestoneRef).setX(x - xdecal);
 							view.getModel().getMilestone(milestoneRef).setY(y - ydecal);
+							cancelAttr.add(view.getModel().getMilestone(milestoneRef).getDoubleX());
+							cancelAttr.add(view.getModel().getMilestone(milestoneRef).getDoubleY());
 							if (connect) {
         							if(!connectToRefM.contains(milestoneRef))
         							    connectToRefM.add(milestoneRef);
@@ -1531,21 +1541,41 @@ public class Controller {
 							}
 						}
 						if (commentRef != 0 && !isResizing) {
+							ArrayList<Object> cancelAttr = new ArrayList<Object>();
+							cancelAttr.add(view.getModel().getComment(commentRef));
+							cancelAttr.add(view.getModel().getComment(commentRef).getDoubleX());
+							cancelAttr.add(view.getModel().getComment(commentRef).getDoubleY());
+							cancelFactory.addAction(new CancellableAction(CancellableActionLabel.comment_move, cancelAttr, controller));
 							model.getComment(commentRef).setX(x - xdecal);
 							model.getComment(commentRef).setY(y - ydecal);
+							cancelAttr.add(view.getModel().getComment(commentRef).getDoubleX());
+							cancelAttr.add(view.getModel().getComment(commentRef).getDoubleY());
 							view.repaint();
 						}
 						
 						if (sequenceBarRef != 0 && !isResizing) {
-							
+							ArrayList<Object> cancelAttr = new ArrayList<Object>();
+							cancelAttr.add(view.getModel().getSequence(sequenceBarRef));
+							cancelAttr.add(view.getModel().getSequence(sequenceBarRef).getDoubleX());
+							cancelAttr.add(view.getModel().getSequence(sequenceBarRef).getDoubleY());
+							cancelFactory.addAction(new CancellableAction(CancellableActionLabel.sequence_move, cancelAttr, controller));
 							model.getSequence(sequenceBarRef).setX(x - xdecal);
 							model.getSequence(sequenceBarRef).setY(y - ydecal);
+							cancelAttr.add(view.getModel().getSequence(sequenceBarRef).getDoubleX());
+							cancelAttr.add(view.getModel().getSequence(sequenceBarRef).getDoubleY());
 							//view.sequenceBarAlignement(model.getSequence(sequenceBarRef));
 						}
 						
 						if (startUpTaskRef != 0 && !isResizing) {
+							ArrayList<Object> cancelAttr = new ArrayList<Object>();
+							cancelAttr.add(view.getModel().getStartUpTask(startUpTaskRef));
+							cancelAttr.add(view.getModel().getStartUpTask(startUpTaskRef).getDoubleX());
+							cancelAttr.add(view.getModel().getStartUpTask(startUpTaskRef).getDoubleY());
+							cancelFactory.addAction(new CancellableAction(CancellableActionLabel.step_move, cancelAttr, controller));
 							model.getStartUpTask(startUpTaskRef).setX(x - xdecal);
 							model.getStartUpTask(startUpTaskRef).setY(y - ydecal);
+							cancelAttr.add(view.getModel().getStartUpTask(startUpTaskRef).getDoubleX());
+							cancelAttr.add(view.getModel().getStartUpTask(startUpTaskRef).getDoubleY());
 							//view.sequenceBarAlignement(model.getSequence(sequenceBarRef));
 							if (connect) {
 								if(!connectToRefSUT.contains(startUpTaskRef))
@@ -1723,6 +1753,7 @@ public class Controller {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			if (milestoneRef != 0) {
+				cancelFactory.addAction(new CancellableAction(CancellableActionLabel.milestone_deletion, model.getMilestone(milestoneRef), controller));
 				// suppress all input connectors from Milestones
 				for (Integer i : model.getMilestones().keySet()) {
 					if (model.getMilestone(i).getDestMilestone().contains(model.getMilestone(milestoneRef))) {
@@ -1740,16 +1771,19 @@ public class Controller {
 				milestoneRef = 0;
 				milestoneRefSelected =0;
 			} else if (sequenceBarRef != 0) {
+				cancelFactory.addAction(new CancellableAction(CancellableActionLabel.sequence_deletion, model.getSequence(sequenceBarRef), controller));
 				model.getSequences().remove(sequenceBarRef);
 				view.getSequenceBarRightClickMenu().setVisible(false);
 				sequenceBarRef = 0;
 				sequenceBarRefSelected = 0;
 			} else if (commentRef != 0) {
+				cancelFactory.addAction(new CancellableAction(CancellableActionLabel.comment_deletion, model.getComment(commentRef), controller));
 				model.getComments().remove(commentRef);
 				view.getCommentRightClickMenu().setVisible(false);
 				commentRef = 0;
 				commentRefSelected = 0;
 			} else if (startUpTaskRef != 0) {
+				cancelFactory.addAction(new CancellableAction(CancellableActionLabel.step_deletion, model.getStartUpTask(startUpTaskRef), controller));
 				// suppress all input connectors from Milestones
 				for (Integer i : model.getMilestones().keySet()) {
 					if (model.getMilestone(i).getDestSUT().contains(model.getStartUpTask(startUpTaskRef))) {
@@ -2306,6 +2340,8 @@ public class Controller {
 		
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
+			cancelFactory.flush();
+			
 			File fops = new File(fileName);
 			boolean SaveAs=false;
 			if(fileName.equals("")){
@@ -3162,16 +3198,19 @@ public class Controller {
 
 	    @Override
 	    public void actionPerformed(ActionEvent arg0) {
-		Point e=new Point();
-		e.setLocation(view.getDrawPanel().getVisibleRect().getCenterX(), view.getDrawPanel().getVisibleRect().getCenterY());
-		//ZOOM OUT
-		if (GeneralConfig.updateForZoom((int) Math.round((GeneralConfig.zoom / GeneralConfig.coeffZoom)))) {
-			view.updatePositionForZoom(-1);
-			view.getDrawPanel().updateUI();
-			view.getScrollPane().getHorizontalScrollBar().setValue((int) Math.round(e.getX()*(1/GeneralConfig.coeffZoom-1)+view.getScrollPane().getHorizontalScrollBar().getValue()));
-			view.getScrollPane().getVerticalScrollBar().setValue((int) Math.round(e.getY()*(1/GeneralConfig.coeffZoom-1)+view.getScrollPane().getVerticalScrollBar().getValue()));
-			view.repaint();
-		}
+	    	
+			Point e=new Point();
+			e.setLocation(view.getDrawPanel().getVisibleRect().getCenterX(), view.getDrawPanel().getVisibleRect().getCenterY());
+			
+			//ZOOM OUT
+			if (GeneralConfig.updateForZoom((int) Math.round((GeneralConfig.zoom / GeneralConfig.coeffZoom)))) {
+				cancelFactory.addAction(new CancellableAction(CancellableActionLabel.zoom_out, e, controller));
+				view.updatePositionForZoom(-1);
+				view.getDrawPanel().updateUI();
+				view.getScrollPane().getHorizontalScrollBar().setValue((int) Math.round(e.getX()*(1/GeneralConfig.coeffZoom-1)+view.getScrollPane().getHorizontalScrollBar().getValue()));
+				view.getScrollPane().getVerticalScrollBar().setValue((int) Math.round(e.getY()*(1/GeneralConfig.coeffZoom-1)+view.getScrollPane().getVerticalScrollBar().getValue()));
+				view.repaint();
+			}
 	    }
 	    
 	}
@@ -3184,16 +3223,18 @@ public class Controller {
 
 	    @Override
 	    public void actionPerformed(ActionEvent arg0) {
-		//ZOOM IN
-		Point e=new Point();
-		e.setLocation(view.getDrawPanel().getVisibleRect().getCenterX(), view.getDrawPanel().getVisibleRect().getCenterY());
-		if (GeneralConfig.updateForZoom((int) Math.round((GeneralConfig.zoom * GeneralConfig.coeffZoom)))) {
-			view.updatePositionForZoom(1);
-			view.getDrawPanel().updateUI();
-			view.getScrollPane().getHorizontalScrollBar().setValue((int) Math.round(e.getX()*(GeneralConfig.coeffZoom-1)+view.getScrollPane().getHorizontalScrollBar().getValue()));
-			view.getScrollPane().getVerticalScrollBar().setValue((int) Math.round(e.getY()*(GeneralConfig.coeffZoom-1)+view.getScrollPane().getVerticalScrollBar().getValue()));
-			view.repaint();
-		}
+			//ZOOM IN
+			Point e=new Point();
+			e.setLocation(view.getDrawPanel().getVisibleRect().getCenterX(), view.getDrawPanel().getVisibleRect().getCenterY());
+			
+			if (GeneralConfig.updateForZoom((int) Math.round((GeneralConfig.zoom * GeneralConfig.coeffZoom)))) {
+				cancelFactory.addAction(new CancellableAction(CancellableActionLabel.zoom_in, e, controller));
+				view.updatePositionForZoom(1);
+				view.getDrawPanel().updateUI();
+				view.getScrollPane().getHorizontalScrollBar().setValue((int) Math.round(e.getX()*(GeneralConfig.coeffZoom-1)+view.getScrollPane().getHorizontalScrollBar().getValue()));
+				view.getScrollPane().getVerticalScrollBar().setValue((int) Math.round(e.getY()*(GeneralConfig.coeffZoom-1)+view.getScrollPane().getVerticalScrollBar().getValue()));
+				view.repaint();
+			}
 	    }
 	    
 	}
@@ -3202,9 +3243,6 @@ public class Controller {
 
 		@Override
 		public void keyPressed(KeyEvent e) {
-			System.out.println("milestoneRefSelected "+milestoneRefSelected);
-			System.out.println("startUpTaskRefSelected "+startUpTaskRefSelected);
-			System.out.println("startUpTaskCopied "+startUpTaskCopied);
 			if ((e.getKeyCode() == KeyEvent.VK_C) && ((e.getModifiers() & KeyEvent.CTRL_MASK) != 0)) {
 				if(startUpTaskRefSelected!=0){
 					startUpTaskCopied = model.getStartUpTask(startUpTaskRefSelected);

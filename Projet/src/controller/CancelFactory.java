@@ -9,7 +9,18 @@ public class CancelFactory {
 		step_creation,
 		sequence_creation,
 		comment_creation,
-		connection_creation
+		connection_creation/*TODO*/,
+		milestone_deletion/*TODO Handle input Connectors*/,
+		step_deletion/*TODO Handle input Connectors*/,
+		sequence_deletion,
+		comment_deletion,
+		connection_deletion/*TODO*/,
+		zoom_in,
+		zoom_out,
+		milestone_move,
+		step_move,
+		sequence_move,
+		comment_move
 	}
 	
 	private ArrayList<CancellableAction> stackToCancel;
@@ -21,6 +32,7 @@ public class CancelFactory {
 	}
 	
 	public void addAction(CancellableAction cancellableAction) {
+		System.out.println(cancellableAction.getLabel());
 		if(stackToCancel.size()>999){
 			stackToCancel.remove(0);
 		}
@@ -44,6 +56,11 @@ public class CancelFactory {
 			ca.redo();
 			stackToCancel.add(ca);
 		}
+	}
+	
+	public void flush(){
+		this.stackCancelled.clear();
+		this.stackToCancel.clear();
 	}
 	
 }

@@ -379,5 +379,45 @@ public class StartUpSequence {
 		}
 	}
 
+	public Milestone getMilestone(Milestone cancelAttr) {
+		for(int i : milestones.keySet()){
+			Milestone m = milestones.get(i);
+			if(m.equals(cancelAttr)){
+				return m;
+			}
+		}
+		return null;
+	}
+	
+	public SequenceBar getSequence(SequenceBar cancelAttr) {
+		for(int i : sequences.keySet()){
+			SequenceBar m = sequences.get(i);
+			if(m.equals(cancelAttr)){
+				return m;
+			}
+		}
+		return null;
+	}
+	
+	public StartUpStep getStartUpStep(StartUpStep cancelAttr) {
+		for(int i : startUpTasks.keySet()){
+			StartUpStep m = startUpTasks.get(i);
+			if(m.equals(cancelAttr)){
+				return m;
+			}
+		}
+		return null;
+	}
+
+	public Comment getComment(Comment cancelAttr) {
+		for(int i : comments.keySet()){
+			Comment c1 = comments.get(i);
+			if(c1.equals(cancelAttr)){
+				return c1;
+			}
+		}
+		return null;
+	}
+
 
 }

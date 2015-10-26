@@ -216,7 +216,7 @@ public class View extends JFrame{
 		
 		mntmRedo = new JMenuItem("Redo");
 		mntmRedo.setIcon(new ImageIcon(View.class.getResource("/icons/org/fife/plaf/Office2003/redo.gif")));
-		mntmRedo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Z, InputEvent.CTRL_MASK | InputEvent.SHIFT_MASK));
+		mntmRedo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Y, InputEvent.CTRL_MASK));
 		mnEdit.add(mntmRedo);
 		
 		mnUtility = new JMenu("  Utility  ");
