@@ -50,6 +50,10 @@ import model.mode.Mode;
 import model.mode.NormalMode;
 import model.mode.SelectedMode;
 import conf.GeneralConfig;
+import controller.CancelFactory;
+import controller.CancelFactory.CancellableActionLabel;
+import controller.CancellableAction;
+import controller.Controller;
 
 import java.awt.SystemColor;
 
@@ -642,7 +646,9 @@ public class View extends JFrame{
 	 * @param menuNotDisplayedYet
 	 * @return ConnectorRightClickMenu
 	 */
-	public JPopupMenu getConnectorRightClickMenu(final int milestoneSrcForTheConnection, final ArrayList<Integer> milestonesDestForTheConnection,final int startUpStepSrcForTheConnection,final ArrayList<Integer> startUpStepsDestForTheConnection,boolean menuNotDisplayedYet){
+	public JPopupMenu getConnectorRightClickMenu(final int milestoneSrcForTheConnection, final ArrayList<Integer> milestonesDestForTheConnection,final int startUpStepSrcForTheConnection,final ArrayList<Integer> startUpStepsDestForTheConnection,boolean menuNotDisplayedYet, CancelFactory cf, Controller controller){
+		final CancelFactory cancelfactory = cf;
+		final Controller c = controller;
 		ImageIcon deleteImg = new ImageIcon(View.class.getResource("/img/delete-connection.png"));
 		if(menuNotDisplayedYet){
 			connectorRightClickMenu.setVisible(false);
@@ -662,7 +668,13 @@ public class View extends JFrame{
 						@Override
 						public void actionPerformed(ActionEvent arg0) {
 							model.getMilestone(milestoneSrcForTheConnection).getDestMilestone().remove(model.getMilestone(milestonesDestForTheConnection.get(finalI)));
-							getConnectorRightClickMenu(0, null,0,null, false).setVisible(false);
+							String[] cancelAttr = new String[4];
+							cancelAttr[0] = "milestone";
+							cancelAttr[1] = "milestone";
+							cancelAttr[2] = milestoneSrcForTheConnection+"";
+							cancelAttr[3] = milestonesDestForTheConnection.get(finalI)+"";
+							cancelfactory.addAction(new CancellableAction(CancellableActionLabel.connection_deletion, cancelAttr, c));
+							getConnectorRightClickMenu(0, null,0,null, false,null,null).setVisible(false);
 							v.getDrawPanel().repaint();
 						}
 					});
@@ -677,7 +689,13 @@ public class View extends JFrame{
 						@Override
 						public void actionPerformed(ActionEvent arg0) {
 							model.getMilestone(milestoneSrcForTheConnection).getDestSUT().remove(model.getStartUpTask(startUpStepsDestForTheConnection.get(finalI)));
-							getConnectorRightClickMenu(0, null,0,null, false).setVisible(false);
+							String[] cancelAttr = new String[4];
+							cancelAttr[0] = "milestone";
+							cancelAttr[1] = "step";
+							cancelAttr[2] = milestoneSrcForTheConnection+"";
+							cancelAttr[3] = startUpStepsDestForTheConnection.get(finalI)+"";
+							cancelfactory.addAction(new CancellableAction(CancellableActionLabel.connection_deletion, cancelAttr, c));
+							getConnectorRightClickMenu(0, null,0,null, false,null,null).setVisible(false);
 							v.getDrawPanel().repaint();
 						}
 					});
@@ -699,7 +717,13 @@ public class View extends JFrame{
 						@Override
 						public void actionPerformed(ActionEvent arg0) {
 							model.getStartUpTask(startUpStepSrcForTheConnection).getDestMilestone().remove(model.getMilestone(milestonesDestForTheConnection.get(finalI)));
-							getConnectorRightClickMenu(0, null,0,null, false).setVisible(false);
+							String[] cancelAttr = new String[4];
+							cancelAttr[0] = "step";
+							cancelAttr[1] = "milestone";
+							cancelAttr[2] = startUpStepSrcForTheConnection+"";
+							cancelAttr[3] = milestonesDestForTheConnection.get(finalI)+"";
+							cancelfactory.addAction(new CancellableAction(CancellableActionLabel.connection_deletion, cancelAttr, c));
+							getConnectorRightClickMenu(0, null,0,null, false,null,null).setVisible(false);
 							v.getDrawPanel().repaint();
 						}
 					});
@@ -714,7 +738,13 @@ public class View extends JFrame{
 						@Override
 						public void actionPerformed(ActionEvent arg0) {
 							model.getStartUpTask(startUpStepSrcForTheConnection).getDestSUT().remove(model.getStartUpTask(startUpStepsDestForTheConnection.get(finalI)));
-							getConnectorRightClickMenu(0, null,0,null, false).setVisible(false);
+							String[] cancelAttr = new String[4];
+							cancelAttr[0] = "step";
+							cancelAttr[1] = "step";
+							cancelAttr[2] = startUpStepSrcForTheConnection+"";
+							cancelAttr[3] = startUpStepsDestForTheConnection.get(finalI)+"";
+							cancelfactory.addAction(new CancellableAction(CancellableActionLabel.connection_deletion, cancelAttr, c));
+							getConnectorRightClickMenu(0, null,0,null, false, null, null).setVisible(false);
 							v.getDrawPanel().repaint();
 						}
 					});

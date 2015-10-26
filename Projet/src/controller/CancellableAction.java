@@ -3,6 +3,9 @@ package controller;
 
 
 import java.util.ArrayList;
+import java.util.Iterator;
+
+import com.sun.java.swing.plaf.motif.resources.motif;
 
 import conf.GeneralConfig;
 import controller.CancelFactory.CancellableActionLabel;
@@ -28,8 +31,6 @@ public class CancellableAction{
 			case comment_creation:
 				controller.getModel().addComment((Comment)cancelAttr);
 				break;
-			case connection_creation:
-				break;
 			case milestone_creation:
 				controller.getModel().addMilestone((Milestone)cancelAttr);
 				break;
@@ -42,16 +43,30 @@ public class CancellableAction{
 			case comment_deletion:
 				controller.getModel().removeComment((Comment)cancelAttr);
 				break;
-			case connection_deletion:
-				break;
 			case milestone_deletion:
-				controller.getModel().removeMilestone((Milestone)cancelAttr);
+				controller.getModel().removeMilestone((Milestone)((Object[])cancelAttr)[0]);
+				Iterator<Milestone> it1 = ((ArrayList<Milestone>)((Object[])cancelAttr)[1]).iterator();
+				while(it1.hasNext()){
+					controller.getModel().getMilestone(it1.next()).getDestMilestone().remove(((Milestone)((Object[])cancelAttr)[0]));
+				}
+				Iterator<StartUpStep> itt1 = ((ArrayList<StartUpStep>)((Object[])cancelAttr)[2]).iterator();
+				while(itt1.hasNext()){
+					controller.getModel().getStartUpStep(itt1.next()).getDestMilestone().remove(((Milestone)((Object[])cancelAttr)[0]));
+				}
 				break;
 			case sequence_deletion:
 				controller.getModel().removeSequence((SequenceBar)cancelAttr);
 				break;
 			case step_deletion:
-				controller.getModel().removeStep((StartUpStep)cancelAttr);
+				controller.getModel().removeStep((StartUpStep)((Object[])cancelAttr)[0]);
+				Iterator<Milestone> it2 = ((ArrayList<Milestone>)((Object[])cancelAttr)[1]).iterator();
+				while(it2.hasNext()){
+					controller.getModel().getMilestone(it2.next()).getDestSUT().remove(((StartUpStep)((Object[])cancelAttr)[0]));
+				}
+				Iterator<StartUpStep> itt2 = ((ArrayList<StartUpStep>)((Object[])cancelAttr)[2]).iterator();
+				while(itt2.hasNext()){
+					controller.getModel().getStartUpStep(itt2.next()).getDestSUT().remove(((StartUpStep)((Object[])cancelAttr)[0]));
+				}
 				break;
 			case zoom_out:
 				if (GeneralConfig.updateForZoom((int) Math.round((GeneralConfig.zoom / GeneralConfig.coeffZoom)))) {
@@ -87,6 +102,50 @@ public class CancellableAction{
 				controller.getModel().getComment((Comment)((ArrayList<Object>)cancelAttr).get(0)).setX((Double)((ArrayList<Object>)cancelAttr).get(3));
 				controller.getModel().getComment((Comment)((ArrayList<Object>)cancelAttr).get(0)).setY((Double)((ArrayList<Object>)cancelAttr).get(4));
 				break;
+			case connection_creation:
+				Object o = ((ArrayList<Object>)cancelAttr).get(0);
+				ArrayList<Milestone> mDest = (ArrayList<Milestone>) ((ArrayList<Object>)cancelAttr).get(1);
+				ArrayList<StartUpStep> sDest = (ArrayList<StartUpStep>) ((ArrayList<Object>)cancelAttr).get(2);
+				
+				if(o.getClass()==(new Milestone("")).getClass()){
+					Milestone m = controller.getModel().getMilestone((Milestone)o);
+					Iterator<Milestone> it = mDest.iterator();
+					while(it.hasNext()){
+						m.addDest(it.next());
+					}
+					Iterator<StartUpStep> it3 = sDest.iterator();
+					while(it3.hasNext()){
+						m.addDestSUT(it3.next());
+					}
+				} else if (o.getClass()==(new StartUpStep("", 0, 0, 0, 0).getClass())){
+					StartUpStep sut = controller.getModel().getStartUpStep((StartUpStep)o);
+					Iterator<Milestone> it = mDest.iterator();
+					while(it.hasNext()){
+						sut.addDest(it.next());
+					}
+					Iterator<StartUpStep> it3 = sDest.iterator();
+					while(it3.hasNext()){
+						sut.addDestSUT(it3.next());
+					}
+				}
+				break;
+			case connection_deletion:
+				if(((String[])cancelAttr)[0].equals("milestone")){
+					if(((String[])cancelAttr)[1].equals("milestone")){
+						controller.getModel().getMilestone(Integer.valueOf(((String[])cancelAttr)[2])).getDestMilestone().remove(controller.getModel().getMilestone(Integer.valueOf(((String[])cancelAttr)[3])));
+					}
+					else if(((String[])cancelAttr)[1].equals("step")){
+						controller.getModel().getMilestone(Integer.valueOf(((String[])cancelAttr)[2])).getDestSUT().remove(controller.getModel().getStartUpTask(Integer.valueOf(((String[])cancelAttr)[3])));
+					}
+				} else if(((String[])cancelAttr)[0].equals("step")){
+					if(((String[])cancelAttr)[1].equals("milestone")){
+						controller.getModel().getStartUpTask(Integer.valueOf(((String[])cancelAttr)[2])).getDestMilestone().remove(controller.getModel().getMilestone(Integer.valueOf(((String[])cancelAttr)[3])));
+					}
+					else if(((String[])cancelAttr)[1].equals("step")){
+						controller.getModel().getStartUpTask(Integer.valueOf(((String[])cancelAttr)[2])).getDestSUT().remove(controller.getModel().getStartUpTask(Integer.valueOf(((String[])cancelAttr)[3])));
+					}
+				}
+				break;
 			default:
 				break;
 			
@@ -97,8 +156,6 @@ public class CancellableAction{
 			switch (cal) {
 			case comment_creation:
 				controller.getModel().removeComment((Comment)cancelAttr);
-				break;
-			case connection_creation:
 				break;
 			case milestone_creation:
 				controller.getModel().removeMilestone((Milestone)cancelAttr);
@@ -116,10 +173,26 @@ public class CancellableAction{
 				controller.getModel().addSequence((SequenceBar)cancelAttr);
 				break;
 			case milestone_deletion:
-				controller.getModel().addMilestone((Milestone)cancelAttr);
+				controller.getModel().addMilestone((Milestone)((Object[])cancelAttr)[0]);
+				Iterator<Milestone> it = ((ArrayList<Milestone>)((Object[])cancelAttr)[1]).iterator();
+				while(it.hasNext()){
+					controller.getModel().getMilestone(it.next()).addDest((Milestone)((Object[])cancelAttr)[0]);
+				}
+				Iterator<StartUpStep> itt = ((ArrayList<StartUpStep>)((Object[])cancelAttr)[2]).iterator();
+				while(itt.hasNext()){
+					controller.getModel().getStartUpStep(itt.next()).addDest((Milestone)((Object[])cancelAttr)[0]);
+				}
 				break;
 			case step_deletion:
-				controller.getModel().addStartUpTask((StartUpStep)cancelAttr);
+				controller.getModel().addStartUpTask((StartUpStep)((Object[])cancelAttr)[0]);
+				Iterator<Milestone> it1 = ((ArrayList<Milestone>)((Object[])cancelAttr)[1]).iterator();
+				while(it1.hasNext()){
+					controller.getModel().getMilestone(it1.next()).addDestSUT(((StartUpStep)((Object[])cancelAttr)[0]));
+				}
+				Iterator<StartUpStep> itt1 = ((ArrayList<StartUpStep>)((Object[])cancelAttr)[2]).iterator();
+				while(itt1.hasNext()){
+					controller.getModel().getStartUpStep(itt1.next()).addDestSUT(((StartUpStep)((Object[])cancelAttr)[0]));
+				}
 				break;
 			case zoom_in:
 				if (GeneralConfig.updateForZoom((int) Math.round((GeneralConfig.zoom / GeneralConfig.coeffZoom)))) {
@@ -154,6 +227,103 @@ public class CancellableAction{
 			case comment_move:
 				controller.getModel().getComment((Comment)((ArrayList<Object>)cancelAttr).get(0)).setX((Double)((ArrayList<Object>)cancelAttr).get(1));
 				controller.getModel().getComment((Comment)((ArrayList<Object>)cancelAttr).get(0)).setY((Double)((ArrayList<Object>)cancelAttr).get(2));
+				break;
+			case connection_creation:
+				Object o = ((ArrayList<Object>)cancelAttr).get(0);
+				ArrayList<Milestone> mDest = (ArrayList<Milestone>) ((ArrayList<Object>)cancelAttr).get(1);
+				ArrayList<StartUpStep> sDest = (ArrayList<StartUpStep>) ((ArrayList<Object>)cancelAttr).get(2);
+				
+				ArrayList<Milestone> milestoneDestStackToRemove = new ArrayList<Milestone>();
+				ArrayList<StartUpStep> startUpStepDestStackToRemove = new ArrayList<StartUpStep>();
+				
+				if(o.getClass()==(new Milestone("")).getClass()){
+					Milestone m = controller.getModel().getMilestone((Milestone)o);
+					System.out.println(m.getName());
+					Iterator<Milestone> it2 = m.getDestMilestone().iterator();
+					while(it2.hasNext()){
+						Milestone dest = it2.next();
+						System.out.println("\t-->"+dest.getName());
+						Iterator<Milestone> itt2 = mDest.iterator();
+						while(itt2.hasNext()){
+							Milestone tmp = itt2.next();
+							if(tmp.equal(dest)){
+								milestoneDestStackToRemove.add(dest);
+							}
+						}
+					}
+					Iterator<StartUpStep> it3 = m.getDestSUT().iterator();
+					while(it3.hasNext()){
+						StartUpStep dest = it3.next();
+						Iterator<StartUpStep> itt3 = sDest.iterator();
+						while(itt3.hasNext()){
+							StartUpStep tmp = itt3.next();
+							if(tmp.equals(dest)){
+								startUpStepDestStackToRemove.add(dest);
+							}
+						}
+					}
+					
+					//Remove
+					Iterator<Milestone> rmItM = milestoneDestStackToRemove.iterator();
+					while(rmItM.hasNext()){
+						m.getDestMilestone().remove(rmItM.next());
+					}
+					Iterator<StartUpStep> rmItS = startUpStepDestStackToRemove.iterator();
+					while(rmItS.hasNext()){
+						m.getDestSUT().remove(rmItS.next());
+					}
+					
+				} else if (o.getClass()==(new StartUpStep("", 0, 0, 0, 0).getClass())){
+					StartUpStep sut = controller.getModel().getStartUpStep((StartUpStep)o);
+					Iterator<Milestone> it4 = sut.getDestMilestone().iterator();
+					while(it4.hasNext()){
+						Milestone dest = it4.next();
+						Iterator<Milestone> itt4 = mDest.iterator();
+						while(itt4.hasNext()){
+							Milestone tmp = itt4.next();
+							if(tmp.equal(dest)){
+								milestoneDestStackToRemove.add(dest);
+							}
+						}
+					}
+					Iterator<StartUpStep> it5 = sut.getDestSUT().iterator();
+					while(it5.hasNext()){
+						StartUpStep dest = it5.next();
+						Iterator<StartUpStep> itt5 = sDest.iterator();
+						while(itt5.hasNext()){
+							StartUpStep tmp = itt5.next();
+							if(tmp.equals(dest)){
+								startUpStepDestStackToRemove.add(dest);
+							}
+						}
+					}
+					//remove
+					Iterator<Milestone> rmItM = milestoneDestStackToRemove.iterator();
+					while(rmItM.hasNext()){
+						sut.getDestMilestone().remove(rmItM.next());
+					}
+					Iterator<StartUpStep> rmItS = startUpStepDestStackToRemove.iterator();
+					while(rmItS.hasNext()){
+						sut.getDestSUT().remove(rmItS.next());
+					}
+				}
+				break;
+			case connection_deletion:
+				if(((String[])cancelAttr)[0].equals("milestone")){
+					if(((String[])cancelAttr)[1].equals("milestone")){
+						controller.getModel().getMilestone(Integer.valueOf(((String[])cancelAttr)[2])).addDest(controller.getModel().getMilestone(Integer.valueOf(((String[])cancelAttr)[3])));
+					}
+					else if(((String[])cancelAttr)[1].equals("step")){
+						controller.getModel().getMilestone(Integer.valueOf(((String[])cancelAttr)[2])).addDestSUT(controller.getModel().getStartUpTask(Integer.valueOf(((String[])cancelAttr)[3])));
+					}
+				} else if(((String[])cancelAttr)[0].equals("step")){
+					if(((String[])cancelAttr)[1].equals("milestone")){
+						controller.getModel().getStartUpTask(Integer.valueOf(((String[])cancelAttr)[2])).addDest(controller.getModel().getMilestone(Integer.valueOf(((String[])cancelAttr)[3])));
+					}
+					else if(((String[])cancelAttr)[1].equals("step")){
+						controller.getModel().getStartUpTask(Integer.valueOf(((String[])cancelAttr)[2])).addDestSUT(controller.getModel().getStartUpTask(Integer.valueOf(((String[])cancelAttr)[3])));
+					}
+				}
 				break;
 			default:
 				break;

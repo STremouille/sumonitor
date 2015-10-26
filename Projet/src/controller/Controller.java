@@ -1112,7 +1112,7 @@ public class Controller {
 			else if (arg0.getButton() == MouseEvent.BUTTON1) {
 				view.getGeneralRightClickMenu().setVisible(false);
 				view.getMilestoneRightClickMenu().setVisible(false);
-				view.getConnectorRightClickMenu(-1, null,-1,null, false).setVisible(false);//it put invisible itself
+				view.getConnectorRightClickMenu(-1, null,-1,null, false,null,null).setVisible(false);//it put invisible itself
 				view.getSequenceBarRightClickMenu().setVisible(false);
 				view.getCommentRightClickMenu().setVisible(false);
 				view.getStartUpTaskRightClickMenu().setVisible(false);
@@ -1684,8 +1684,8 @@ public class Controller {
 				view.getStartUpTaskRightClickMenu().setLocation(e.getXOnScreen(), e.getYOnScreen());
 				view.getStartUpTaskRightClickMenu().setVisible(!view.getStartUpTaskRightClickMenu().isVisible());
 			}else if(rightClickOnConnector){
-				view.getConnectorRightClickMenu(srcIndexM,destIndexM,srcIndexS,destIndexS,true).setLocation(e.getXOnScreen(), e.getYOnScreen());
-				view.getConnectorRightClickMenu(0,null,0,null,false).setVisible(!view.getConnectorRightClickMenu(0,null,0,null,false).isVisible());
+				view.getConnectorRightClickMenu(srcIndexM,destIndexM,srcIndexS,destIndexS,true,cancelFactory,controller).setLocation(e.getXOnScreen(), e.getYOnScreen());
+				view.getConnectorRightClickMenu(0,null,0,null,false,cancelFactory,controller).setVisible(!view.getConnectorRightClickMenu(0,null,0,null,false,cancelFactory,controller).isVisible());
 			} else if(milestoneRef==0&&sequenceBarRef==0&&!rightClickOnConnector&&startUpTaskRef==0&&!titleSelected){
 				whereRightClickHappenX=e.getX();
 				whereRightClickHappenY=e.getY();
@@ -1753,19 +1753,28 @@ public class Controller {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			if (milestoneRef != 0) {
-				cancelFactory.addAction(new CancellableAction(CancellableActionLabel.milestone_deletion, model.getMilestone(milestoneRef), controller));
+				ArrayList<Milestone> inputM = new ArrayList<Milestone>();
+				ArrayList<StartUpStep> inputS = new ArrayList<StartUpStep>();
 				// suppress all input connectors from Milestones
 				for (Integer i : model.getMilestones().keySet()) {
 					if (model.getMilestone(i).getDestMilestone().contains(model.getMilestone(milestoneRef))) {
+						inputM.add(model.getMilestone(i));
 						model.getMilestone(i).getDestMilestone().remove(model.getMilestone(milestoneRef));
 					}
 				}
 				// suppress all input connectors from Steps
 				for (Integer i : model.getStartUpTasks().keySet()) {
 					if (model.getStartUpTask(i).getDestMilestone().contains(model.getMilestone(milestoneRef))) {
+						inputS.add(model.getStartUpTask(i));
 						model.getStartUpTask(i).getDestMilestone().remove(model.getMilestone(milestoneRef));
 					}
 				}
+				Object[] cancelAttr = new Object[3];
+				cancelAttr[0] = model.getMilestone(milestoneRef);
+				cancelAttr[1] = inputM;
+				cancelAttr[2] = inputS;
+				cancelFactory.addAction(new CancellableAction(CancellableActionLabel.milestone_deletion, cancelAttr, controller));
+				
 				model.getMilestones().remove(milestoneRef);
 				view.getMilestoneRightClickMenu().setVisible(false);
 				milestoneRef = 0;
@@ -1783,19 +1792,28 @@ public class Controller {
 				commentRef = 0;
 				commentRefSelected = 0;
 			} else if (startUpTaskRef != 0) {
-				cancelFactory.addAction(new CancellableAction(CancellableActionLabel.step_deletion, model.getStartUpTask(startUpTaskRef), controller));
+				ArrayList<Milestone> inputM = new ArrayList<Milestone>();
+				ArrayList<StartUpStep> inputS = new ArrayList<StartUpStep>();
 				// suppress all input connectors from Milestones
 				for (Integer i : model.getMilestones().keySet()) {
 					if (model.getMilestone(i).getDestSUT().contains(model.getStartUpTask(startUpTaskRef))) {
+						inputM.add(model.getMilestone(i));
 						model.getMilestone(i).getDestSUT().remove(model.getStartUpTask(startUpTaskRef));
 					}
 				}
 				// suppress all input connectors from Steps
 				for (Integer i : model.getStartUpTasks().keySet()) {
 					if (model.getStartUpTask(i).getDestSUT().contains(model.getStartUpTask(startUpTaskRef))) {
+						inputS.add(model.getStartUpTask(i));
 						model.getStartUpTask(i).getDestSUT().remove(model.getStartUpTask(startUpTaskRef));
 					}
 				}
+				
+				Object[] cancelAttr = new Object[3];
+				cancelAttr[0] = model.getStartUpTask(startUpTaskRef);
+				cancelAttr[1] = inputM;
+				cancelAttr[2] = inputS;
+				cancelFactory.addAction(new CancellableAction(CancellableActionLabel.step_deletion, cancelAttr, controller));
 				model.getStartUpTasks().remove(startUpTaskRef);
 				view.getStartUpTaskRightClickMenu().setVisible(false);
 				startUpTaskRef = 0;
@@ -1859,29 +1877,47 @@ public class Controller {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			if(connectFromRefM!=0){
+				ArrayList<Object> cancelAttr = new ArrayList<Object>();
+				ArrayList<Milestone> mDest = new ArrayList<Milestone>();
+				ArrayList<StartUpStep> sDest = new ArrayList<StartUpStep>();
 				Milestone src = model.getMilestone(connectFromRefM);
 				Iterator<Integer> it = connectToRefM.iterator();
 				while (it.hasNext()) {
 					int next = it.next();
 					src.addDest(model.getMilestone(next));
+					mDest.add(model.getMilestone(next));
 				}
 				Iterator<Integer> itt = connectToRefSUT.iterator();
 				while (itt.hasNext()) {
 					int next = itt.next();
 					src.addDestSUT(model.getStartUpTask(next));
+					sDest.add(model.getStartUpTask(next));
 				}
+				cancelAttr.add(src);
+				cancelAttr.add(mDest);
+				cancelAttr.add(sDest);
+				cancelFactory.addAction(new CancellableAction(CancellableActionLabel.connection_creation, cancelAttr, controller));
 			} else if(connectFromRefSUT!=0){
+				ArrayList<Object> cancelAttr = new ArrayList<Object>();
+				ArrayList<Milestone> mDest = new ArrayList<Milestone>();
+				ArrayList<StartUpStep> sDest = new ArrayList<StartUpStep>();
 				StartUpStep src = model.getStartUpTask(connectFromRefSUT);
 				Iterator<Integer> it = connectToRefM.iterator();
 				while (it.hasNext()) {
 					int next = it.next();
 					src.addDest(model.getMilestone(next));
+					mDest.add(model.getMilestone(next));
 				}
 				Iterator<Integer> itt = connectToRefSUT.iterator();
 				while (itt.hasNext()) {
 					int next = itt.next();
 					src.addDestSUT(model.getStartUpTask(next));
+					sDest.add(model.getStartUpTask(next));
 				}
+				cancelAttr.add(src);
+				cancelAttr.add(mDest);
+				cancelAttr.add(sDest);
+				cancelFactory.addAction(new CancellableAction(CancellableActionLabel.connection_creation, cancelAttr, controller));
 			}
 			
 			for (int i : model.getMilestones().keySet()) {
