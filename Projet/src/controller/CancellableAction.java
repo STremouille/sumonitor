@@ -93,16 +93,23 @@ public class CancellableAction{
 				controller.getModel().getMilestone((Milestone)((ArrayList<Object>)cancelAttr).get(0)).setY((Double)((ArrayList<Object>)cancelAttr).get(4));
 				break;
 			case sequence_move:
-				controller.getModel().getSequence((SequenceBar)((ArrayList<Object>)cancelAttr).get(0)).setX((Double)((ArrayList<Object>)cancelAttr).get(3));
-				controller.getModel().getSequence((SequenceBar)((ArrayList<Object>)cancelAttr).get(0)).setY((Double)((ArrayList<Object>)cancelAttr).get(4));
+				controller.getModel().getSequence((SequenceBar)((ArrayList<Object>)cancelAttr).get(0)).setX((Double)((ArrayList<Object>)cancelAttr).get(6));
+				controller.getModel().getSequence((SequenceBar)((ArrayList<Object>)cancelAttr).get(0)).setY((Double)((ArrayList<Object>)cancelAttr).get(7));
+				controller.getModel().getSequence((SequenceBar)((ArrayList<Object>)cancelAttr).get(0)).setWidth((Double)((ArrayList<Object>)cancelAttr).get(8));
+				controller.getModel().getSequence((SequenceBar)((ArrayList<Object>)cancelAttr).get(0)).setHeight((Double)((ArrayList<Object>)cancelAttr).get(9));
+				controller.getModel().getSequence((SequenceBar)((ArrayList<Object>)cancelAttr).get(0)).setExtendedHeight((Double)((ArrayList<Object>)cancelAttr).get(10));
 				break;
 			case step_move:
-				controller.getModel().getStartUpStep((StartUpStep)((ArrayList<Object>)cancelAttr).get(0)).setX((Double)((ArrayList<Object>)cancelAttr).get(3));
-				controller.getModel().getStartUpStep((StartUpStep)((ArrayList<Object>)cancelAttr).get(0)).setY((Double)((ArrayList<Object>)cancelAttr).get(4));
+				controller.getModel().getStartUpStep((StartUpStep)((ArrayList<Object>)cancelAttr).get(0)).setX((Double)((ArrayList<Object>)cancelAttr).get(5));
+				controller.getModel().getStartUpStep((StartUpStep)((ArrayList<Object>)cancelAttr).get(0)).setY((Double)((ArrayList<Object>)cancelAttr).get(6));
+				controller.getModel().getStartUpStep((StartUpStep)((ArrayList<Object>)cancelAttr).get(0)).setWidth((Double)((ArrayList<Object>)cancelAttr).get(7));
+				controller.getModel().getStartUpStep((StartUpStep)((ArrayList<Object>)cancelAttr).get(0)).setHeight((Double)((ArrayList<Object>)cancelAttr).get(8));
 				break;
 			case comment_move:
-				controller.getModel().getComment((Comment)((ArrayList<Object>)cancelAttr).get(0)).setX((Double)((ArrayList<Object>)cancelAttr).get(3));
-				controller.getModel().getComment((Comment)((ArrayList<Object>)cancelAttr).get(0)).setY((Double)((ArrayList<Object>)cancelAttr).get(4));
+				controller.getModel().getComment((Comment)((ArrayList<Object>)cancelAttr).get(0)).setX((Double)((ArrayList<Object>)cancelAttr).get(5));
+				controller.getModel().getComment((Comment)((ArrayList<Object>)cancelAttr).get(0)).setY((Double)((ArrayList<Object>)cancelAttr).get(6));
+				controller.getModel().getComment((Comment)((ArrayList<Object>)cancelAttr).get(0)).setWidth((Double)((ArrayList<Object>)cancelAttr).get(7));
+				controller.getModel().getComment((Comment)((ArrayList<Object>)cancelAttr).get(0)).setHeight((Double)((ArrayList<Object>)cancelAttr).get(8));
 				break;
 			case connection_creation:
 				Object o = ((ArrayList<Object>)cancelAttr).get(0);
@@ -229,14 +236,21 @@ public class CancellableAction{
 			case sequence_move:
 				controller.getModel().getSequence((SequenceBar)((ArrayList<Object>)cancelAttr).get(0)).setX((Double)((ArrayList<Object>)cancelAttr).get(1));
 				controller.getModel().getSequence((SequenceBar)((ArrayList<Object>)cancelAttr).get(0)).setY((Double)((ArrayList<Object>)cancelAttr).get(2));
+				controller.getModel().getSequence((SequenceBar)((ArrayList<Object>)cancelAttr).get(0)).setWidth((Double)((ArrayList<Object>)cancelAttr).get(3));
+				controller.getModel().getSequence((SequenceBar)((ArrayList<Object>)cancelAttr).get(0)).setHeight((Double)((ArrayList<Object>)cancelAttr).get(4));
+				controller.getModel().getSequence((SequenceBar)((ArrayList<Object>)cancelAttr).get(0)).setExtendedHeight((Double)((ArrayList<Object>)cancelAttr).get(5));
 				break;
 			case step_move:
 				controller.getModel().getStartUpStep((StartUpStep)((ArrayList<Object>)cancelAttr).get(0)).setX((Double)((ArrayList<Object>)cancelAttr).get(1));
 				controller.getModel().getStartUpStep((StartUpStep)((ArrayList<Object>)cancelAttr).get(0)).setY((Double)((ArrayList<Object>)cancelAttr).get(2));
+				controller.getModel().getStartUpStep((StartUpStep)((ArrayList<Object>)cancelAttr).get(0)).setWidth((Double)((ArrayList<Object>)cancelAttr).get(3));
+				controller.getModel().getStartUpStep((StartUpStep)((ArrayList<Object>)cancelAttr).get(0)).setHeight((Double)((ArrayList<Object>)cancelAttr).get(4));
 				break;
 			case comment_move:
 				controller.getModel().getComment((Comment)((ArrayList<Object>)cancelAttr).get(0)).setX((Double)((ArrayList<Object>)cancelAttr).get(1));
 				controller.getModel().getComment((Comment)((ArrayList<Object>)cancelAttr).get(0)).setY((Double)((ArrayList<Object>)cancelAttr).get(2));
+				controller.getModel().getComment((Comment)((ArrayList<Object>)cancelAttr).get(0)).setWidth((Double)((ArrayList<Object>)cancelAttr).get(3));
+				controller.getModel().getComment((Comment)((ArrayList<Object>)cancelAttr).get(0)).setHeight((Double)((ArrayList<Object>)cancelAttr).get(4));
 				break;
 			case connection_creation:
 				Object o = ((ArrayList<Object>)cancelAttr).get(0);

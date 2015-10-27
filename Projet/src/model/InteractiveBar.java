@@ -326,10 +326,10 @@ public abstract class InteractiveBar extends JComponent{
 	 */
 	public void initBorders(){
 		this.borders= new Rectangle[4];
-		this.borders[0]=new Rectangle((int)Math.round(X), (int)Math.round(Y), (int)Math.round(width), 20);//NORTH
-		this.borders[1]=new Rectangle((int)Math.round(X+width-20), (int)Math.round(Y), 20, (int)Math.round(height));//EAST
-		this.borders[2]=new Rectangle((int)Math.round(X), (int)Math.round(Y+height-20), (int)Math.round(width), 20);//SOUTH
-		this.borders[3]=new Rectangle((int)Math.round(X),(int)Math.round(Y),20,(int)Math.round(height));//WEST
+		this.borders[0]=new Rectangle((int)Math.round(X), (int)Math.round(Y), (int)Math.round(width), 5);//NORTH
+		this.borders[1]=new Rectangle((int)Math.round(X+width-5), (int)Math.round(Y), 5, (int)Math.round(height));//EAST
+		this.borders[2]=new Rectangle((int)Math.round(X), (int)Math.round(Y+height-5), (int)Math.round(width), 5);//SOUTH
+		this.borders[3]=new Rectangle((int)Math.round(X),(int)Math.round(Y),5,(int)Math.round(height));//WEST
 	}
 	
 	

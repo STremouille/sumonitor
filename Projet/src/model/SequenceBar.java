@@ -7,6 +7,8 @@ import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.Rectangle;
 
+import org.omg.Messaging.SYNC_WITH_TRANSPORT;
+
 import conf.GeneralConfig;
 import conf.Utils;
 
@@ -86,19 +88,19 @@ public class SequenceBar extends InteractiveBar implements MovableItem{
 			g.fillRect(getX()-GeneralConfig.milestoneHeight/50,(int)Math.round(getDoubleY())-GeneralConfig.milestoneHeight/50+(int)Math.round(getDoubleHeight()),GeneralConfig.milestoneHeight/25 ,GeneralConfig.milestoneHeight/25 );
 			g.fillRect(getX()-GeneralConfig.milestoneHeight/50+(int)Math.round(getDoubleWidth()), (int)Math.round(getDoubleY())-GeneralConfig.milestoneHeight/50+(int)Math.round(getDoubleHeight()),GeneralConfig.milestoneHeight/25 ,GeneralConfig.milestoneHeight/25 );
 		}
-		for(int i=getHeight();i<extendedHeight;i++){
+		for(int i=0;i<extendedHeight;i++){
 			g.setColor(getDottedLineColor());
-			g.drawLine(getX(), (int)Math.round(getDoubleY())+i, getX(), (int)Math.round(getDoubleY())+i+2);
-			g.drawLine(getX()+(int)Math.round(getDoubleWidth()), (int)Math.round(getDoubleY())+i, getX()+(int)Math.round(getDoubleWidth()), (int)Math.round(getDoubleY())+i+2);
+			g.drawLine(getX(), (int)Math.round(getDoubleY()+getDoubleHeight())+i, getX(), (int)Math.round(getDoubleY()+getDoubleHeight())+i+2);
+			g.drawLine(getX()+(int)Math.round(getDoubleWidth()), (int)Math.round(getDoubleY()+getDoubleHeight())+i, getX()+(int)Math.round(getDoubleWidth()), (int)Math.round(getDoubleY()+getDoubleHeight())+i+2);
 			i=i+9;
 		}
-		//g.drawRect(getX(), getY(),getWidth(), getHeight());
+		
 	}
 
 	@Override
 	public void initBorders() {
 		super.initBorders();
-		extendedRectangle = new Rectangle(getX(), (int)Math.round(getDoubleY()+extendedHeight*0.85), (int)Math.round(getDoubleWidth()), (int)Math.round(extendedHeight*0.15));
+		extendedRectangle = new Rectangle(getX(), (int)Math.round(getDoubleY()+getDoubleHeight()+extendedHeight-5), (int)Math.round(getDoubleWidth()), 5);
 	}
 	
 	/**
@@ -119,8 +121,8 @@ public class SequenceBar extends InteractiveBar implements MovableItem{
 	 * @param extendedHeight (this is the height of the dotted line)
 	 */
 	public void setExtendedHeight(double extendedHeight) {
-		if(extendedHeight-this.getHeight()<GeneralConfig.milestoneHeight){
-			this.extendedHeight=GeneralConfig.milestoneHeight;
+		if(extendedHeight<GeneralConfig.milestoneHeight/8){
+			this.extendedHeight=GeneralConfig.milestoneHeight/8;
 		}
 		else{
 			this.extendedHeight=extendedHeight;
@@ -146,8 +148,9 @@ public class SequenceBar extends InteractiveBar implements MovableItem{
 	public ResizeDirection getResizeDirection(Point p) {
 		ResizeDirection res = super.getResizeDirection(p);
 		if(res==null){
-			if(extendedRectangle.getBounds().contains(p))
+			if(extendedRectangle.getBounds().contains(p)){
 				return ResizeDirection.EXTENDEDSOUTH;
+			}
 			else
 				return null;
 		}

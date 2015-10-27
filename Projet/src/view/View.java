@@ -1134,5 +1134,13 @@ public class View extends JFrame{
 	public void addCopyPasteListener(KeyListener copyPasteListener) {
 		this.addKeyListener(copyPasteListener);
 	}
+
+	public boolean isConnectedMode() {
+		if(mode == Mode.CONNECTION){
+			return true;
+		} else {
+			return false;
+		}
+	}
 	
 }

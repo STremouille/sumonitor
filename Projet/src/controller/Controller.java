@@ -395,7 +395,7 @@ public class Controller {
 						(int)(GeneralConfig.milestoneHeight/4));
 			}
 			
-			if (leftClick) {
+			if (leftClick && !view.isConnectedMode()) {
 				if (!isResizing) {
 					view.setCursor(cursor);
 				}
@@ -423,25 +423,7 @@ public class Controller {
 				}
 
 				// Dragging the sidebars of the drawpanel
-				else if (startUpTaskRef==0 && milestoneRef == 0 && sequenceBarRef == 0 && commentRef == 0 && !titleSelected && !isResizing) {
-					/*Graphics g = view.getGraphics();
-					g.setColor(Color.lightGray);
-					g.fillOval(previousX, previousY, 10, 10);
-					g.setColor(Color.gray);
-					g.drawOval(previousX, previousY, 10, 10);
-					if (previousX - arg0.getXOnScreen() < 0) {view.getScrollPane().getHorizontalScrollBar().setValue(view.getScrollPane().getHorizontalScrollBar().getValue() + 10);
-					} else if (previousX - arg0.getXOnScreen() > 0) {
-						view.getScrollPane().getHorizontalScrollBar().setValue(view.getScrollPane().getHorizontalScrollBar().getValue() - 10);
-					}
-					if (previousY - arg0.getYOnScreen() < 0) {
-						view.getScrollPane().getVerticalScrollBar().setValue(view.getScrollPane().getVerticalScrollBar().getValue() + 10);
-					} else if (previousY - arg0.getYOnScreen() > 0) {
-						view.getScrollPane().getVerticalScrollBar().setValue(view.getScrollPane().getVerticalScrollBar().getValue() - 10);
-					}*/
-					view.getScrollPane().getHorizontalScrollBar().setValue(view.getScrollPane().getHorizontalScrollBar().getValue() + (previousX-arg0.getX()));
-					view.getScrollPane().getVerticalScrollBar().setValue(view.getScrollPane().getVerticalScrollBar().getValue() + (previousY-arg0.getY()));
-					return ;
-				}
+				
 				if (titleSelected && resizeTitleDirection != null && GeneralConfig.titleEnable) {
 					view.setResizing(true);
 					Rectangle oldBounds = view.getTitleBar().getBounds();
@@ -489,16 +471,17 @@ public class Controller {
 					isResizing = true;
 					int oldX = sb.getX();
 					int oldY = sb.getY();
+					int oldHeight = sb.getHeight();
 					switch (resizeSequenceDirection) {
 						case NORTH:
 							if (sb.setHeight(sb.getHeight() - (arg0.getY() - oldY))) {
 								sb.setY(arg0.getY());
-								sb.setExtendedHeight(sb.getExtendedHeight() - (arg0.getY() - oldY));
+								//sb.setExtendedHeight(sb.getExtendedHeight() - (arg0.getY() - oldY));
 							}
 							break;
 						case SOUTH:
 							if (sb.setHeight(arg0.getY() - oldY)) {
-								sb.setExtendedHeight(sb.getHeight() + 20);
+								//sb.setExtendedHeight(sb.getHeight() + 20);
 							}
 							break;
 						case WEST:
@@ -510,12 +493,12 @@ public class Controller {
 							sb.setWidth(arg0.getX() - oldX);
 							break;
 						case EXTENDEDSOUTH:
-							sb.setExtendedHeight(arg0.getY() - oldY);
+							sb.setExtendedHeight(arg0.getY() - oldY - oldHeight);
 							break;
 						case SOUTHEAST:
 							// SOUTH
 							if (sb.setHeight(arg0.getY() - oldY)) {
-								sb.setExtendedHeight(sb.getHeight() + 20);
+								//sb.setExtendedHeight(sb.getHeight() + sb.getExtendedHeight());
 							}
 							// EAST
 							sb.setWidth(arg0.getX() - oldX);
@@ -523,7 +506,7 @@ public class Controller {
 						case SOUTHWEST:
 							// SOUTH
 							if (sb.setHeight(arg0.getY() - oldY)) {
-								sb.setExtendedHeight(sb.getHeight() + 20);
+								//sb.setExtendedHeight(sb.getHeight() + 20);
 							}
 							// WEST
 							if (sb.setWidth(sb.getWidth() - (arg0.getX() - oldX))) {
@@ -534,7 +517,7 @@ public class Controller {
 							// NORTH
 							if (sb.setHeight(sb.getHeight() - (arg0.getY() - oldY))) {
 								sb.setY(arg0.getY());
-								sb.setExtendedHeight(sb.getExtendedHeight() - (arg0.getY() - oldY));
+								//sb.setExtendedHeight(sb.getExtendedHeight() - (arg0.getY() - oldY));
 							}
 							// EAST
 							sb.setWidth(arg0.getX() - oldX);
@@ -543,7 +526,7 @@ public class Controller {
 							// NORTH
 							if (sb.setHeight(sb.getHeight() - (arg0.getY() - oldY))) {
 								sb.setY(arg0.getY());
-								sb.setExtendedHeight(sb.getExtendedHeight() - (arg0.getY() - oldY));
+								//sb.setExtendedHeight(sb.getExtendedHeight() - (arg0.getY() - oldY));
 							}
 							// WEST
 							if (sb.setWidth(sb.getWidth() - (arg0.getX() - oldX))) {
@@ -677,6 +660,25 @@ public class Controller {
 					}
 				}
 			}
+			if (startUpTaskRef==0 && milestoneRef == 0 && sequenceBarRef == 0 && commentRef == 0 && !titleSelected && !isResizing && !newComment && !newMilestone && !newSequence && !newStartUpTask) {
+				/*Graphics g = view.getGraphics();
+				g.setColor(Color.lightGray);
+				g.fillOval(previousX, previousY, 10, 10);
+				g.setColor(Color.gray);
+				g.drawOval(previousX, previousY, 10, 10);
+				if (previousX - arg0.getXOnScreen() < 0) {view.getScrollPane().getHorizontalScrollBar().setValue(view.getScrollPane().getHorizontalScrollBar().getValue() + 10);
+				} else if (previousX - arg0.getXOnScreen() > 0) {
+					view.getScrollPane().getHorizontalScrollBar().setValue(view.getScrollPane().getHorizontalScrollBar().getValue() - 10);
+				}
+				if (previousY - arg0.getYOnScreen() < 0) {
+					view.getScrollPane().getVerticalScrollBar().setValue(view.getScrollPane().getVerticalScrollBar().getValue() + 10);
+				} else if (previousY - arg0.getYOnScreen() > 0) {
+					view.getScrollPane().getVerticalScrollBar().setValue(view.getScrollPane().getVerticalScrollBar().getValue() - 10);
+				}*/
+				view.getScrollPane().getHorizontalScrollBar().setValue(view.getScrollPane().getHorizontalScrollBar().getValue() + (previousX-arg0.getX()));
+				view.getScrollPane().getVerticalScrollBar().setValue(view.getScrollPane().getVerticalScrollBar().getValue() + (previousY-arg0.getY()));
+				return ;
+			}
 			view.repaint();
 
 		}
@@ -697,167 +699,168 @@ public class Controller {
 				view.notDisplayHint();
 			}
 			
-			
-			if (titleSelected && GeneralConfig.titleEnable) {
-				resizeTitleDirection = model.getTitleBar().getResizeDirection(new Point(arg0.getX(), arg0.getY()));
-				if (resizeTitleDirection != null) {
-					switch (resizeTitleDirection) {
-						case NORTH:
-							view.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
-							break;
-						case SOUTH:
-							view.setCursor(new Cursor(Cursor.S_RESIZE_CURSOR));
-							break;
-						case WEST:
-							if(model.getTitleBar().getStyle()!=Style.LARGE){
+			if(!view.isConnectedMode()){
+				if (titleSelected && GeneralConfig.titleEnable) {
+					resizeTitleDirection = model.getTitleBar().getResizeDirection(new Point(arg0.getX(), arg0.getY()));
+					if (resizeTitleDirection != null) {
+						switch (resizeTitleDirection) {
+							case NORTH:
+								view.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+								break;
+							case SOUTH:
+								view.setCursor(new Cursor(Cursor.S_RESIZE_CURSOR));
+								break;
+							case WEST:
+								if(model.getTitleBar().getStyle()!=Style.LARGE){
+									view.setCursor(new Cursor(Cursor.W_RESIZE_CURSOR));
+								} else {
+									view.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+								}
+								break;
+							case EAST:
+								if(model.getTitleBar().getStyle()!=Style.LARGE){
+									view.setCursor(new Cursor(Cursor.E_RESIZE_CURSOR));
+								} else {
+									view.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+								}
+								break;
+							case NORTHEAST:
+								view.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+								break;
+							case NORTHWEST:
+								view.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+								break;
+							case SOUTHEAST:
+								if(model.getTitleBar().getStyle()!=Style.LARGE){
+									view.setCursor(new Cursor(Cursor.SE_RESIZE_CURSOR));
+								} else {
+									view.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+								}
+								break;
+							case SOUTHWEST:
+								if(model.getTitleBar().getStyle()!=Style.LARGE){
+									view.setCursor(new Cursor(Cursor.SW_RESIZE_CURSOR));
+								} else {
+									view.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+								}
+								break;
+							default:
+								break;
+						}
+					} else {
+						view.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+					}
+				} else if (sequenceBarRefSelected != 0 /*&& model.getSequence(sequenceBarRef)!=null*/) {
+					SequenceBar sb = model.getSequence(sequenceBarRefSelected);
+					//Rectangle extendedSequenceBarBounds = new Rectangle(sb.getX(), sb.getY(), sb.getWidth(),(int) sb.getExtendedHeight());
+					resizeSequenceDirection = model.getSequence(sequenceBarRefSelected).getResizeDirection(new Point(arg0.getX(), arg0.getY()));
+					if (resizeSequenceDirection != null /*&& extendedSequenceBarBounds.getBounds().contains(new Point(arg0.getX(), arg0.getY()))*/) {
+						switch (resizeSequenceDirection) {
+							case NORTH:
+								view.setCursor(new Cursor(Cursor.N_RESIZE_CURSOR));
+								break;
+							case SOUTH:
+								view.setCursor(new Cursor(Cursor.S_RESIZE_CURSOR));
+								break;
+							case WEST:
 								view.setCursor(new Cursor(Cursor.W_RESIZE_CURSOR));
-							} else {
-								view.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
-							}
-							break;
-						case EAST:
-							if(model.getTitleBar().getStyle()!=Style.LARGE){
+								break;
+							case EAST:
 								view.setCursor(new Cursor(Cursor.E_RESIZE_CURSOR));
-							} else {
-								view.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
-							}
-							break;
-						case NORTHEAST:
-							view.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
-							break;
-						case NORTHWEST:
-							view.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
-							break;
-						case SOUTHEAST:
-							if(model.getTitleBar().getStyle()!=Style.LARGE){
+								break;
+							case NORTHEAST:
+								view.setCursor(new Cursor(Cursor.NE_RESIZE_CURSOR));
+								break;
+							case NORTHWEST:
+								view.setCursor(new Cursor(Cursor.NW_RESIZE_CURSOR));
+								break;
+							case SOUTHEAST:
 								view.setCursor(new Cursor(Cursor.SE_RESIZE_CURSOR));
-							} else {
-								view.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
-							}
-							break;
-						case SOUTHWEST:
-							if(model.getTitleBar().getStyle()!=Style.LARGE){
+								break;
+							case SOUTHWEST:
 								view.setCursor(new Cursor(Cursor.SW_RESIZE_CURSOR));
-							} else {
-								view.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
-							}
-							break;
-						default:
-							break;
+								break;
+							case EXTENDEDSOUTH:
+								view.setCursor(new Cursor(Cursor.S_RESIZE_CURSOR));
+								break;
+							default:
+								break;
+						}
+					} else {
+						view.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
 					}
-				} else {
-					view.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
-				}
-			} else if (sequenceBarRefSelected != 0 /*&& model.getSequence(sequenceBarRef)!=null*/) {
-				SequenceBar sb = model.getSequence(sequenceBarRefSelected);
-				Rectangle extendedSequenceBarBounds = new Rectangle(sb.getX(), sb.getY(), sb.getWidth(),(int) sb.getExtendedHeight());
-				resizeSequenceDirection = model.getSequence(sequenceBarRefSelected).getResizeDirection(new Point(arg0.getX(), arg0.getY()));
-				if (resizeSequenceDirection != null && extendedSequenceBarBounds.getBounds().contains(new Point(arg0.getX(), arg0.getY()))) {
-					switch (resizeSequenceDirection) {
-						case NORTH:
-							view.setCursor(new Cursor(Cursor.N_RESIZE_CURSOR));
-							break;
-						case SOUTH:
-							view.setCursor(new Cursor(Cursor.S_RESIZE_CURSOR));
-							break;
-						case WEST:
-							view.setCursor(new Cursor(Cursor.W_RESIZE_CURSOR));
-							break;
-						case EAST:
-							view.setCursor(new Cursor(Cursor.E_RESIZE_CURSOR));
-							break;
-						case NORTHEAST:
-							view.setCursor(new Cursor(Cursor.NE_RESIZE_CURSOR));
-							break;
-						case NORTHWEST:
-							view.setCursor(new Cursor(Cursor.NW_RESIZE_CURSOR));
-							break;
-						case SOUTHEAST:
-							view.setCursor(new Cursor(Cursor.SE_RESIZE_CURSOR));
-							break;
-						case SOUTHWEST:
-							view.setCursor(new Cursor(Cursor.SW_RESIZE_CURSOR));
-							break;
-						case EXTENDEDSOUTH:
-							view.setCursor(new Cursor(Cursor.S_RESIZE_CURSOR));
-							break;
-						default:
-							break;
+				} else if (commentRefSelected != 0) {
+					resizeCommentDirection = model.getComment(commentRefSelected).getResizeDirection(new Point(arg0.getX(), arg0.getY()));
+					if (resizeCommentDirection != null) {
+						switch (resizeCommentDirection) {
+							case NORTH:
+								view.setCursor(new Cursor(Cursor.N_RESIZE_CURSOR));
+								break;
+							case SOUTH:
+								view.setCursor(new Cursor(Cursor.S_RESIZE_CURSOR));
+								break;
+							case WEST:
+								view.setCursor(new Cursor(Cursor.W_RESIZE_CURSOR));
+								break;
+							case EAST:
+								view.setCursor(new Cursor(Cursor.E_RESIZE_CURSOR));
+								break;
+							case NORTHEAST:
+								view.setCursor(new Cursor(Cursor.NE_RESIZE_CURSOR));
+								break;
+							case NORTHWEST:
+								view.setCursor(new Cursor(Cursor.NW_RESIZE_CURSOR));
+								break;
+							case SOUTHEAST:
+								view.setCursor(new Cursor(Cursor.SE_RESIZE_CURSOR));
+								break;
+							case SOUTHWEST:
+								view.setCursor(new Cursor(Cursor.SW_RESIZE_CURSOR));
+								break;
+							case EXTENDEDSOUTH:
+								break;
+							default:
+							    	break;
+						}
+					} else {
+						view.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
 					}
-				} else {
-					view.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
-				}
-			} else if (commentRefSelected != 0) {
-				resizeCommentDirection = model.getComment(commentRefSelected).getResizeDirection(new Point(arg0.getX(), arg0.getY()));
-				if (resizeCommentDirection != null) {
-					switch (resizeCommentDirection) {
-						case NORTH:
-							view.setCursor(new Cursor(Cursor.N_RESIZE_CURSOR));
-							break;
-						case SOUTH:
-							view.setCursor(new Cursor(Cursor.S_RESIZE_CURSOR));
-							break;
-						case WEST:
-							view.setCursor(new Cursor(Cursor.W_RESIZE_CURSOR));
-							break;
-						case EAST:
-							view.setCursor(new Cursor(Cursor.E_RESIZE_CURSOR));
-							break;
-						case NORTHEAST:
-							view.setCursor(new Cursor(Cursor.NE_RESIZE_CURSOR));
-							break;
-						case NORTHWEST:
-							view.setCursor(new Cursor(Cursor.NW_RESIZE_CURSOR));
-							break;
-						case SOUTHEAST:
-							view.setCursor(new Cursor(Cursor.SE_RESIZE_CURSOR));
-							break;
-						case SOUTHWEST:
-							view.setCursor(new Cursor(Cursor.SW_RESIZE_CURSOR));
-							break;
-						case EXTENDEDSOUTH:
-							break;
-						default:
-						    	break;
+				} else if (startUpTaskRefSelected != 0) {
+					resizeStartUpTaskDirection = model.getStartUpTask(startUpTaskRefSelected).getResizeDirection(new Point(arg0.getX(), arg0.getY()));
+					if (resizeStartUpTaskDirection != null) {
+						switch (resizeStartUpTaskDirection) {
+							case NORTH:
+								view.setCursor(new Cursor(Cursor.N_RESIZE_CURSOR));
+								break;
+							case SOUTH:
+								view.setCursor(new Cursor(Cursor.S_RESIZE_CURSOR));
+								break;
+							case WEST:
+								view.setCursor(new Cursor(Cursor.W_RESIZE_CURSOR));
+								break;
+							case EAST:
+								view.setCursor(new Cursor(Cursor.E_RESIZE_CURSOR));
+								break;
+							case NORTHEAST:
+								view.setCursor(new Cursor(Cursor.NE_RESIZE_CURSOR));
+								break;
+							case NORTHWEST:
+								view.setCursor(new Cursor(Cursor.NW_RESIZE_CURSOR));
+								break;
+							case SOUTHEAST:
+								view.setCursor(new Cursor(Cursor.SE_RESIZE_CURSOR));
+								break;
+							case SOUTHWEST:
+								view.setCursor(new Cursor(Cursor.SW_RESIZE_CURSOR));
+								break;
+							case EXTENDEDSOUTH:
+								break;
+							default:
+							    	break;
+						}
+					} else {
+						view.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
 					}
-				} else {
-					view.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
-				}
-			} else if (startUpTaskRefSelected != 0) {
-				resizeStartUpTaskDirection = model.getStartUpTask(startUpTaskRefSelected).getResizeDirection(new Point(arg0.getX(), arg0.getY()));
-				if (resizeStartUpTaskDirection != null) {
-					switch (resizeStartUpTaskDirection) {
-						case NORTH:
-							view.setCursor(new Cursor(Cursor.N_RESIZE_CURSOR));
-							break;
-						case SOUTH:
-							view.setCursor(new Cursor(Cursor.S_RESIZE_CURSOR));
-							break;
-						case WEST:
-							view.setCursor(new Cursor(Cursor.W_RESIZE_CURSOR));
-							break;
-						case EAST:
-							view.setCursor(new Cursor(Cursor.E_RESIZE_CURSOR));
-							break;
-						case NORTHEAST:
-							view.setCursor(new Cursor(Cursor.NE_RESIZE_CURSOR));
-							break;
-						case NORTHWEST:
-							view.setCursor(new Cursor(Cursor.NW_RESIZE_CURSOR));
-							break;
-						case SOUTHEAST:
-							view.setCursor(new Cursor(Cursor.SE_RESIZE_CURSOR));
-							break;
-						case SOUTHWEST:
-							view.setCursor(new Cursor(Cursor.SW_RESIZE_CURSOR));
-							break;
-						case EXTENDEDSOUTH:
-							break;
-						default:
-						    	break;
-					}
-				} else {
-					view.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
 				}
 			}
 			view.repaint();
@@ -973,7 +976,7 @@ public class Controller {
 			//************************************************************************************\\
 			// Right click
 			//************************************************************************************\\
-			if (arg0.getButton() == MouseEvent.BUTTON3) {
+			if (arg0.getButton() == MouseEvent.BUTTON3 && !view.isConnectedMode()) {
 				//Connectors
 				//From Milestone
 				for(int i : model.getMilestones().keySet()){
@@ -1132,35 +1135,6 @@ public class Controller {
 					}
 					return ;
 				}
-				/*if(newMilestone){
-					Milestone m = new Milestone("New Milestone");
-					model.addMilestone(m);
-					m.setX(arg0.getX()-GeneralConfig.milestoneWidth/2);m.setY(arg0.getY()-GeneralConfig.milestoneHeight/2);
-					MilestoneEditorDialog v = new MilestoneEditorDialog(m, view.getWidth(), view.getHeight());
-					v.setLocation(view.getWidth()/2-v.getWidth()/2, view.getHeight()/2-v.getHeight()/2);
-					MilestoneEditorController c = new MilestoneEditorController(v, m, controller);
-					c.addRepaintListener(new RepaintOnActionListener());
-					unselectAllInToolbar();
-					return ;
-				} else if(newSequence){
-					SequenceBar sb = new SequenceBar("New Sequence", arg0.getX()-200, arg0.getY()-20, 400, 40, 100);
-					ibView = new SequenceBarEditorView(new Point(view.getWidth()/2,view.getHeight()/2), sb);
-					ibController = new SequenceBarEditorController(sb, ibView);
-					ibView.addColorChooserChangeListener(new ColorChooserChangeListener());
-					ibView.setLocation(view.getWidth()/2-ibView.getWidth()/2, view.getHeight()/2-ibView.getHeight()/2);
-					ibView.addRepaintListener(new RepaintOnActionListener());
-					model.addSequence(sb);
-					unselectAllInToolbar();
-					return ;
-				} else if (newComment){
-					Comment c = new Comment("Write your note here", arg0.getX()-75, arg0.getY()-75, 150, 100);
-					ibView = new CommentEditorView(new Point(view.getWidth()/2,view.getHeight()/2), c);
-					ibController = new InteractiveBarEditorController(c, ibView);
-					ibView.setLocation(view.getWidth()/2-ibView.getWidth()/2, view.getHeight()/2-ibView.getHeight()/2);
-					model.addComment(c);
-					unselectAllInToolbar();
-					return ;
-				}*/
 				// Start Up Task detection
 				for (int i : model.getStartUpTasks().keySet()) {
 					StartUpStep sut = model.getStartUpTask(i);
@@ -1176,7 +1150,8 @@ public class Controller {
 						milestoneRefSelected=0;
 						sut.setSelected(sut.isSelected());
 						titleSelected = false;
-						willMove = true;
+						if(!view.isConnectedMode())
+							willMove = true;
 						resizeTitleDirection = null;
 						if(shiftDown&&!model.getSelectedItems().contains(startUpTaskRefSelected)){
 							model.getSelectedItems().add(model.getStartUpTask(startUpTaskRefSelected));
@@ -1207,9 +1182,11 @@ public class Controller {
 							startUpTaskRef=0;
 							startUpTaskRefSelected=0;
 							milestoneRefSelected=0;
-							c.setSelected(c.isSelected());
+							if(!view.isConnectedMode()){
+								c.setSelected(c.isSelected());
+								willMove = true;
+							}
 							titleSelected = false;
-							willMove = true;
 							resizeTitleDirection = null;
 							
 							if(shiftDown&&!model.getSelectedItems().contains(commentRefSelected)){
@@ -1256,7 +1233,8 @@ public class Controller {
 							startUpTaskRef=0;
 							sequenceBarRefSelected=0;
 							titleSelected = false;
-							willMove = true;
+							if(!view.isConnectedMode())
+								willMove = true;
 							resizeSequenceDirection = null;
 							resizeTitleDirection = null;
 							resizeCommentDirection = null;
@@ -1287,7 +1265,7 @@ public class Controller {
 				
 
 				// Sequence detection
-				if (startUpTaskRef == 0 && milestoneRef == 0 && commentRef == 0) {
+				if (startUpTaskRef == 0 && milestoneRef == 0 && commentRef == 0 && !view.isConnectedMode()) {
 					for (int i : model.getSequences().keySet()) {
 						SequenceBar sb = model.getSequence(i);
 						if (sequenceBarRef == 0 && sb.getBounds().contains(new Point(arg0.getX(), arg0.getY()))) {
@@ -1300,9 +1278,11 @@ public class Controller {
 							startUpTaskRef=0;
 							startUpTaskRefSelected=0;
 							milestoneRefSelected=0;
-							sb.setSelected(sb.isSelected());
+							if(!view.isConnectedMode())
+								sb.setSelected(sb.isSelected());
 							titleSelected = false;
-							willMove = true;
+							if(!view.isConnectedMode())
+								willMove = true;
 							resizeTitleDirection = null;
 							if(shiftDown&&!model.getSelectedItems().contains(sequenceBarRefSelected)){
 								model.getSelectedItems().add(sb);
@@ -1349,7 +1329,7 @@ public class Controller {
 					}*/
 
 				// Title bar detection
-				if (milestoneRef == 0 && sequenceBarRef == 0 && commentRef == 0 && GeneralConfig.titleEnable && startUpTaskRef==0) {
+				if (milestoneRef == 0 && sequenceBarRef == 0 && commentRef == 0 && GeneralConfig.titleEnable && startUpTaskRef==0 && !view.isConnectedMode()) {
 					if (model.getTitleBar().getBounds().contains(new Point(arg0.getX(), arg0.getY()))) {
 						titleSelected = true;
 						milestoneRef = 0;
@@ -1385,6 +1365,9 @@ public class Controller {
 					}
 					view.repaint();
 				}
+				
+				
+
 
 				// To scroll by keeping the left click down
 				previousX = arg0.getX();
@@ -1392,7 +1375,7 @@ public class Controller {
 				/////////////////////////////////////////////////////////////////////////
 				// Implementation of double click                                      //
 				/////////////////////////////////////////////////////////////////////////
-				if (arg0.getClickCount() > 1) {
+				if (arg0.getClickCount() > 1 && !view.isConnectedMode()) {
 					// double click on title bar
 					if (model.getTitleBar().getBounds().contains(new Point(arg0.getX(), arg0.getY())) && titleSelected && GeneralConfig.titleEnable) {
 						
@@ -1458,7 +1441,7 @@ public class Controller {
 				}
 
 				// unselect all sequences before selecting one
-				if(!shiftDown&&model.getSelectedItems().size()<1){
+				if(!shiftDown&&model.getSelectedItems().size()<1 && !view.isConnectedMode()){
 					for (Integer s : view.getModel().getSequences().keySet()) {
 						if (s != sequenceBarRef)
 							view.getModel().getSequence(s).setSelected(false);
@@ -1537,24 +1520,22 @@ public class Controller {
 							view.getModel().getMilestone(milestoneRef).setY(y - ydecal);
 							cancelAttr.add(view.getModel().getMilestone(milestoneRef).getDoubleX());
 							cancelAttr.add(view.getModel().getMilestone(milestoneRef).getDoubleY());
-							if (connect) {
-        							if(!connectToRefM.contains(milestoneRef))
-        							    connectToRefM.add(milestoneRef);
-        							else
-        							    connectToRefM.remove(milestoneRef);
-								model.getMilestone(milestoneRef).setSelectedForConnection(!model.getMilestone(milestoneRef).isSelectedForConnection());
-							}
+							
 						}
 						if (commentRef != 0 && !isResizing) {
 							ArrayList<Object> cancelAttr = new ArrayList<Object>();
 							cancelAttr.add(view.getModel().getComment(commentRef));
 							cancelAttr.add(view.getModel().getComment(commentRef).getDoubleX());
 							cancelAttr.add(view.getModel().getComment(commentRef).getDoubleY());
+							cancelAttr.add(view.getModel().getComment(commentRef).getDoubleWidth());
+							cancelAttr.add(view.getModel().getComment(commentRef).getDoubleHeight());
 							cancelFactory.addAction(new CancellableAction(CancellableActionLabel.comment_move, cancelAttr, controller));
 							model.getComment(commentRef).setX(x - xdecal);
 							model.getComment(commentRef).setY(y - ydecal);
 							cancelAttr.add(view.getModel().getComment(commentRef).getDoubleX());
 							cancelAttr.add(view.getModel().getComment(commentRef).getDoubleY());
+							cancelAttr.add(view.getModel().getComment(commentRef).getDoubleWidth());
+							cancelAttr.add(view.getModel().getComment(commentRef).getDoubleHeight());
 							view.repaint();
 						}
 						
@@ -1563,11 +1544,17 @@ public class Controller {
 							cancelAttr.add(view.getModel().getSequence(sequenceBarRef));
 							cancelAttr.add(view.getModel().getSequence(sequenceBarRef).getDoubleX());
 							cancelAttr.add(view.getModel().getSequence(sequenceBarRef).getDoubleY());
+							cancelAttr.add(view.getModel().getSequence(sequenceBarRef).getDoubleWidth());
+							cancelAttr.add(view.getModel().getSequence(sequenceBarRef).getDoubleHeight());
+							cancelAttr.add(view.getModel().getSequence(sequenceBarRef).getExtendedHeight());
 							cancelFactory.addAction(new CancellableAction(CancellableActionLabel.sequence_move, cancelAttr, controller));
 							model.getSequence(sequenceBarRef).setX(x - xdecal);
 							model.getSequence(sequenceBarRef).setY(y - ydecal);
 							cancelAttr.add(view.getModel().getSequence(sequenceBarRef).getDoubleX());
 							cancelAttr.add(view.getModel().getSequence(sequenceBarRef).getDoubleY());
+							cancelAttr.add(view.getModel().getSequence(sequenceBarRef).getDoubleWidth());
+							cancelAttr.add(view.getModel().getSequence(sequenceBarRef).getDoubleHeight());
+							cancelAttr.add(view.getModel().getSequence(sequenceBarRef).getExtendedHeight());
 							//view.sequenceBarAlignement(model.getSequence(sequenceBarRef));
 						}
 						
@@ -1576,22 +1563,33 @@ public class Controller {
 							cancelAttr.add(view.getModel().getStartUpTask(startUpTaskRef));
 							cancelAttr.add(view.getModel().getStartUpTask(startUpTaskRef).getDoubleX());
 							cancelAttr.add(view.getModel().getStartUpTask(startUpTaskRef).getDoubleY());
+							cancelAttr.add(view.getModel().getStartUpTask(startUpTaskRef).getDoubleWidth());
+							cancelAttr.add(view.getModel().getStartUpTask(startUpTaskRef).getDoubleHeight());
 							cancelFactory.addAction(new CancellableAction(CancellableActionLabel.step_move, cancelAttr, controller));
 							model.getStartUpTask(startUpTaskRef).setX(x - xdecal);
 							model.getStartUpTask(startUpTaskRef).setY(y - ydecal);
 							cancelAttr.add(view.getModel().getStartUpTask(startUpTaskRef).getDoubleX());
 							cancelAttr.add(view.getModel().getStartUpTask(startUpTaskRef).getDoubleY());
+							cancelAttr.add(view.getModel().getStartUpTask(startUpTaskRef).getDoubleWidth());
+							cancelAttr.add(view.getModel().getStartUpTask(startUpTaskRef).getDoubleHeight());
 							//view.sequenceBarAlignement(model.getSequence(sequenceBarRef));
-							if (connect) {
-								if(!connectToRefSUT.contains(startUpTaskRef))
-								    connectToRefSUT.add(startUpTaskRef);
-								else
-								    connectToRefSUT.remove(startUpTaskRef);
-								model.getStartUpTask(startUpTaskRef).setSelectedForConnection(!model.getStartUpTask(startUpTaskRef).isSelectedForConnection());
-							}
 						}
 					}
 					view.repaint();
+				} else if(view.isConnectedMode()){
+					if(milestoneRef!=0){
+						if(!connectToRefM.contains(milestoneRef))
+						    connectToRefM.add(milestoneRef);
+						else
+						    connectToRefM.remove(milestoneRef);
+					model.getMilestone(milestoneRef).setSelectedForConnection(!model.getMilestone(milestoneRef).isSelectedForConnection());
+					} else if (startUpTaskRef!=0 /*&& !isResizing*/) {
+						if(!connectToRefSUT.contains(startUpTaskRef))
+						    connectToRefSUT.add(startUpTaskRef);
+						else
+						    connectToRefSUT.remove(startUpTaskRef);
+						model.getStartUpTask(startUpTaskRef).setSelectedForConnection(!model.getStartUpTask(startUpTaskRef).isSelectedForConnection());
+					}
 				}
 				previousX = 0;
 				previousY = 0;
@@ -1665,7 +1663,7 @@ public class Controller {
 
 		@Override
 		public void mouseReleased(MouseEvent arg0) {
-			if (arg0.isPopupTrigger()) {
+			if (arg0.isPopupTrigger()&& !view.isConnectedMode()) {
 				doPop(arg0);
 			}
 		}
@@ -2847,21 +2845,23 @@ public class Controller {
 
 		@Override
 		public void mousePressed(MouseEvent arg0) {
-			switch (this.type) {
-			case 0:
-				newMilestone=true;
-				break;
-			case 1:
-				newSequence=true;
-				break;
-			case 2:
-				newComment=true;
-				break;
-			case 3:
-				newStartUpTask=true;
-				break;
-			default:
-				break;
+			if(!view.isConnectedMode()){
+				switch (this.type) {
+				case 0:
+					newMilestone=true;
+					break;
+				case 1:
+					newSequence=true;
+					break;
+				case 2:
+					newComment=true;
+					break;
+				case 3:
+					newStartUpTask=true;
+					break;
+				default:
+					break;
+				}
 			}
 		}
 
@@ -2899,7 +2899,7 @@ public class Controller {
 					c.setY(view.getDrawPanel().getVisibleRect().y+p.getY()-(int)(GeneralConfig.milestoneHeight/3));	
 					cancelFactory.addAction(new CancellableAction(CancellableActionLabel.comment_creation, c, controller));
 				} else if(newStartUpTask){
-					StartUpStep sut = new StartUpStep("New Step", 0, 0, (int)(GeneralConfig.milestoneWidth/2), (int)(GeneralConfig.milestoneHeight/8));
+					StartUpStep sut = new StartUpStep("New Step", 0, 0, (int)(GeneralConfig.milestoneWidth/2), (int)(GeneralConfig.milestoneHeight/4));
 					model.addStartUpTask(sut);
 					sut.setX(view.getDrawPanel().getVisibleRect().x+p.getX()-(int)(GeneralConfig.milestoneWidth/4));
 					sut.setY(view.getDrawPanel().getVisibleRect().y+p.getY()-(int)(GeneralConfig.milestoneHeight/8));

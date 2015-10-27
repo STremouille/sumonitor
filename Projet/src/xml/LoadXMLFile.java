@@ -430,6 +430,7 @@ public class LoadXMLFile {
 				Element bgColor = (Element) eElement.getElementsByTagName("backgroundColor").item(0);
 				c.setColor(new Color(Integer.valueOf(bgColor.getAttribute("r")), Integer.valueOf(bgColor.getAttribute("g")), Integer.valueOf(bgColor.getAttribute("b"))));
 				
+				loadedModel.getComments().put(id, c);
 			}
 		}
 		
