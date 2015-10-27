@@ -163,6 +163,25 @@ public class CancellableAction{
 					itMI.next().move(dx, dy);
 				}
 				break;
+			case comment_resizing:
+				controller.getModel().getComment((Integer)((Object[])cancelAttr)[0]).setX((Double)((Object[])cancelAttr)[5]);
+				controller.getModel().getComment((Integer)((Object[])cancelAttr)[0]).setY((Double)((Object[])cancelAttr)[6]);
+				controller.getModel().getComment((Integer)((Object[])cancelAttr)[0]).setWidth((Double)((Object[])cancelAttr)[7]);
+				controller.getModel().getComment((Integer)((Object[])cancelAttr)[0]).setHeight((Double)((Object[])cancelAttr)[8]);
+				break;
+			case sequence_resizing:
+				controller.getModel().getSequence((Integer)((Object[])cancelAttr)[0]).setX((Double)((Object[])cancelAttr)[6]);
+				controller.getModel().getSequence((Integer)((Object[])cancelAttr)[0]).setY((Double)((Object[])cancelAttr)[7]);
+				controller.getModel().getSequence((Integer)((Object[])cancelAttr)[0]).setWidth((Double)((Object[])cancelAttr)[8]);
+				controller.getModel().getSequence((Integer)((Object[])cancelAttr)[0]).setHeight((Double)((Object[])cancelAttr)[9]);
+				controller.getModel().getSequence((Integer)((Object[])cancelAttr)[0]).setExtendedHeight((Double)((Object[])cancelAttr)[10]);
+				break;
+			case step_resizing:
+				controller.getModel().getStartUpTask((Integer)((Object[])cancelAttr)[0]).setX((Double)((Object[])cancelAttr)[5]);
+				controller.getModel().getStartUpTask((Integer)((Object[])cancelAttr)[0]).setY((Double)((Object[])cancelAttr)[6]);
+				controller.getModel().getStartUpTask((Integer)((Object[])cancelAttr)[0]).setWidth((Double)((Object[])cancelAttr)[7]);
+				controller.getModel().getStartUpTask((Integer)((Object[])cancelAttr)[0]).setHeight((Double)((Object[])cancelAttr)[8]);
+				break;
 			default:
 				break;
 			
@@ -356,6 +375,25 @@ public class CancellableAction{
 				while(itMI.hasNext()){
 					itMI.next().move(-dx, -dy);
 				}
+				break;
+			case comment_resizing:
+				controller.getModel().getComment((Integer)((Object[])cancelAttr)[0]).setX((Double)((Object[])cancelAttr)[1]);
+				controller.getModel().getComment((Integer)((Object[])cancelAttr)[0]).setY((Double)((Object[])cancelAttr)[2]);
+				controller.getModel().getComment((Integer)((Object[])cancelAttr)[0]).setWidth((Double)((Object[])cancelAttr)[3]);
+				controller.getModel().getComment((Integer)((Object[])cancelAttr)[0]).setHeight((Double)((Object[])cancelAttr)[4]);
+				break;
+			case sequence_resizing:
+				controller.getModel().getSequence((Integer)((Object[])cancelAttr)[0]).setX((Double)((Object[])cancelAttr)[1]);
+				controller.getModel().getSequence((Integer)((Object[])cancelAttr)[0]).setY((Double)((Object[])cancelAttr)[2]);
+				controller.getModel().getSequence((Integer)((Object[])cancelAttr)[0]).setWidth((Double)((Object[])cancelAttr)[3]);
+				controller.getModel().getSequence((Integer)((Object[])cancelAttr)[0]).setHeight((Double)((Object[])cancelAttr)[4]);
+				controller.getModel().getSequence((Integer)((Object[])cancelAttr)[0]).setExtendedHeight((Double)((Object[])cancelAttr)[5]);
+				break;
+			case step_resizing:
+				controller.getModel().getStartUpTask((Integer)((Object[])cancelAttr)[0]).setX((Double)((Object[])cancelAttr)[1]);
+				controller.getModel().getStartUpTask((Integer)((Object[])cancelAttr)[0]).setY((Double)((Object[])cancelAttr)[2]);
+				controller.getModel().getStartUpTask((Integer)((Object[])cancelAttr)[0]).setWidth((Double)((Object[])cancelAttr)[3]);
+				controller.getModel().getStartUpTask((Integer)((Object[])cancelAttr)[0]).setHeight((Double)((Object[])cancelAttr)[4]);
 				break;
 			default:
 				break;

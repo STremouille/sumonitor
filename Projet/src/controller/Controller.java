@@ -184,6 +184,8 @@ public class Controller {
 	
 	private CancelFactory cancelFactory;
 	
+	private Object[] cancelAttrResizing;
+	
 	/**
 	 * Classical constructor of the controller 
 	 * @param model
@@ -536,6 +538,7 @@ public class Controller {
 						default:
 							break;
 					}
+					
 				}
 				if (commentRefSelected != 0 && resizeCommentDirection != null) {
 					view.setResizing(true);
@@ -750,7 +753,7 @@ public class Controller {
 					} else {
 						view.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
 					}
-				} else if (sequenceBarRefSelected != 0 /*&& model.getSequence(sequenceBarRef)!=null*/) {
+				} else if (sequenceBarRefSelected != 0 && model.getSequence(sequenceBarRefSelected)!=null) {
 					SequenceBar sb = model.getSequence(sequenceBarRefSelected);
 					//Rectangle extendedSequenceBarBounds = new Rectangle(sb.getX(), sb.getY(), sb.getWidth(),(int) sb.getExtendedHeight());
 					resizeSequenceDirection = model.getSequence(sequenceBarRefSelected).getResizeDirection(new Point(arg0.getX(), arg0.getY()));
@@ -1165,6 +1168,12 @@ public class Controller {
 				for (int i : model.getStartUpTasks().keySet()) {
 					if (model.getStartUpTask(i).getResizeDirection(new Point(arg0.getX(), arg0.getY())) != null) {
 						isResizing = true;
+						cancelAttrResizing = new Object[9];
+						cancelAttrResizing[0] = i;
+						cancelAttrResizing[1] = model.getStartUpTask(i).getDoubleX();
+						cancelAttrResizing[2] = model.getStartUpTask(i).getDoubleY();
+						cancelAttrResizing[3] = model.getStartUpTask(i).getDoubleWidth();
+						cancelAttrResizing[4] = model.getStartUpTask(i).getDoubleHeight();
 					}
 				}
 				
@@ -1200,6 +1209,12 @@ public class Controller {
 					for (int i : model.getComments().keySet()) {
 						if (model.getComment(i).getResizeDirection(new Point(arg0.getX(), arg0.getY())) != null) {
 							isResizing = true;
+							cancelAttrResizing = new Object[9];
+							cancelAttrResizing[0] = i;
+							cancelAttrResizing[1] = model.getComment(i).getDoubleX();
+							cancelAttrResizing[2] = model.getComment(i).getDoubleY();
+							cancelAttrResizing[3] = model.getComment(i).getDoubleWidth();
+							cancelAttrResizing[4] = model.getComment(i).getDoubleHeight();
 						}
 					}
 					
@@ -1295,6 +1310,13 @@ public class Controller {
 					for (int i : model.getSequences().keySet()) {
 						if (model.getSequence(i).getResizeDirection(new Point(arg0.getX(), arg0.getY())) != null) {
 							isResizing = true;
+							cancelAttrResizing = new Object[11];
+							cancelAttrResizing[0] = i;
+							cancelAttrResizing[1] = model.getSequence(i).getDoubleX();
+							cancelAttrResizing[2] = model.getSequence(i).getDoubleY();
+							cancelAttrResizing[3] = model.getSequence(i).getDoubleWidth();
+							cancelAttrResizing[4] = model.getSequence(i).getDoubleHeight();
+							cancelAttrResizing[5] = model.getSequence(i).getExtendedHeight();
 						}
 					}
 					
@@ -1488,7 +1510,37 @@ public class Controller {
 		@Override
 		public void mouseReleased(MouseEvent arg0) {
 			view.setResizing(false);
-			
+			if(isResizing){
+				if(resizeCommentDirection != null){
+					cancelAttrResizing[5] = model.getComment((Integer) cancelAttrResizing[0]).getDoubleX();
+					cancelAttrResizing[6] = model.getComment((Integer) cancelAttrResizing[0]).getDoubleY();
+					cancelAttrResizing[7] = model.getComment((Integer) cancelAttrResizing[0]).getDoubleWidth();
+					cancelAttrResizing[8] = model.getComment((Integer) cancelAttrResizing[0]).getDoubleHeight();
+					if(!(cancelAttrResizing[1].equals(cancelAttrResizing[5]) && cancelAttrResizing[2].equals(cancelAttrResizing[6]) && cancelAttrResizing[3].equals(cancelAttrResizing[7]) && cancelAttrResizing[4].equals(cancelAttrResizing[8]))){
+						cancelFactory.addAction(new CancellableAction(CancellableActionLabel.comment_resizing, cancelAttrResizing, controller));
+					}
+				} else if(resizeSequenceDirection != null){
+					cancelAttrResizing[6] = model.getSequence((Integer) cancelAttrResizing[0]).getDoubleX();
+					cancelAttrResizing[7] = model.getSequence((Integer) cancelAttrResizing[0]).getDoubleY();
+					cancelAttrResizing[8] = model.getSequence((Integer) cancelAttrResizing[0]).getDoubleWidth();
+					cancelAttrResizing[9] = model.getSequence((Integer) cancelAttrResizing[0]).getDoubleHeight();
+					cancelAttrResizing[10] = model.getSequence((Integer) cancelAttrResizing[0]).getExtendedHeight();
+					
+					
+					if(!(cancelAttrResizing[1].equals(cancelAttrResizing[6]) && cancelAttrResizing[2].equals(cancelAttrResizing[7]) && cancelAttrResizing[3].equals(cancelAttrResizing[8]) && cancelAttrResizing[4].equals(cancelAttrResizing[9]) && cancelAttrResizing[5].equals(cancelAttrResizing[10]))){
+						cancelFactory.addAction(new CancellableAction(CancellableActionLabel.sequence_resizing, cancelAttrResizing, controller));
+					}
+				} else if(resizeStartUpTaskDirection!=null){
+					cancelAttrResizing[5] = model.getStartUpTask((Integer) cancelAttrResizing[0]).getDoubleX();
+					cancelAttrResizing[6] = model.getStartUpTask((Integer) cancelAttrResizing[0]).getDoubleY();
+					cancelAttrResizing[7] = model.getStartUpTask((Integer) cancelAttrResizing[0]).getDoubleWidth();
+					cancelAttrResizing[8] = model.getStartUpTask((Integer) cancelAttrResizing[0]).getDoubleHeight();
+					
+					if(!(cancelAttrResizing[1].equals(cancelAttrResizing[5]) && cancelAttrResizing[2].equals(cancelAttrResizing[6]) && cancelAttrResizing[3].equals(cancelAttrResizing[7]) && cancelAttrResizing[4].equals(cancelAttrResizing[8]))){
+						cancelFactory.addAction(new CancellableAction(CancellableActionLabel.step_resizing, cancelAttrResizing, controller));
+					}
+				}
+			}
 			
 			int x = arg0.getX();
 			int y = arg0.getY();

@@ -21,7 +21,10 @@ public class CancelFactory {
 		step_move,
 		sequence_move,
 		comment_move, 
-		group_move
+		group_move, 
+		sequence_resizing,
+		comment_resizing,
+		step_resizing
 	}
 	
 	private ArrayList<CancellableAction> stackToCancel;
@@ -33,7 +36,6 @@ public class CancelFactory {
 	}
 	
 	public void addAction(CancellableAction cancellableAction) {
-		System.out.println(cancellableAction.getLabel());
 		if(stackToCancel.size()>999){
 			stackToCancel.remove(0);
 		}
