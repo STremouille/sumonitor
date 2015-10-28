@@ -26,7 +26,7 @@ import database.Database;
  */
 public class GeneralConfig {
 	
-	public static String version = "1.0.8";
+	public static String version = "1.0.9";
 	public static boolean loadMode;
 	/**
 	 * Milestone Height
