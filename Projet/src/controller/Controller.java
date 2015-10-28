@@ -91,6 +91,9 @@ import view.StepEditorView;
 import view.View;
 import xml.LoadXMLFile;
 import xml.SaveXMLFile;
+import cancel.CancelFactory;
+import cancel.CancellableAction;
+import cancel.CancelFactory.CancellableActionLabel;
 
 import com.packenius.library.xspdf.XSPDF;
 import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
@@ -99,7 +102,6 @@ import conf.DatePicker;
 import conf.GeneralConfig;
 import conf.Utils;
 import connector.JConnector;
-import controller.CancelFactory.CancellableActionLabel;
 import database.Database;
 import database.ProjectResumeWorker;
 import database.UpdateAllMilestoneWorkerOptimised;
@@ -169,6 +171,8 @@ public class Controller {
 	//variable relatives to copy & paste
 	private StartUpStep startUpTaskCopied; 
 	private Milestone milestoneCopied;
+	private Comment commentCopied;
+	private SequenceBar sequenceBarCopied;
 	
 	//right click menu
 	private int whereRightClickHappenX;
@@ -3337,31 +3341,87 @@ public class Controller {
 		@Override
 		public void keyPressed(KeyEvent e) {
 			if ((e.getKeyCode() == KeyEvent.VK_C) && ((e.getModifiers() & KeyEvent.CTRL_MASK) != 0)) {
-				if(startUpTaskRefSelected!=0){
-					startUpTaskCopied = model.getStartUpTask(startUpTaskRefSelected);
-					milestoneCopied = null;
-				} else if(milestoneRefSelected!=0){
-					milestoneCopied = model.getMilestone(milestoneRefSelected);
+				if(model.getSelectedItems().size()==0){
+					if(startUpTaskRefSelected!=0){
+						startUpTaskCopied = model.getStartUpTask(startUpTaskRefSelected);
+						milestoneCopied = null;
+						sequenceBarCopied = null;
+						commentCopied = null;
+					} else if(milestoneRefSelected!=0){
+						milestoneCopied = model.getMilestone(milestoneRefSelected);
+						startUpTaskCopied = null;
+						sequenceBarCopied=null;
+						commentCopied=null;
+					} else if(commentRefSelected!=0){
+						commentCopied = model.getComment(commentRefSelected);
+						milestoneCopied = null;
+						sequenceBarCopied = null;
+						startUpTaskCopied = null;
+					} else if(sequenceBarRefSelected!=0){
+						sequenceBarCopied = model.getSequence(sequenceBarRefSelected);
+						milestoneCopied = null;
+						commentCopied = null;
+						startUpTaskCopied = null;
+					}
+				} else {
 					startUpTaskCopied = null;
+					milestoneCopied = null;
+					sequenceBarCopied = null;
+					commentCopied = null;
 				}
 			}else if ((e.getKeyCode() == KeyEvent.VK_V) && (e.getModifiers() & KeyEvent.CTRL_MASK) != 0){
-				if(startUpTaskCopied != null){
-					StartUpStep sus = new StartUpStep(startUpTaskCopied.getName(),startUpTaskCopied.getX()+startUpTaskCopied.getWidth() , startUpTaskCopied.getY()+startUpTaskCopied.getHeight(), startUpTaskCopied.getWidth(), startUpTaskCopied.getHeight());
-					sus.setAttr(startUpTaskCopied.getAttr());
-					sus.setColor(startUpTaskCopied.getColor());
-					sus.setLocalAttrRule(startUpTaskCopied.isLocalAttrRule());
-					sus.setShapeName(startUpTaskCopied.getShapeName());
-					sus.setRelatedToThisMilestone(startUpTaskCopied.getRelatedToThisMilestone());
-					sus.setSecondLine(startUpTaskCopied.getSecondLine());
-					sus.setLocalAttrToDisplay(startUpTaskCopied.getLocalAttrToDisplay());
-					model.addStartUpTask(sus);
-					startUpTaskCopied=sus;
-				} else if(milestoneCopied != null){
-					Milestone m = new Milestone(milestoneCopied.getName(), milestoneCopied.getX()+50, milestoneCopied.getY()+50);
-					m.setTargetDate(milestoneCopied.getTargetDate());
-					m.setDescription(milestoneCopied.getDescription());
-					model.addMilestone(m);
-					milestoneCopied=m;
+				if(model.getSelectedItems().size()==0){
+					if(startUpTaskCopied != null){
+						StartUpStep sus = new StartUpStep(startUpTaskCopied.getName(),startUpTaskCopied.getX()+startUpTaskCopied.getWidth() , startUpTaskCopied.getY()+startUpTaskCopied.getHeight(), startUpTaskCopied.getWidth(), startUpTaskCopied.getHeight());
+						sus.setAttr(startUpTaskCopied.getAttr());
+						sus.setColor(startUpTaskCopied.getColor());
+						sus.setLocalAttrRule(startUpTaskCopied.isLocalAttrRule());
+						sus.setShapeName(startUpTaskCopied.getShapeName());
+						sus.setRelatedToThisMilestone(startUpTaskCopied.getRelatedToThisMilestone());
+						sus.setSecondLine(startUpTaskCopied.getSecondLine());
+						sus.setLocalAttrToDisplay(startUpTaskCopied.getLocalAttrToDisplay());
+						model.addStartUpTask(sus);
+						startUpTaskCopied=sus;
+					} else if(milestoneCopied != null){
+						Milestone m = new Milestone(milestoneCopied.getName(), milestoneCopied.getX()+50, milestoneCopied.getY()+50);
+						m.setTargetDate(milestoneCopied.getTargetDate());
+						m.setDescription(milestoneCopied.getDescription());
+						model.addMilestone(m);
+						milestoneCopied=m;
+					} else if(sequenceBarCopied!=null){
+						SequenceBar sb = new SequenceBar(sequenceBarCopied.getName(), sequenceBarCopied.getX()+50, sequenceBarCopied.getY()+50, sequenceBarCopied.getWidth(), sequenceBarCopied.getHeight(), (int)sequenceBarCopied.getExtendedHeight());
+						model.addSequence(sb);
+						sequenceBarCopied=sb;
+					} else if(commentCopied!=null){
+						Comment c = new Comment(commentCopied.getName(), commentCopied.getX()+50, commentCopied.getY()+50, commentCopied.getWidth(), commentCopied.getHeight());
+						model.addComment(c);
+						commentCopied=c;
+					}
+				} else {
+					Iterator<MovableItem> it = model.getSelectedItems().iterator();
+					ArrayList<MovableItem> tmp = new ArrayList<MovableItem>();
+					while(it.hasNext()){
+						MovableItem mi = it.next();
+						if(mi.getClass().equals(Milestone.class)){
+							Milestone m = (Milestone) mi.copy();
+							model.addMilestone(m);
+							tmp.add(m);
+						} else if(mi.getClass().equals(Comment.class)){
+							Comment c = (Comment) mi.copy();
+							model.addComment(c);
+							tmp.add(c);
+						} else if(mi.getClass().equals(SequenceBar.class)){
+							SequenceBar sb = (SequenceBar) mi.copy();
+							model.addSequence(sb);
+							tmp.add(sb);
+						} else if(mi.getClass().equals(StartUpStep.class)){
+							StartUpStep sus = (StartUpStep) mi.copy();
+							model.addStartUpTask(sus);
+							tmp.add(sus);
+						}
+					}
+					model.getSelectedItems().clear();
+					model.getSelectedItems().addAll(0, tmp);
 				}
 				view.repaint();
 			}

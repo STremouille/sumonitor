@@ -1,14 +1,16 @@
-package controller;
+package cancel;
 
 
 
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import cancel.CancelFactory.CancellableActionLabel;
+
 import com.sun.java.swing.plaf.motif.resources.motif;
 
 import conf.GeneralConfig;
-import controller.CancelFactory.CancellableActionLabel;
+import controller.Controller;
 import model.Comment;
 import model.Milestone;
 import model.MovableItem;

@@ -216,5 +216,10 @@ public class SequenceBar extends InteractiveBar implements MovableItem{
 		this.setY(this.getY()+y);
 	}
 
+	@Override
+	public MovableItem copy() {
+		return new SequenceBar(this.getName(), this.getX()+50, this.getY()+50, this.getWidth(), this.getHeight(), (int)this.getExtendedHeight());
+	}
+
 	
 }

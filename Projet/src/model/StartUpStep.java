@@ -404,5 +404,18 @@ public class StartUpStep extends InteractiveBar implements MovableItem{
 	public void setLocalAttrToDisplay(TreeMap<String, Boolean> localAttrToDisplay2) {
 		this.localAttrToDisplay = new TreeMap<String, Boolean>(localAttrToDisplay2);
 	}
+
+	@Override
+	public MovableItem copy() {
+		StartUpStep sus = new StartUpStep(this.getName(),this.getX()+this.getWidth() , this.getY()+this.getHeight(), this.getWidth(), this.getHeight());
+		sus.setAttr(this.getAttr());
+		sus.setColor(this.getColor());
+		sus.setLocalAttrRule(this.isLocalAttrRule());
+		sus.setShapeName(this.getShapeName());
+		sus.setRelatedToThisMilestone(this.getRelatedToThisMilestone());
+		sus.setSecondLine(this.getSecondLine());
+		sus.setLocalAttrToDisplay(this.getLocalAttrToDisplay());
+		return sus;
+	}
 	
 }

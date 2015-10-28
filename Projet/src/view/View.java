@@ -49,10 +49,10 @@ import model.mode.AvailableMode;
 import model.mode.Mode;
 import model.mode.NormalMode;
 import model.mode.SelectedMode;
+import cancel.CancelFactory;
+import cancel.CancellableAction;
+import cancel.CancelFactory.CancellableActionLabel;
 import conf.GeneralConfig;
-import controller.CancelFactory;
-import controller.CancelFactory.CancellableActionLabel;
-import controller.CancellableAction;
 import controller.Controller;
 
 import java.awt.SystemColor;

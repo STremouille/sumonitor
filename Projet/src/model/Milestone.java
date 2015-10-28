@@ -1009,4 +1009,12 @@ public class Milestone extends JComponent implements MovableItem{
 		this.isSelected=selected;
 	}
 
+	@Override
+	public MovableItem copy() {
+		Milestone m = new Milestone(this.getName(), this.getX()+50, this.getY()+50);
+		m.setTargetDate(this.getTargetDate());
+		m.setDescription(this.getDescription());
+		return m;
+	}
+
 }

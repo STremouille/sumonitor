@@ -1,3 +1,6 @@
 /autosave.xml
 /.gitignore
 /controller/
+/cancel/
+/view/
+/model/

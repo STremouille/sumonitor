@@ -167,6 +167,11 @@ public class Comment extends InteractiveBar implements MovableItem{
 		this.setY(this.getY()+y);
 	}
 
+	@Override
+	public MovableItem copy() {
+		return new Comment(this.getName(), this.getX()+50, this.getY()+50, this.getWidth(), this.getHeight());
+	}
+
 	
 	/*public void formatCommentContent(Graphics g){
 		minWidth=0;
