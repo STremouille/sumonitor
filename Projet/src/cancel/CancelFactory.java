@@ -24,7 +24,8 @@ public class CancelFactory {
 		group_move, 
 		sequence_resizing,
 		comment_resizing,
-		step_resizing
+		step_resizing,
+		multiple_copy
 	}
 	
 	private ArrayList<CancellableAction> stackToCancel;

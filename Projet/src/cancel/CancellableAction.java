@@ -4,6 +4,7 @@ package cancel;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.TreeMap;
 
 import cancel.CancelFactory.CancellableActionLabel;
 
@@ -183,6 +184,22 @@ public class CancellableAction{
 				controller.getModel().getStartUpTask((Integer)((Object[])cancelAttr)[0]).setY((Double)((Object[])cancelAttr)[6]);
 				controller.getModel().getStartUpTask((Integer)((Object[])cancelAttr)[0]).setWidth((Double)((Object[])cancelAttr)[7]);
 				controller.getModel().getStartUpTask((Integer)((Object[])cancelAttr)[0]).setHeight((Double)((Object[])cancelAttr)[8]);
+				break;
+			case multiple_copy:
+				ArrayList<MovableItem> attr = (ArrayList<MovableItem>) cancelAttr;
+				Iterator<MovableItem> itMovableItem = attr.iterator();
+				while(itMovableItem.hasNext()){
+					MovableItem mi = itMovableItem.next();
+					if(mi.getClass().equals(Milestone.class)){
+						controller.getModel().addMilestone((Milestone) mi);
+					} else if(mi.getClass().equals(Comment.class)){
+						controller.getModel().addComment((Comment) mi);
+					} else if(mi.getClass().equals(SequenceBar.class)){
+						controller.getModel().addSequence((SequenceBar) mi);
+					} else if(mi.getClass().equals(StartUpStep.class)){
+						controller.getModel().addStartUpTask((StartUpStep) mi);
+					}
+				}
 				break;
 			default:
 				break;
@@ -396,6 +413,66 @@ public class CancellableAction{
 				controller.getModel().getStartUpTask((Integer)((Object[])cancelAttr)[0]).setY((Double)((Object[])cancelAttr)[2]);
 				controller.getModel().getStartUpTask((Integer)((Object[])cancelAttr)[0]).setWidth((Double)((Object[])cancelAttr)[3]);
 				controller.getModel().getStartUpTask((Integer)((Object[])cancelAttr)[0]).setHeight((Double)((Object[])cancelAttr)[4]);
+				break;
+			case multiple_copy:
+				ArrayList<MovableItem> attr = (ArrayList<MovableItem>) cancelAttr;
+				Iterator<MovableItem> itMovableItem = attr.iterator();
+				TreeMap<Integer, ArrayList<Integer>> toRemove = new TreeMap<Integer, ArrayList<Integer>>();
+				while(itMovableItem.hasNext()){
+					MovableItem mi = itMovableItem.next();
+					if(mi.getClass().equals(Milestone.class)){
+						for(int key : controller.getModel().getMilestones().keySet()){
+							if(controller.getModel().getMilestone(key).equals(mi)){
+								if(toRemove.get(1) == null){
+									toRemove.put(1, new ArrayList<Integer>());
+								}
+								toRemove.get(1).add(key);
+							}
+						}
+					} else if(mi.getClass().equals(Comment.class)){
+						for(int key : controller.getModel().getComments().keySet()){
+							if(controller.getModel().getComment(key).equals(mi)){
+								if(toRemove.get(2)==null){
+									toRemove.put(2, new ArrayList<Integer>());
+								}
+								toRemove.get(2).add(key);
+							}
+						}
+					} else if(mi.getClass().equals(SequenceBar.class)){
+						for(int key : controller.getModel().getSequences().keySet()){
+							if(controller.getModel().getSequence(key).equals(mi)){
+								if(toRemove.get(3)==null){
+									toRemove.put(3, new ArrayList<Integer>());
+								}
+								toRemove.get(3).add(key);
+							}
+						}
+					} else if(mi.getClass().equals(StartUpStep.class)){
+						for(int key : controller.getModel().getStartUpTasks().keySet()){
+							if(controller.getModel().getStartUpTask(key).equals(mi)){
+								if(toRemove.get(4)==null){
+									toRemove.put(4, new ArrayList<Integer>());
+								}
+								toRemove.get(4).add(key);
+							}
+						}
+					}
+				}
+				
+				for(Integer c : toRemove.keySet()){
+					Iterator<Integer> toRemoveIt = toRemove.get(c).iterator();
+					while(toRemoveIt.hasNext()){
+						if			(c == 1){
+							controller.getModel().getMilestones().remove(toRemoveIt.next());
+						} else if	(c == 3){
+							controller.getModel().getSequences().remove(toRemoveIt.next());
+						} else if	(c == 4){
+							controller.getModel().getStartUpTasks().remove(toRemoveIt.next());
+						} else if	(c == 2){
+							controller.getModel().getComments().remove(toRemoveIt.next());
+						}
+					}
+				}
 				break;
 			default:
 				break;

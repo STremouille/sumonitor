@@ -74,6 +74,10 @@ public class StartUpStep extends InteractiveBar implements MovableItem{
 		setSecondLine("");
 	}
 	
+	public StartUpStep(StartUpStep startUpStep) {
+		this(startUpStep.getName(), startUpStep.getX(), startUpStep.getY(), startUpStep.getWidth(), startUpStep.getHeight());
+	}
+
 	@Override
 	public void paint(Graphics g){
 		// Connector milestone

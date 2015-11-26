@@ -2066,7 +2066,7 @@ public class Controller {
 			}
 			if(tmp1){
         		    	view.setEnabled(false);
-        		    	final TreeMap<Integer, Milestone> tmp = Utils.duplicateMilestoneMap(model.getMilestones());
+        		    	final TreeMap<Integer, Milestone> tmp = Utils.duplicateMilestoneMap(model.getMilestones(),model.getStartUpTasks());
         				f = new JFrame();
         				cancel = new JButton("Stop Update");
         				final JProgressBar p = new JProgressBar(0,100);
@@ -2089,8 +2089,10 @@ public class Controller {
         					public void windowClosing(WindowEvent e){
         						uamw.cancel(true);
         						model.setMiletones(tmp);
+        						//model.setStartUpTasks((TreeMap<Integer, StartUpStep>) tmp.get(1));
         						f.dispose();
         						view.setEnabled(true);
+        						view.toFront();
         					}
         					
         				};
@@ -2110,6 +2112,7 @@ public class Controller {
         				    public void actionPerformed(ActionEvent arg0) {
         					uamw.cancel(true);
         					model.setMiletones(tmp);
+    						//smodel.setStartUpTasks((TreeMap<Integer, StartUpStep>) tmp.get(1));
         					f.dispose();
         					view.setEnabled(true);
         					view.toFront();
@@ -3017,14 +3020,52 @@ public class Controller {
 		@Override
 		public void keyTyped(KeyEvent e) {
 			if(e.getKeyChar()==KeyEvent.VK_DELETE){
-				milestoneRef=milestoneRefSelected;
-				startUpTaskRef=startUpTaskRefSelected;
-				commentRef=commentRefSelected;
-				sequenceBarRef=sequenceBarRefSelected;
+				if(model.getSelectedItems().size()>0){
+					Iterator<MovableItem> it = model.getSelectedItems().iterator();
+					while(it.hasNext()){
+						MovableItem mv = it.next();
+						if(mv.getClass().equals(Milestone.class)){
+							for(int key : model.getMilestones().keySet()){
+								if(model.getMilestone(key).equals(mv)){
+									milestoneRef=key;
+								}
+							}
+							
+						} else if(mv.getClass().equals(SequenceBar.class)){
+							for(int key : model.getSequences().keySet()){
+								if(model.getSequence(key).equals(mv)){
+									sequenceBarRef=key;
+								}
+							}
+						} else if(mv.getClass().equals(Comment.class)){
+							for(int key : model.getComments().keySet()){
+								if(model.getComment(key).equals(mv)){
+									commentRef=key;
+								}
+							}
+						} else if(mv.getClass().equals(StartUpStep.class)){
+							for(int key : model.getStartUpTasks().keySet()){
+								if(model.getStartUpTask(key).equals(mv)){
+									startUpTaskRef=key;
+								}
+							}
+						}
+						DeleteMenuItemListener dmil = new DeleteMenuItemListener();
+						ActionEvent ae = new ActionEvent(this, 0, "");
+						dmil.actionPerformed(ae);
+					}
+					
+				} else {
+					milestoneRef=milestoneRefSelected;
+					startUpTaskRef=startUpTaskRefSelected;
+					commentRef=commentRefSelected;
+					sequenceBarRef=sequenceBarRefSelected;
+					
+					DeleteMenuItemListener dmil = new DeleteMenuItemListener();
+					ActionEvent ae = new ActionEvent(this, 0, "");
+					dmil.actionPerformed(ae);
+				}
 				
-				DeleteMenuItemListener dmil = new DeleteMenuItemListener();
-				ActionEvent ae = new ActionEvent(this, 0, "");
-				dmil.actionPerformed(ae);
 			}
 		}
 		
@@ -3400,26 +3441,33 @@ public class Controller {
 				} else {
 					Iterator<MovableItem> it = model.getSelectedItems().iterator();
 					ArrayList<MovableItem> tmp = new ArrayList<MovableItem>();
+					ArrayList<MovableItem> cancelAttr = new ArrayList<MovableItem>();
 					while(it.hasNext()){
 						MovableItem mi = it.next();
 						if(mi.getClass().equals(Milestone.class)){
 							Milestone m = (Milestone) mi.copy();
+							cancelAttr.add(m);
 							model.addMilestone(m);
 							tmp.add(m);
 						} else if(mi.getClass().equals(Comment.class)){
 							Comment c = (Comment) mi.copy();
 							model.addComment(c);
+							cancelAttr.add(c);
 							tmp.add(c);
 						} else if(mi.getClass().equals(SequenceBar.class)){
 							SequenceBar sb = (SequenceBar) mi.copy();
 							model.addSequence(sb);
+							cancelAttr.add(sb);
 							tmp.add(sb);
 						} else if(mi.getClass().equals(StartUpStep.class)){
 							StartUpStep sus = (StartUpStep) mi.copy();
 							model.addStartUpTask(sus);
+							cancelAttr.add(sus);
 							tmp.add(sus);
 						}
 					}
+					CancellableAction ca = new CancellableAction(CancellableActionLabel.multiple_copy, cancelAttr, controller);
+					cancelFactory.addAction(ca);
 					model.getSelectedItems().clear();
 					model.getSelectedItems().addAll(0, tmp);
 				}

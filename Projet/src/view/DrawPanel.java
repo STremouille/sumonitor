@@ -8,6 +8,8 @@ import java.awt.Point;
 import java.awt.RenderingHints;
 import java.awt.font.FontRenderContext;
 import java.awt.geom.AffineTransform;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javax.swing.JPanel;
 
@@ -25,6 +27,7 @@ public class DrawPanel extends JPanel{
 	private int xmovingMilestone;
 	private int ymovingMilestone;
 	private boolean movingMilestone;
+	private Timer timer;
 	
 	private int xmovingSequenceBar,ymovingSequenceBar,widthmovingSequenceBar,heightmovingSequenceBar;
 	private int xmovingStartUpTask,ymovingStartUpTask,widthmovingStartUpTask,heightmovingStartUpTask;
@@ -52,6 +55,7 @@ public class DrawPanel extends JPanel{
 		this.setFocusable(true);
 		this.displayHintStartUpTask=false;
 	}
+	
 	
 	/**
 	 * @param x

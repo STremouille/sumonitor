@@ -22,6 +22,7 @@ import model.StartUpSequence;
 import model.StartUpSequence.SelectedItems;
 import model.StartUpStep;
 import view.LaunchFrame;
+import view.SplashScreen;
 import view.View;
 import worker.AutoSaveTask;
 import conf.GeneralConfig;
@@ -35,7 +36,7 @@ import controller.Controller;
 public class Main {
     	
     
-    	static private view.SplashScreen splashScreen;
+    static private SplashScreen splashScreen;
 	/**
 	 * @param args
 	 * @throws TransformerException

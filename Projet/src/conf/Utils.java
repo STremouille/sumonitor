@@ -149,36 +149,54 @@ public class Utils {
 	 * @param milestoneArrayListToDuplicate
 	 * @return milestoneArrayListDuplicated
 	 */
-	public static TreeMap<Integer, Milestone> duplicateMilestoneMap(TreeMap<Integer, Milestone> milestoneArrayListToDuplicate){
+	public static TreeMap<Integer, Milestone> duplicateMilestoneMap(TreeMap<Integer, Milestone> milestoneArrayListToDuplicate,TreeMap<Integer, StartUpStep> startUpStepArraylistToDuplicate){
 	    TreeMap<Integer, Milestone> res = new TreeMap<Integer, Milestone>();
 	    for(int key : milestoneArrayListToDuplicate.keySet()){
 	    	res.put(key, new Milestone(milestoneArrayListToDuplicate.get(key)));
 	    }
+	    
+	    /*for(int key : startUpStepArraylistToDuplicate.keySet()){
+	    	resStep.put(key, new StartUpStep(startUpStepArraylistToDuplicate.get(key)));
+	    }*/
+	    
 	    for(int key : res.keySet()){
 			Milestone m = res.get(key);
 			Milestone mSrc = milestoneArrayListToDuplicate.get(key);
-			ArrayList<Milestone> destToDuplicate = mSrc.getDestMilestone();
-			ArrayList<StartUpStep> destToDuplicateSUT = mSrc.getDestSUT();
-			Iterator<Milestone> it = destToDuplicate.iterator();
-			Iterator<StartUpStep> itt = destToDuplicateSUT.iterator();
+			Iterator<Milestone> it = mSrc.getDestMilestone().iterator();
+			Iterator<StartUpStep> itt = mSrc.getDestSUT().iterator();
 			while(it.hasNext()){
 				Milestone tmp = it.next();
 			    for(int key2 : res.keySet()){
 	        		    if(res.get(key2).equal(tmp)){
-	        			//int indexOfDest = getKeyByValue(res, tmp);
-	        			m.addDest(res.get(key2));
+	        		    	m.addDest(res.get(key2));
 	        		    } 
 			    }
 			}
-			/*while(itt.hasNext()){
-				StartUpTask tmp = itt.next();
+			while(itt.hasNext()){
+				m.addDestSUT(itt.next());
+			}
+			
+	    }
+	    
+	    for(int key : startUpStepArraylistToDuplicate.keySet()){
+	    	ArrayList<Milestone> buffer = new ArrayList<Milestone>();
+	    	StartUpStep sus = startUpStepArraylistToDuplicate.get(key);
+	    	Iterator<Milestone> it = sus.getDestMilestone().iterator();
+			while(it.hasNext()){
+				Milestone tmp = it.next();
 			    for(int key2 : res.keySet()){
 	        		    if(res.get(key2).equal(tmp)){
-	        		    	//int indexOfDest = getKeyByValue(res, tmp);
-	        		    	m.addDestSUT(res.get(key2));
+	        		    	buffer.add(res.get(key2));
 	        		    } 
 			    }
-			}*/
+			}
+			
+			
+			sus.getDestMilestone().clear();
+			Iterator<Milestone> itBuffer = buffer.iterator();
+			while(itBuffer.hasNext()){
+				sus.addDest(itBuffer.next());
+			}
 	    }
 	    return res;
 	}
